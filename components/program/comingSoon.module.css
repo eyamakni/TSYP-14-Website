@@ -1,0 +1,221 @@
+.page {
+  position: relative;
+  min-height: 100dvh;
+  background: #000000;
+  color: #ffffff;
+  overflow: hidden;
+  padding: 120px clamp(20px, 5vw, 64px) 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.backgroundGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 45% at 50% 35%, rgba(155, 48, 255, 0.14), transparent 70%),
+    radial-gradient(ellipse 40% 35% at 75% 70%, rgba(124, 58, 237, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(155, 48, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 100%);
+  padding: clamp(32px, 6vw, 64px);
+  border-radius: 28px;
+  background: rgba(6, 2, 22, 0.82);
+  border: 1px solid rgba(155, 48, 255, 0.18);
+  box-shadow:
+    0 0 40px rgba(155, 48, 255, 0.1),
+    0 24px 80px rgba(0, 0, 0, 0.55);
+  text-align: center;
+  overflow: hidden;
+}
+
+.cardTopGlow {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.8),
+    rgba(192, 38, 211, 0.55),
+    transparent
+  );
+  box-shadow: 0 0 22px rgba(155, 48, 255, 0.35);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.eyebrowLine {
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(155, 48, 255, 0.55), transparent);
+}
+
+.eyebrowText {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(155, 48, 255, 0.72);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(42px, 8vw, 86px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #c70898, #a855f7, #7c3aed, #9a1e9d, #c70898);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 5s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.subtitle {
+  margin: 22px auto 0;
+  max-width: 560px;
+  color: rgba(220, 215, 240, 0.62);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.08);
+  border: 1px solid rgba(155, 48, 255, 0.22);
+  color: rgba(180, 150, 255, 0.86);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.primaryLink,
+.secondaryLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    transform 0.22s,
+    border-color 0.22s,
+    background 0.22s,
+    color 0.22s,
+    box-shadow 0.22s;
+}
+
+.primaryLink {
+  background: linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%);
+  color: #ffffff;
+  border: 1px solid rgba(155, 48, 255, 0.45);
+  box-shadow: 0 0 18px rgba(155, 48, 255, 0.22);
+}
+
+.secondaryLink {
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(155, 48, 255, 0.16);
+}
+
+.primaryLink:hover,
+.secondaryLink:hover {
+  transform: translateY(-2px);
+}
+
+.primaryLink:hover {
+  box-shadow: 0 0 28px rgba(155, 48, 255, 0.36);
+}
+
+.secondaryLink:hover {
+  color: #ffffff;
+  border-color: rgba(155, 48, 255, 0.35);
+  background: rgba(155, 48, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradientText {
+    animation: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .page {
+    padding: 100px 20px 72px;
+  }
+
+  .card {
+    padding: 34px 22px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primaryLink,
+  .secondaryLink {
+    width: 100%;
+  }
+}
