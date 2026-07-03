@@ -1,0 +1,238 @@
+.section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  overflow: hidden;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.topLine {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(155, 48, 255, 0.4) 30%,
+    rgba(200, 80, 180, 0.3) 60%,
+    transparent 100%
+  );
+  transform-origin: left center;
+}
+
+.bottomLine {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(155, 48, 255, 0.25) 40%,
+    rgba(200, 80, 180, 0.2) 70%,
+    transparent 100%
+  );
+  transform-origin: left center;
+}
+
+.watermark {
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(180px, 28vw, 380px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.07);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientGlow {
+  position: absolute;
+  left: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    ellipse,
+    rgba(100, 40, 200, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(80px, 10vw, 140px) clamp(20px, 5vw, 56px);
+  display: grid;
+  grid-template-columns: 0.55fr 1.8fr 0.9fr;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: start;
+}
+
+.sideColumn {
+  padding-top: 8px;
+}
+
+.smallHeading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.smallDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(155, 48, 255, 0.8);
+  box-shadow: 0 0 8px rgba(155, 48, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.smallHeadingText {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(155, 48, 255, 0.75);
+}
+
+.verticalYear {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  user-select: none;
+  margin-top: 16px;
+}
+
+.mainColumn {
+  min-width: 0;
+}
+
+.title {
+  margin: 0 0 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(38px, 5.5vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.solidText {
+  color: #ffffff;
+}
+
+.outlinedText {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.75);
+}
+
+.textLine {
+  height: 1px;
+  background: rgba(155, 48, 255, 0.2);
+  transform-origin: left center;
+  margin: 28px 0 32px;
+}
+
+.description {
+  font-size: clamp(15px, 1.35vw, 17px);
+  line-height: 1.75;
+  color: rgba(200, 195, 220, 0.7);
+  font-weight: 400;
+  max-width: 560px;
+  margin: 0;
+}
+
+.description strong {
+  color: rgba(220, 210, 255, 0.9);
+  font-weight: 600;
+}
+
+.factsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.factItem {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.factLabel {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(155, 48, 255, 0.55);
+}
+
+.factValue {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(220, 215, 240, 0.8);
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .sideColumn {
+    padding-top: 0;
+  }
+
+  .verticalYear {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-top: 0;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    padding: 72px 20px;
+    gap: 40px;
+  }
+
+  .title {
+    font-size: clamp(36px, 13vw, 56px);
+  }
+
+  .watermark {
+    right: -20%;
+    opacity: 0.65;
+  }
+
+  .smallHeading {
+    margin-bottom: 20px;
+  }
+
+  .verticalYear {
+    font-size: 64px;
+  }
+}
