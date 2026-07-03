@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import styles from "./venue.module.css";
@@ -333,11 +333,14 @@ function VenueHero() {
             <div className={styles.heroImageGlow} />
 
             <div className={`${styles.imageCard} ${styles.heroImageCard}`}>
-              <img
+             <Image
                 src="/venue/venue-hero.webp"
                 alt="Medina Congress Center"
+                fill
+                priority
+                sizes="(max-width: 767px) 100vw, 50vw"
                 className={styles.imageCover}
-              />
+/>
 
               <div className={styles.imageOverlay} />
               <div className={styles.imageBottomGlow} />
@@ -477,16 +480,24 @@ function VenueMap() {
       >
         <div className={styles.mapCard}>
           <AnimatePresence mode="wait">
-            <motion.img
-              key={activeMap}
-              src={VENUE_MAPS[activeMap].src}
-              alt={VENUE_MAPS[activeMap].label}
-              className={styles.mapImage}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.4, ease: EASE }}
-            />
+          <motion.div
+  key={activeMap}
+  className={styles.mapImageWrap}
+  initial={{ opacity: 0, scale: 0.98 }}
+  animate={{ opacity: 1, scale: 1 }}
+  exit={{ opacity: 0, scale: 0.98 }}
+  transition={{ duration: 0.4, ease: EASE }}
+>
+  <Image
+    src={VENUE_MAPS[activeMap].src}
+    alt={VENUE_MAPS[activeMap].label}
+    width={1200}
+    height={800}
+    loading="lazy"
+    sizes="(max-width: 767px) 100vw, 1000px"
+    className={styles.mapImage}
+  />
+</motion.div>
           </AnimatePresence>
 
           <div className={styles.topGlow} />
@@ -614,12 +625,14 @@ function DiscoverTunisia() {
           <div className={styles.galleryTrack}>
             {[...TUNISIA_GALLERY, ...TUNISIA_GALLERY].map((src, index) => (
               <div key={`${src}-${index}`} className={styles.galleryCard}>
-                <img
-                  src={src}
-                  alt="Tunisia"
-                  className={styles.imageCover}
-                  loading="lazy"
-                />
+               <Image
+  src={src}
+  alt="Tunisia"
+  fill
+  loading="lazy"
+  sizes="(max-width: 767px) 280px, 380px"
+  className={styles.imageCover}
+/>
 
                 <div className={styles.galleryTopGlow} />
               </div>
@@ -811,11 +824,12 @@ function VisaChecker() {
                     ease: "easeInOut",
                   }}
                 >
-                  <img
-                    src={`https://flagcdn.com/w80/${flag.code}.png`}
-                    alt={flag.name}
-                    className={styles.flagImage}
-                  />
+                 <img
+  src={`https://flagcdn.com/w80/${flag.code}.png`}
+  alt={flag.name}
+  className={styles.flagImage}
+  loading="lazy"
+/>
 
                   <span className={styles.flagCode}>{flag.code}</span>
                 </motion.div>
@@ -909,11 +923,14 @@ function CurrencyConverter() {
             transition={{ duration: 0.9, ease: EASE, delay: 0.2 }}
           >
             <div className={`${styles.imageCard} ${styles.currencyImageCard}`}>
-              <img
-                src="/venue/tnd-bills.png"
-                alt="Tunisian Dinar banknotes"
-                className={styles.imageCover}
-              />
+              <Image
+  src="/venue/tnd-bills.png"
+  alt="Tunisian Dinar banknotes"
+  fill
+  loading="lazy"
+  sizes="(max-width: 767px) 100vw, 460px"
+  className={styles.imageCover}
+/>
 
               <div className={styles.banknoteOverlay} />
               <div className={styles.topGlow} />

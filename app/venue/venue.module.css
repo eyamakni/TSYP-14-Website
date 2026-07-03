@@ -121,7 +121,14 @@
 }
 
 .gradientText {
-  background: linear-gradient(135deg, #c70898, #a855f7, #7c3aed, #9a1e9d, #c70898);
+  background: linear-gradient(
+    135deg,
+    #c70898,
+    #a855f7,
+    #7c3aed,
+    #9a1e9d,
+    #c70898
+  );
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -206,7 +213,8 @@
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(155, 48, 255, 0.2);
-  box-shadow: 0 0 40px rgba(155, 48, 255, 0.1),
+  box-shadow:
+    0 0 40px rgba(155, 48, 255, 0.1),
     0 24px 64px rgba(0, 0, 0, 0.5);
 }
 
@@ -219,6 +227,14 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Important for next/image fill */
+.imageCard,
+.heroImageCard,
+.galleryCard,
+.currencyImageCard {
+  position: relative;
 }
 
 .imageOverlay {
@@ -234,7 +250,12 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(155, 48, 255, 0.7), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.7),
+    transparent
+  );
   box-shadow: 0 0 20px rgba(155, 48, 255, 0.4);
 }
 
@@ -263,7 +284,11 @@
   transform: translate(-50%, -50%);
   width: 800px;
   height: 500px;
-  background: radial-gradient(ellipse, rgba(100, 20, 200, 0.07) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(100, 20, 200, 0.07) 0%,
+    transparent 70%
+  );
 }
 
 .sectionGlowRight {
@@ -271,7 +296,11 @@
   right: 15%;
   width: 500px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(155, 48, 255, 0.06) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(155, 48, 255, 0.06) 0%,
+    transparent 70%
+  );
 }
 
 .sectionGlowLeft {
@@ -279,7 +308,11 @@
   left: 10%;
   width: 600px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse,
+    rgba(124, 58, 237, 0.06) 0%,
+    transparent 70%
+  );
 }
 
 .sectionHeader {
@@ -330,14 +363,16 @@
   gap: 18px;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .featureCard:hover {
   border-color: rgba(155, 48, 255, 0.45);
-  box-shadow: 0 0 32px rgba(155, 48, 255, 0.12),
+  box-shadow:
+    0 0 32px rgba(155, 48, 255, 0.12),
     0 16px 48px rgba(0, 0, 0, 0.5);
   transform: translateY(-4px);
 }
@@ -345,7 +380,11 @@
 .dotGrid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(155, 48, 255, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.06) 1px,
+    transparent 1px
+  );
   background-size: 28px 28px;
   pointer-events: none;
   opacity: 0.4;
@@ -427,7 +466,11 @@
 
 .mapButtonActive {
   border-color: rgba(155, 48, 255, 0.5);
-  background: linear-gradient(135deg, rgba(155, 48, 255, 0.2) 0%, rgba(124, 58, 237, 0.1) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(155, 48, 255, 0.2) 0%,
+    rgba(124, 58, 237, 0.1) 100%
+  );
   color: #ffffff;
   box-shadow: 0 0 20px rgba(155, 48, 255, 0.15);
 }
@@ -445,13 +488,19 @@
   overflow: hidden;
   border: 1px solid rgba(155, 48, 255, 0.18);
   background: rgba(6, 2, 22, 0.6);
-  box-shadow: 0 0 40px rgba(155, 48, 255, 0.08),
+  box-shadow:
+    0 0 40px rgba(155, 48, 255, 0.08),
     0 24px 64px rgba(0, 0, 0, 0.4);
   position: relative;
 }
 
+.mapImageWrap {
+  width: 100%;
+}
+
 .mapImage {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -461,7 +510,12 @@
   left: 15%;
   right: 15%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(155, 48, 255, 0.5), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.5),
+    transparent
+  );
 }
 
 .arrowButtons {
@@ -592,7 +646,8 @@
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid rgba(155, 48, 255, 0.18);
-  box-shadow: 0 0 30px rgba(155, 48, 255, 0.08),
+  box-shadow:
+    0 0 30px rgba(155, 48, 255, 0.08),
     0 16px 48px rgba(0, 0, 0, 0.4);
   position: relative;
 }
@@ -625,8 +680,20 @@
 .galleryMask {
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
 }
 
 .galleryTrack {
@@ -659,7 +726,8 @@
   overflow: hidden;
   flex-shrink: 0;
   border: 1px solid rgba(155, 48, 255, 0.1);
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
     border-color 0.45s,
     box-shadow 0.45s;
 }
@@ -667,7 +735,8 @@
 .galleryCard:hover {
   transform: scale(1.04);
   border-color: rgba(155, 48, 255, 0.42);
-  box-shadow: 0 0 28px rgba(155, 48, 255, 0.18),
+  box-shadow:
+    0 0 28px rgba(155, 48, 255, 0.18),
     0 18px 52px rgba(0, 0, 0, 0.55);
   z-index: 2;
 }
@@ -679,7 +748,12 @@
   right: 15%;
   height: 1.5px;
   z-index: 5;
-  background: linear-gradient(90deg, transparent, rgba(155, 48, 255, 0.7), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.7),
+    transparent
+  );
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -855,12 +929,17 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(155, 48, 255, 0.2), rgba(124, 58, 237, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(155, 48, 255, 0.2),
+    rgba(124, 58, 237, 0.1)
+  );
   border: 1px solid rgba(155, 48, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 60px rgba(155, 48, 255, 0.2),
+  box-shadow:
+    0 0 60px rgba(155, 48, 255, 0.2),
     0 0 120px rgba(155, 48, 255, 0.08);
 }
 
@@ -994,7 +1073,9 @@
 }
 
 .currencyImageCard {
+  width: 100%;
   max-width: 460px;
+  aspect-ratio: 16 / 10;
 }
 
 .banknoteOverlay {
