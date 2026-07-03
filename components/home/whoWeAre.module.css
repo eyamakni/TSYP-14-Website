@@ -119,6 +119,43 @@
   box-shadow:
     0 0 32px rgba(155, 48, 255, 0.07),
     0 20px 64px rgba(0, 0, 0, 0.45);
+  transform-origin: center;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.card:hover {
+  border-color: rgba(155, 48, 255, 0.42);
+  box-shadow:
+    0 0 42px rgba(155, 48, 255, 0.16),
+    0 28px 80px rgba(0, 0, 0, 0.62);
+  background: linear-gradient(
+    145deg,
+    rgba(24, 12, 48, 0.92) 0%,
+    rgba(10, 4, 24, 0.98) 100%
+  );
+}
+
+.cardGlow {
+  position: absolute;
+  inset: auto 10% -28% 10%;
+  height: 150px;
+  background: radial-gradient(
+    ellipse,
+    rgba(155, 48, 255, 0.16) 0%,
+    transparent 70%
+  );
+  filter: blur(24px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover .cardGlow {
+  opacity: 1;
 }
 
 .cardTopLine {
@@ -135,6 +172,7 @@
   );
   box-shadow: 0 0 18px rgba(155, 48, 255, 0.32);
 }
+
 .logoArea {
   height: 88px;
   display: flex;
@@ -153,6 +191,7 @@
   max-height: 68px;
   height: auto;
 }
+
 .cardContent {
   flex: 1;
 }
@@ -193,12 +232,13 @@
   padding-top: 18px;
   border-top: 1px solid rgba(155, 48, 255, 0.12);
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 16px;
 }
 
 .statValue {
+  display: block;
   color: #ffffff;
   font-size: 22px;
   font-weight: 800;
@@ -207,12 +247,52 @@
 }
 
 .statLabel {
+  display: block;
+  margin-top: 2px;
   color: rgba(155, 48, 255, 0.62);
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  text-align: right;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.socialLink {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(210, 195, 255, 0.68);
+  background: rgba(155, 48, 255, 0.08);
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  text-decoration: none;
+  transition:
+    color 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.socialLink:hover {
+  color: #ffffff;
+  background: rgba(155, 48, 255, 0.22);
+  border-color: rgba(155, 48, 255, 0.42);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(155, 48, 255, 0.2);
+}
+
+.socialIcon {
+  width: 16px;
+  height: 16px;
 }
 
 @media (max-width: 1024px) {
@@ -253,21 +333,27 @@
     border-radius: 20px;
   }
 
-.logoArea {
-  height: 78px;
-}
+  .logoArea {
+    height: 78px;
+  }
 
-.logo {
-  max-width: 68%;
-  max-height: 58px;
-}
+  .logo {
+    max-width: 68%;
+    max-height: 58px;
+  }
+
   .cardFooter {
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 14px;
   }
 
-  .statLabel {
-    text-align: left;
+  .socials {
+    width: 100%;
+  }
+
+  .socialLink {
+    width: 38px;
+    height: 38px;
   }
 }
