@@ -18,7 +18,7 @@ html,
 body {
   background: #000000;
   color: #ffffff;
-  font-family: var(--font-inter), 'Inter', sans-serif;
+  font-family: var(--font-inter), "Inter", sans-serif;
   overflow-x: hidden;
 }
 
@@ -548,7 +548,11 @@ body {
   border-radius: 8px;
   text-decoration: none;
   touch-action: manipulation;
-  transition: color 0.22s, border-color 0.22s, background 0.22s, transform 0.22s;
+  transition:
+    color 0.22s,
+    border-color 0.22s,
+    background 0.22s,
+    transform 0.22s;
 }
 .footer-social-btn:hover {
   color: #ffffff;
