@@ -104,61 +104,53 @@ const SPECIAL_DURATION_CASES = [
     duration: "Can stay up to 4 months without a visa",
   },
 ];
-
-const VISA_ON_ARRIVAL_COUNTRIES = [
-  { flag: "🇲🇾", name: "Malaysia" },
-  { flag: "🇹🇭", name: "Thailand" },
-  { flag: "🇮🇩", name: "Indonesia" },
-  { flag: "🇸🇬", name: "Singapore" },
-  { flag: "🌍", name: "And others..." },
-];
-
-const REQUIRED_DOCUMENTS = [
+const TSYP_TRAVEL_STEPS = [
   {
-    title: "Valid Passport",
-    text: "Valid for at least 6 months beyond your stay",
-  },
-  {
-    title: "Hotel Booking",
-    text: "Proof of accommodation for your entire stay",
-  },
-  {
-    title: "Return Ticket",
-    text: "Confirmed flight reservation showing departure",
-  },
-  {
-    title: "Sufficient Funds",
-    text: "Cash or bank statements showing financial capability",
-  },
-];
-
-const EMBASSY_STEPS = [
-  {
-    number: "1",
-    title: "Find Embassy",
-    text: "Locate your nearest Tunisian diplomatic mission",
-  },
-  {
-    number: "2",
-    title: "Prepare Documents",
-    text: "Gather all required application materials",
-    details: [
-      "Completed visa application form",
-      "Recent passport-sized photos",
-      "Flight itinerary & hotel booking",
-      "Invitation letter from conference organizers",
-      "Bank statements as proof of funds",
+    number: "01",
+    label: "Passport Check",
+    title: "Confirm your entry status",
+    text: "Start by checking whether your passport allows visa-free entry to Tunisia. The checker above gives a first indication, but official confirmation should always come from Tunisian consular sources.",
+    points: [
+      "Check your passport nationality",
+      "Confirm the allowed duration of stay",
+      "Verify the latest rules before booking",
     ],
   },
   {
-    number: "3",
-    title: "Submit Application",
-    text: "Apply in person or by mail depending on embassy requirements",
+    number: "02",
+    label: "Participant File",
+    title: "Prepare your TSYP travel file",
+    text: "Before traveling, prepare the documents usually requested for international events. This helps you avoid last-minute issues at the airport, hotel, or embassy.",
+    points: [
+      "Valid passport",
+      "Flight details",
+      "Accommodation confirmation",
+      "Event registration confirmation",
+    ],
   },
   {
-    number: "4",
-    title: "Pay Fee",
-    text: "Visa fees vary by nationality and visa type",
+    number: "03",
+    label: "Visa Support",
+    title: "Request support if needed",
+    text: "If your visa application requires proof of participation, you may need an invitation or confirmation letter related to TSYP XIV after completing your registration.",
+    points: [
+      "Register for the event first",
+      "Prepare personal passport information",
+      "Request a support letter if required",
+      "Use it only for visa-related procedures",
+    ],
+  },
+  {
+    number: "04",
+    label: "Final Review",
+    title: "Apply early and track progress",
+    text: "If a visa is required, contact the nearest Tunisian embassy or consulate as early as possible. Processing times can vary depending on country, season, and application type.",
+    points: [
+      "Submit early",
+      "Keep copies of every document",
+      "Track embassy updates",
+      "Do not wait until the final week",
+    ],
   },
 ];
 
@@ -333,9 +325,12 @@ function SpecialDurationSection() {
             </div>
 
             <div>
-              <h2 className={styles.specialTitle}>Special Duration Cases</h2>
+              <h2 className={styles.specialTitle}>
+                Country-Specific Stay Durations
+              </h2>
               <p className={styles.cardSubtitle}>
-                Extended stay periods for select countries.
+                Some visa-free travelers may benefit from different maximum stay
+                periods depending on their nationality.
               </p>
             </div>
           </div>
@@ -367,10 +362,14 @@ function SpecialDurationSection() {
           <div className={styles.warningBox}>
             <span className={styles.warningIcon}>!</span>
             <div>
-              <strong>Note:</strong>
+              <strong>TSYP XIV Travel Reminder</strong>
               <p>
-                Always verify current requirements with the Tunisian embassy or
-                consulate in your country.
+                This section is designed to help international participants plan
+                their trip to Tunisia early. Visa and entry rules may change
+                depending on nationality, passport type, travel purpose, or
+                embassy updates. Before booking your flight or finalizing your
+                documents, please confirm your exact situation with the nearest
+                Tunisian embassy or consulate.
               </p>
             </div>
           </div>
@@ -379,7 +378,6 @@ function SpecialDurationSection() {
     </section>
   );
 }
-
 function HowToApplySection() {
   return (
     <section className={styles.applySection}>
@@ -395,126 +393,75 @@ function HowToApplySection() {
         >
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLineLeft} />
-            <span className={styles.eyebrowText}>Visa Application</span>
+            <span className={styles.eyebrowText}>TSYP Travel Path</span>
             <span className={styles.eyebrowLineRight} />
           </div>
 
           <h2 className={styles.sectionTitle}>
-            How to Apply for a{" "}
-            <span className={styles.outlinedText}>Tunisian Visa</span>
+            Prepare Your{" "}
+            <span className={styles.outlinedText}>Journey to Tunisia</span>
           </h2>
 
           <p className={styles.applySubtitle}>
-            Choose the application method that best suits your nationality and
-            travel plans.
+            A TSYP-focused guide to help international participants organize
+            their travel documents, visa support needs, and final checks before
+            arriving in Hammamet.
           </p>
         </motion.div>
 
-        <div className={styles.applyGrid}>
-          <motion.article
-            className={styles.applyCard}
-            initial={{ opacity: 0, x: -28 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: EASE }}
-          >
-            <div className={styles.cardTopLine} />
+        <div className={styles.travelGuideGrid}>
+          {TSYP_TRAVEL_STEPS.map((step, index) => (
+            <motion.article
+              key={step.number}
+              className={styles.travelStepCard}
+              initial={{ opacity: 0, y: 26 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{
+                duration: 0.7,
+                ease: EASE,
+                delay: index * 0.08,
+              }}
+            >
+              <div className={styles.cardTopLine} />
 
-            <div className={styles.applyCardHeader}>
-              <div className={styles.applyIconBox}>
-                <PlaneIcon />
+              <div className={styles.travelStepHeader}>
+                <span className={styles.travelStepNumber}>{step.number}</span>
+                <span className={styles.travelStepLabel}>{step.label}</span>
               </div>
 
-              <div>
-                <h3 className={styles.applyTitle}>
-                  Option 1: Visa on Arrival
-                </h3>
-                <p className={styles.applyIntro}>
-                  Some nationalities can obtain a visa upon arrival at
-                  Tunis-Carthage Airport or other entry points.
-                </p>
-              </div>
-            </div>
+              <h3 className={styles.travelStepTitle}>{step.title}</h3>
 
-            <div className={styles.eligibleBox}>
-              <h4 className={styles.miniTitle}>
-                Eligible countries include:
-              </h4>
+              <p className={styles.travelStepText}>{step.text}</p>
 
-              <div className={styles.arrivalCountryList}>
-                {VISA_ON_ARRIVAL_COUNTRIES.map((country) => (
-                  <span key={country.name} className={styles.arrivalPill}>
-                    <span>{country.flag}</span>
-                    {country.name}
-                  </span>
+              <div className={styles.travelChecklist}>
+                {step.points.map((point) => (
+                  <div key={point} className={styles.travelChecklistItem}>
+                    <span className={styles.travelCheckIcon}>✓</span>
+                    <span>{point}</span>
+                  </div>
                 ))}
               </div>
-            </div>
-
-            <div className={styles.docsList}>
-              <h4 className={styles.miniTitle}>Required Documents</h4>
-
-              {REQUIRED_DOCUMENTS.map((doc) => (
-                <div key={doc.title} className={styles.docRow}>
-                  <span className={styles.docIcon}>▣</span>
-                  <div>
-                    <strong>{doc.title}</strong>
-                    <p>{doc.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.article>
-
-          <motion.article
-            className={styles.applyCard}
-            initial={{ opacity: 0, x: 28 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
-          >
-            <div className={styles.cardTopLine} />
-
-            <div className={styles.applyCardHeader}>
-              <div className={`${styles.applyIconBox} ${styles.blueIcon}`}>
-                <BuildingIcon />
-              </div>
-
-              <div>
-                <h3 className={styles.applyTitle}>
-                  Option 2: Embassy Application
-                </h3>
-                <p className={styles.applyIntro}>
-                  If your country is not eligible for visa-free or
-                  visa-on-arrival entry, apply in advance.
-                </p>
-              </div>
-            </div>
-
-            <div className={styles.embassySteps}>
-              <h4 className={styles.miniTitle}>Application Process</h4>
-
-              {EMBASSY_STEPS.map((step) => (
-                <div key={step.number} className={styles.embassyStep}>
-                  <span className={styles.embassyNumber}>{step.number}</span>
-
-                  <div>
-                    <strong>{step.title}</strong>
-                    <p>{step.text}</p>
-
-                    {step.details && (
-                      <ul className={styles.stepDetails}>
-                        {step.details.map((detail) => (
-                          <li key={detail}>{detail}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.article>
+            </motion.article>
+          ))}
         </div>
+
+        <motion.div
+          className={styles.travelNotice}
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.2 }}
+        >
+          <span className={styles.travelNoticeBadge}>Important</span>
+
+          <p>
+            TSYP XIV can guide participants with event-related documentation, but
+            visa approval remains the responsibility of the official Tunisian
+            embassy or consulate. Always verify the latest requirements before
+            making final travel decisions.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
