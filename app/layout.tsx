@@ -15,8 +15,9 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "TSYP XIV",
-  description: "Official website of IEEE TSYP XIV",
+  title: "TSYP 14 | IEEE Tunisian Student and Young Professional Congress",
+  description:
+    "14th edition of the IEEE Tunisian Student and Young Professional Congress.",
 };
 
 export default function RootLayout({
