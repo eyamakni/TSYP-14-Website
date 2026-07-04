@@ -231,7 +231,7 @@ export default function CountdownSection() {
           letterSpacing: "0.18em", textTransform: "uppercase",
           fontFamily: "var(--font-inter), 'Inter', sans-serif",
         }}>
-          21 December 2026 · Tunis, Tunisia
+          21-23 December 2026 · Tunis, Tunisia
         </p>
       </motion.div>
     </section>

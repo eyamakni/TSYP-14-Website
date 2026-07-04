@@ -4,6 +4,7 @@ import AboutSection from "@/components/home/AboutSection";
 import ThemeSection from "@/components/home/ThemeSection";
 import WhoWeAreSection from "@/components/home/WhoWeAreSection";
 import MemoriesSection from "@/components/home/MemoriesSection";
+import EditionsSection from "@/components/home/EditionsSection";
 export default function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Home() {
         <AboutSection />
         <WhoWeAreSection />
         <ThemeSection />
+        <EditionsSection />
         <MemoriesSection />
       </main>
 

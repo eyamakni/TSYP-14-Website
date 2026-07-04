@@ -10,7 +10,7 @@ const FACTS = [
   { label: "Host",       value: "IEEE INSAT SB"       },
   { label: "Partner",    value: "IEEE Tunisia Section" },
   { label: "Location",   value: "Tunis, Tunisia"       },
-  { label: "Date",       value: "21 December 2026"     },
+  { label: "Date",       value: "21-23 December 2026"     },
 ];
 
 function FadeUp({
@@ -216,8 +216,8 @@ export default function AboutSection() {
               maxWidth: "560px",
               margin: 0,
             }}>
-              The <strong style={{ color: "rgba(220,210,255,0.9)", fontWeight: 600 }}>14th edition</strong> of the TSYP — Tunisian Student and Young
-              Professional Congress — is organized by the{" "}
+              The <strong style={{ color: "rgba(220,210,255,0.9)", fontWeight: 600 }}>14th edition</strong> of the TSYP, Tunisian Student and Young
+              Professional Congress, is organized by the{" "}
               <strong style={{ color: "rgba(220,210,255,0.9)", fontWeight: 600 }}>IEEE INSAT Student Branch</strong> in
               collaboration with the IEEE Tunisia Section. It serves as a premier
               platform for IEEE members to explore scientific and engineering

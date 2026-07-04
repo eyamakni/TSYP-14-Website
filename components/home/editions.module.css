@@ -1,0 +1,425 @@
+.section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  overflow: hidden;
+  padding: 110px 0 120px;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.ambientGlowOne {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.09) 0%,
+    transparent 72%
+  );
+  filter: blur(46px);
+  pointer-events: none;
+}
+
+.ambientGlowTwo {
+  position: absolute;
+  right: 6%;
+  bottom: 8%;
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(
+    circle,
+    rgba(192, 38, 211, 0.075) 0%,
+    transparent 72%
+  );
+  filter: blur(46px);
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.055) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.header {
+  max-width: 760px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.eyebrowLineLeft,
+.eyebrowLineRight {
+  width: 32px;
+  height: 1px;
+  display: block;
+}
+
+.eyebrowLineLeft {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.5)
+  );
+}
+
+.eyebrowLineRight {
+  background: linear-gradient(
+    90deg,
+    rgba(155, 48, 255, 0.5),
+    transparent
+  );
+}
+
+.eyebrowText {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(155, 48, 255, 0.7);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(36px, 5vw, 68px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.solidText {
+  color: #ffffff;
+}
+
+.outlinedText {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.78);
+}
+
+.subtitle {
+  margin: 16px auto 0;
+  max-width: 620px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(210, 205, 230, 0.58);
+}
+
+.marqueeWrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.marqueeMask {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0 28px;
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 7%,
+    black 93%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    black 7%,
+    black 93%,
+    transparent
+  );
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: stretch;
+  gap: 22px;
+  width: max-content;
+  padding: 0 22px;
+  animation: editionsScroll 62s linear infinite;
+  will-change: transform;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes editionsScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.timelineLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.14),
+    rgba(155, 48, 255, 0.5),
+    rgba(192, 38, 211, 0.34),
+    rgba(155, 48, 255, 0.14),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  flex: 0 0 clamp(340px, 36vw, 520px);
+  min-height: 300px;
+  border-radius: 24px;
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.9),
+    rgba(8, 4, 18, 0.97)
+  );
+  box-shadow:
+    0 0 30px rgba(155, 48, 255, 0.08),
+    0 24px 68px rgba(0, 0, 0, 0.48);
+  padding: 28px;
+  overflow: hidden;
+  transition:
+    transform 0.28s ease,
+    border-color 0.28s ease,
+    box-shadow 0.28s ease,
+    background 0.28s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(155, 48, 255, 0.42);
+  background: linear-gradient(
+    145deg,
+    rgba(24, 12, 48, 0.95),
+    rgba(10, 4, 24, 0.98)
+  );
+  box-shadow:
+    0 0 36px rgba(155, 48, 255, 0.18),
+    0 30px 84px rgba(0, 0, 0, 0.62);
+}
+
+.cardTopLine {
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.82),
+    rgba(192, 38, 211, 0.45),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(155, 48, 255, 0.32);
+}
+
+.cardGlow {
+  position: absolute;
+  right: -80px;
+  top: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.14) 0%,
+    transparent 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.cardHeader {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.cardTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.cardHost {
+  margin: 10px 0 0;
+  color: rgba(220, 215, 240, 0.72);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.yearBadge {
+  flex-shrink: 0;
+  min-width: 76px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-align: center;
+  background: rgba(155, 48, 255, 0.1);
+  border: 1px solid rgba(155, 48, 255, 0.22);
+  color: rgba(185, 150, 255, 0.95);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.metaList {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 30px;
+  max-width: 82%;
+}
+
+.metaItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: rgba(235, 232, 245, 0.78);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: rgba(155, 48, 255, 0.85);
+}
+
+.cardWatermark {
+  position: absolute;
+  right: 22px;
+  bottom: 14px;
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 800;
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  letter-spacing: -0.07em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.progressArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  max-width: 780px;
+  margin: 22px auto 0;
+  padding: 0 24px;
+}
+
+.arrowLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.4),
+    rgba(192, 38, 211, 0.35)
+  );
+}
+
+.arrowHead {
+  color: rgba(155, 48, 255, 0.82);
+  font-size: 28px;
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(155, 48, 255, 0.45));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 84px 0 92px;
+  }
+
+  .header {
+    margin-bottom: 42px;
+  }
+
+  .eyebrowText {
+    letter-spacing: 0.24em;
+  }
+
+  .marqueeTrack {
+    gap: 16px;
+    padding: 0 16px;
+    animation-duration: 48s;
+  }
+
+  .card {
+    flex-basis: 310px;
+    min-height: 330px;
+    border-radius: 20px;
+    padding: 24px 22px;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .metaList {
+    max-width: 100%;
+  }
+
+  .metaItem {
+    font-size: 14px;
+  }
+
+  .cardWatermark {
+    font-size: 54px;
+  }
+}
