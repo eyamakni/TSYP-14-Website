@@ -9,8 +9,8 @@ const LINKS = ["Home", "The Noosphere", "Program", "Venue", "About Us"];
 const LINK_HREFS: Record<string, string> = {
   Home: "/",
   "The Noosphere": "/#theme",
-  Program: "/#program",
-  Venue: "/venue",
+  Program: "/program/technical",
+  Venue: "/venue/congress-venue",
   "About Us": "/about",
 };
 
@@ -19,6 +19,16 @@ const PROGRAM_DROPDOWN = [
   { label: "Speakers", href: "/program/speakers" },
   { label: "Challenges", href: "/program/challenges" },
 ];
+
+const VENUE_DROPDOWN = [
+  { label: "Congress Venue", href: "/venue/congress-venue" },
+  { label: "Visa Requirements", href: "/venue/visa-requirements" },
+];
+
+const DROPDOWNS: Record<string, { label: string; href: string }[]> = {
+  Program: PROGRAM_DROPDOWN,
+  Venue: VENUE_DROPDOWN,
+};
 
 const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -49,8 +59,12 @@ function ChevronDown({ open }: { open: boolean }) {
 export default function Navbar() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mobileProgOpen, setMobileProgOpen] = useState(false);
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState<string | null>(
+    null
+  );
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(
+    null
+  );
 
   return (
     <>
@@ -76,7 +90,15 @@ export default function Navbar() {
           fontFamily: "var(--font-inter), 'Inter', sans-serif",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", flexShrink: 0 }}>
+        <a
+          href="/"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            flexShrink: 0,
+            textDecoration: "none",
+          }}
+        >
           <Image
             src="/lg.webp"
             alt="IEEE TSYP14"
@@ -85,7 +107,7 @@ export default function Navbar() {
             style={{ objectFit: "contain" }}
             priority
           />
-        </div>
+        </a>
 
         <div
           className="nav-links"
@@ -102,7 +124,9 @@ export default function Navbar() {
           }}
         >
           {LINKS.map((link) => {
-            const hasDropdown = link === "Program";
+            const dropdownItems = DROPDOWNS[link];
+            const hasDropdown = Boolean(dropdownItems);
+            const dropdownOpen = desktopDropdownOpen === link;
 
             return (
               <div
@@ -110,11 +134,11 @@ export default function Navbar() {
                 style={{ position: "relative" }}
                 onMouseEnter={() => {
                   setHovered(link);
-                  if (hasDropdown) setDropdownOpen(true);
+                  if (hasDropdown) setDesktopDropdownOpen(link);
                 }}
                 onMouseLeave={() => {
                   setHovered(null);
-                  if (hasDropdown) setDropdownOpen(false);
+                  if (hasDropdown) setDesktopDropdownOpen(null);
                 }}
               >
                 {hovered === link && (
@@ -136,10 +160,12 @@ export default function Navbar() {
                 )}
 
                 <a
-                  href={hasDropdown ? undefined : LINK_HREFS[link] || "#"}
+                  href={hasDropdown ? LINK_HREFS[link] : LINK_HREFS[link] || "#"}
                   onClick={
                     hasDropdown
-                      ? (e: React.MouseEvent) => e.preventDefault()
+                      ? (event) => {
+                          event.preventDefault();
+                        }
                       : undefined
                   }
                   style={{
@@ -166,7 +192,7 @@ export default function Navbar() {
                   {hasDropdown && <ChevronDown open={dropdownOpen} />}
                 </a>
 
-                {hasDropdown && (
+                {hasDropdown && dropdownItems && (
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.div
@@ -179,7 +205,7 @@ export default function Navbar() {
                           top: "calc(100% + 8px)",
                           left: "50%",
                           transform: "translateX(-50%)",
-                          minWidth: "180px",
+                          minWidth: "200px",
                           padding: "6px",
                           borderRadius: "12px",
                           background: "rgba(10,5,18,0.92)",
@@ -190,7 +216,7 @@ export default function Navbar() {
                             "0 12px 40px rgba(0,0,0,0.5), 0 0 1px rgba(155,48,255,0.2)",
                         }}
                       >
-                        {PROGRAM_DROPDOWN.map((item) => (
+                        {dropdownItems.map((item) => (
                           <a
                             key={item.label}
                             href={item.href}
@@ -204,6 +230,7 @@ export default function Navbar() {
                               color: "rgba(255,255,255,0.6)",
                               textDecoration: "none",
                               transition: "all 0.15s ease",
+                              whiteSpace: "nowrap",
                             }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.background =
@@ -230,7 +257,7 @@ export default function Navbar() {
 
         <button
           className="nav-hamburger"
-          onClick={() => setMenuOpen((o) => !o)}
+          onClick={() => setMenuOpen((open) => !open)}
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           style={{
             background: "none",
@@ -253,11 +280,11 @@ export default function Navbar() {
                   ? i === 0
                     ? { rotate: 45, y: 10 }
                     : i === 1
-                    ? { opacity: 0 }
-                    : { rotate: -45, y: -10 }
+                      ? { opacity: 0 }
+                      : { rotate: -45, y: -10 }
                   : { rotate: 0, y: 0, opacity: 1 }
               }
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.25, ease: EASE }}
               style={{
                 display: "block",
                 width: "22px",
@@ -281,19 +308,27 @@ export default function Navbar() {
             className="nav-mobile-menu open"
             onClick={() => setMenuOpen(false)}
           >
-            {LINKS.map((link, i) => {
-              if (link === "Program") {
+            {LINKS.map((link, index) => {
+              const dropdownItems = DROPDOWNS[link];
+              const hasDropdown = Boolean(dropdownItems);
+              const dropdownOpen = mobileDropdownOpen === link;
+
+              if (hasDropdown && dropdownItems) {
                 return (
                   <div key={link} onClick={(e) => e.stopPropagation()}>
                     <motion.button
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
-                        delay: i * 0.06,
+                        delay: index * 0.06,
                         duration: 0.35,
-                        ease: [0.16, 1, 0.3, 1],
+                        ease: EASE,
                       }}
-                      onClick={() => setMobileProgOpen((o) => !o)}
+                      onClick={() =>
+                        setMobileDropdownOpen((current) =>
+                          current === link ? null : link
+                        )
+                      }
                       style={{
                         fontSize: "22px",
                         fontWeight: 600,
@@ -312,11 +347,11 @@ export default function Navbar() {
                       }}
                     >
                       {link}
-                      <ChevronDown open={mobileProgOpen} />
+                      <ChevronDown open={dropdownOpen} />
                     </motion.button>
 
                     <AnimatePresence>
-                      {mobileProgOpen && (
+                      {dropdownOpen && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: "auto", opacity: 1 }}
@@ -324,14 +359,20 @@ export default function Navbar() {
                           transition={{ duration: 0.25, ease: EASE }}
                           style={{ overflow: "hidden", paddingLeft: "20px" }}
                         >
-                          {PROGRAM_DROPDOWN.map((item, si) => (
+                          {dropdownItems.map((item, subIndex) => (
                             <motion.a
                               key={item.label}
                               href={item.href}
                               initial={{ opacity: 0, x: -10 }}
                               animate={{ opacity: 1, x: 0 }}
-                              transition={{ delay: si * 0.05, duration: 0.25 }}
-                              onClick={() => setMenuOpen(false)}
+                              transition={{
+                                delay: subIndex * 0.05,
+                                duration: 0.25,
+                              }}
+                              onClick={() => {
+                                setMenuOpen(false);
+                                setMobileDropdownOpen(null);
+                              }}
                               style={{
                                 display: "block",
                                 padding: "10px 0",
@@ -362,9 +403,9 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
-                    delay: i * 0.06,
+                    delay: index * 0.06,
                     duration: 0.35,
-                    ease: [0.16, 1, 0.3, 1],
+                    ease: EASE,
                   }}
                   onClick={() => setMenuOpen(false)}
                   style={{

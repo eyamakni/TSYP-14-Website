@@ -235,12 +235,27 @@ export const CURRENCIES: Record<string, { name: string; rate: number }> = {
 };
 
 export const FLOATING_FLAGS = [
-  { code: "tn", name: "Tunisia", x: "5%", y: "15%" },
-  { code: "fr", name: "France", x: "80%", y: "10%" },
-  { code: "us", name: "USA", x: "85%", y: "65%" },
-  { code: "jp", name: "Japan", x: "10%", y: "75%" },
-  { code: "de", name: "Germany", x: "50%", y: "5%" },
-  { code: "br", name: "Brazil", x: "45%", y: "88%" },
+  { code: "tn", name: "Tunisia", x: "8%", y: "18%" },
+  { code: "dz", name: "Algeria", x: "22%", y: "7%" },
+  { code: "de", name: "Germany", x: "42%", y: "2%" },
+  { code: "fr", name: "France", x: "64%", y: "7%" },
+  { code: "it", name: "Italy", x: "80%", y: "19%" },
+
+  { code: "ma", name: "Morocco", x: "5%", y: "39%" },
+  { code: "in", name: "India", x: "18%", y: "43%" },
+  { code: "es", name: "Spain", x: "86%", y: "38%" },
+  { code: "tr", name: "Turkey", x: "94%", y: "53%" },
+
+  { code: "jp", name: "Japan", x: "9%", y: "64%" },
+  { code: "kr", name: "South Korea", x: "23%", y: "81%" },
+  { code: "br", name: "Brazil", x: "48%", y: "90%" },
+  { code: "ae", name: "United Arab Emirates", x: "70%", y: "82%" },
+  { code: "us", name: "United States", x: "84%", y: "64%" },
+
+  { code: "gb", name: "United Kingdom", x: "35%", y: "24%" },
+  { code: "ca", name: "Canada", x: "60%", y: "25%" },
+  { code: "sa", name: "Saudi Arabia", x: "32%", y: "69%" },
+  { code: "eg", name: "Egypt", x: "62%", y: "68%" },
 ];
 
 export const DISCOVER_TAGS = [

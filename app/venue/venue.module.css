@@ -896,7 +896,7 @@
 .flagOrbitInner {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 520px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -943,11 +943,13 @@
     0 0 120px rgba(155, 48, 255, 0.08);
 }
 
+
+
 .flagCard {
   position: absolute;
-  width: 52px;
-  height: 52px;
-  border-radius: 14px;
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
   background: rgba(6, 2, 22, 0.9);
   border: 1px solid rgba(155, 48, 255, 0.2);
   display: flex;
@@ -955,10 +957,12 @@
   justify-content: center;
   flex-direction: column;
   gap: 2px;
-  box-shadow: 0 0 20px rgba(155, 48, 255, 0.1);
+  box-shadow: 0 0 18px rgba(155, 48, 255, 0.12);
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  animation: flagFloat 4.5s ease-in-out infinite;
 }
-
 .flagImage {
   width: 32px;
   height: 22px;
@@ -1161,5 +1165,317 @@
   .heroGrid,
   .twoColumnGrid {
     gap: 40px;
+  }
+}
+/* Split Venue Pages - Visa Requirements */
+
+.visaHeroSection {
+  min-height: 90dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px clamp(20px, 5vw, 64px) 90px;
+}
+
+.visaHeroContent {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.visaHeroText {
+  max-width: 680px;
+  margin: 24px auto 0;
+  color: rgba(210, 205, 230, 0.64);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.visaStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 720px;
+  margin: 36px auto 0;
+}
+
+.visaStatCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  padding: 22px 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.82),
+    rgba(8, 4, 18, 0.96)
+  );
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.08),
+    0 18px 46px rgba(0, 0, 0, 0.38);
+}
+
+.visaStatCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22%;
+  right: 22%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.75),
+    transparent
+  );
+}
+
+.visaStatValue {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.visaStatLabel {
+  display: block;
+  margin-top: 6px;
+  color: rgba(155, 48, 255, 0.68);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.visaInfoSection {
+  padding: 100px clamp(20px, 5vw, 64px);
+}
+
+.visaStepsGrid {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.visaStepCard {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+  border-radius: 20px;
+  padding: 26px 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.82),
+    rgba(8, 4, 18, 0.96)
+  );
+  border: 1px solid rgba(155, 48, 255, 0.14);
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.07),
+    0 18px 48px rgba(0, 0, 0, 0.42);
+}
+
+.visaStepCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.72),
+    transparent
+  );
+}
+
+.visaStepNumber {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.55);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.visaStepTitle {
+  margin: 22px 0 0;
+  color: #ffffff;
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.visaStepText {
+  margin: 14px 0 0;
+  color: rgba(200, 195, 220, 0.62);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.visaDocsSection {
+  padding: 40px 0 110px;
+}
+
+.documentsCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 28px;
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.82),
+    rgba(8, 4, 18, 0.96)
+  );
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  box-shadow:
+    0 0 28px rgba(155, 48, 255, 0.08),
+    0 22px 60px rgba(0, 0, 0, 0.45);
+  display: grid;
+  gap: 12px;
+}
+
+.documentItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 11px 13px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(155, 48, 255, 0.1);
+  color: rgba(220, 215, 240, 0.72);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.documentCheck {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(155, 48, 255, 0.12);
+  border: 1px solid rgba(155, 48, 255, 0.25);
+  color: rgba(155, 48, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.visaNotesSection {
+  padding: 20px clamp(20px, 5vw, 64px) 120px;
+}
+
+.visaNotesContainer {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.visaNoticeBox {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  padding: clamp(30px, 5vw, 54px);
+  background:
+    linear-gradient(145deg, rgba(18, 10, 35, 0.86), rgba(8, 4, 18, 0.96)),
+    radial-gradient(circle at 80% 30%, rgba(155, 48, 255, 0.12), transparent 40%);
+  border: 1px solid rgba(155, 48, 255, 0.18);
+  box-shadow:
+    0 0 32px rgba(155, 48, 255, 0.1),
+    0 24px 70px rgba(0, 0, 0, 0.52);
+  text-align: center;
+}
+
+.visaNoticeBox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16%;
+  right: 16%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.85),
+    rgba(192, 38, 211, 0.5),
+    transparent
+  );
+}
+
+.visaNoticeLabel {
+  display: inline-flex;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.08);
+  border: 1px solid rgba(155, 48, 255, 0.22);
+  color: rgba(155, 48, 255, 0.86);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.visaNoticeTitle {
+  margin: 24px 0 0;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.visaNoticeText {
+  max-width: 680px;
+  margin: 18px auto 0;
+  color: rgba(210, 205, 230, 0.62);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+@media (max-width: 1024px) {
+  .visaStepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .visaHeroSection {
+    min-height: auto;
+    padding: 130px 20px 70px;
+  }
+
+  .visaStatsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .visaInfoSection {
+    padding: 80px 20px;
+  }
+
+  .visaStepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .visaDocsSection {
+    padding: 20px 0 80px;
+  }
+
+  .visaNotesSection {
+    padding: 20px 20px 90px;
   }
 }
