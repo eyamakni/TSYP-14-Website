@@ -1,0 +1,554 @@
+.page {
+  min-height: 100dvh;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  padding: 150px clamp(20px, 5vw, 64px) 80px;
+  background: #000000;
+  overflow: hidden;
+}
+
+.ambientGlowOne {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 420px;
+  background: radial-gradient(
+    ellipse,
+    rgba(155, 48, 255, 0.14) 0%,
+    transparent 70%
+  );
+  filter: blur(42px);
+  pointer-events: none;
+}
+
+.ambientGlowTwo {
+  position: absolute;
+  right: 8%;
+  bottom: 0;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(
+    circle,
+    rgba(192, 38, 211, 0.08) 0%,
+    transparent 72%
+  );
+  filter: blur(44px);
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.eyebrowLineLeft,
+.eyebrowLineRight {
+  width: 34px;
+  height: 1px;
+  display: block;
+}
+
+.eyebrowLineLeft {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.55)
+  );
+}
+
+.eyebrowLineRight {
+  background: linear-gradient(
+    90deg,
+    rgba(155, 48, 255, 0.55),
+    transparent
+  );
+}
+
+.eyebrowText {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: rgba(155, 48, 255, 0.72);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(42px, 7vw, 92px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 800;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.solidText {
+  color: #ffffff;
+}
+
+.outlinedText {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.82);
+}
+
+.subtitle {
+  max-width: 680px;
+  margin: 22px auto 0;
+  color: rgba(210, 205, 230, 0.64);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.eventInfo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(155, 48, 255, 0.16);
+}
+
+.eventInfoItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(220, 215, 240, 0.72);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  color: rgba(155, 48, 255, 0.82);
+  flex-shrink: 0;
+}
+
+.infoDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(155, 48, 255, 0.85);
+  box-shadow: 0 0 12px rgba(155, 48, 255, 0.65);
+}
+
+.programSection {
+  position: relative;
+  padding: 40px clamp(20px, 5vw, 64px) 120px;
+  background: #000000;
+}
+
+.programContainer {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.dayTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.dayButton {
+  position: relative;
+  min-height: 86px;
+  border-radius: 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(155, 48, 255, 0.14);
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.68),
+    rgba(8, 4, 18, 0.92)
+  );
+  color: rgba(220, 215, 240, 0.6);
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.dayButton::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  top: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.75),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.dayButton:hover {
+  transform: translateY(-4px);
+  border-color: rgba(155, 48, 255, 0.32);
+  color: #ffffff;
+}
+
+.dayButton:hover::before,
+.dayButtonActive::before {
+  opacity: 1;
+}
+
+.dayButtonActive {
+  border-color: rgba(155, 48, 255, 0.48);
+  background: linear-gradient(
+    145deg,
+    rgba(155, 48, 255, 0.18),
+    rgba(10, 4, 24, 0.98)
+  );
+  color: #ffffff;
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.14),
+    0 20px 52px rgba(0, 0, 0, 0.42);
+}
+
+.dayLabel {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.dayDate {
+  display: block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(155, 48, 255, 0.7);
+}
+
+.scheduleLayout {
+  display: grid;
+  grid-template-columns: 0.45fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.daySummary {
+  position: sticky;
+  top: 110px;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.86),
+    rgba(8, 4, 18, 0.96)
+  );
+  box-shadow:
+    0 0 30px rgba(155, 48, 255, 0.08),
+    0 24px 68px rgba(0, 0, 0, 0.48);
+  padding: 30px;
+}
+
+.summaryTopLine {
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.8),
+    rgba(192, 38, 211, 0.45),
+    transparent
+  );
+}
+
+.summaryLabel {
+  display: inline-flex;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.08);
+  border: 1px solid rgba(155, 48, 255, 0.22);
+  color: rgba(155, 48, 255, 0.86);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.summaryTitle {
+  margin: 24px 0 0;
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  font-weight: 800;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.summaryDate {
+  margin: 18px 0 0;
+  color: rgba(220, 215, 240, 0.56);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.summaryCount {
+  margin-top: 34px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(155, 48, 255, 0.12);
+}
+
+.summaryNumber {
+  display: block;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.summaryText {
+  display: block;
+  margin-top: 4px;
+  color: rgba(155, 48, 255, 0.68);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.timelineLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 19px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(155, 48, 255, 0.4),
+    rgba(192, 38, 211, 0.24),
+    transparent
+  );
+}
+
+.programCard {
+  position: relative;
+  overflow: hidden;
+  margin-left: 54px;
+  border-radius: 18px;
+  border: 1px solid rgba(155, 48, 255, 0.14);
+  background: linear-gradient(
+    145deg,
+    rgba(18, 10, 35, 0.74),
+    rgba(8, 4, 18, 0.94)
+  );
+  padding: 22px 24px;
+  box-shadow:
+    0 0 22px rgba(155, 48, 255, 0.06),
+    0 16px 44px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.programCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(155, 48, 255, 0.38);
+  box-shadow:
+    0 0 28px rgba(155, 48, 255, 0.14),
+    0 22px 58px rgba(0, 0, 0, 0.5);
+}
+
+.cardDot {
+  position: absolute;
+  left: -45px;
+  top: 28px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: rgba(155, 48, 255, 0.9);
+  box-shadow:
+    0 0 0 7px rgba(155, 48, 255, 0.08),
+    0 0 18px rgba(155, 48, 255, 0.72);
+}
+
+.cardTime {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(155, 48, 255, 0.78);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cardTitle {
+  margin: 12px 0 0;
+  color: #ffffff;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.cardType {
+  display: inline-flex;
+  margin-top: 16px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.07);
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  color: rgba(210, 190, 255, 0.62);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.main {
+  border-color: rgba(155, 48, 255, 0.18);
+}
+
+.break {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.networking {
+  border-color: rgba(124, 58, 237, 0.28);
+}
+
+.meal {
+  border-color: rgba(192, 38, 211, 0.24);
+}
+
+.challenge {
+  border-color: rgba(155, 48, 255, 0.34);
+}
+
+.ceremony {
+  border-color: rgba(220, 160, 255, 0.28);
+}
+
+.note {
+  margin: 34px auto 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .scheduleLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .daySummary {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 130px 20px 64px;
+  }
+
+  .programSection {
+    padding: 24px 20px 90px;
+  }
+
+  .dayTabs {
+    grid-template-columns: 1fr;
+  }
+
+  .eventInfo {
+    border-radius: 18px;
+  }
+
+  .eventInfoItem {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .daySummary {
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .timelineLine {
+    left: 12px;
+  }
+
+  .programCard {
+    margin-left: 36px;
+    padding: 20px;
+  }
+
+  .cardDot {
+    left: -31px;
+  }
+
+  .cardTime {
+    font-size: 9px;
+  }
+}

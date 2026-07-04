@@ -162,7 +162,7 @@ export default function ThemeSection() {
           <div className={styles.descriptionDivider} />
 
           <p className={styles.secondaryText}>
-            It inspires young engineers to build a shared intellectual space —
+            It inspires young engineers to build a shared intellectual space;
             where collaboration, ethics, and emerging technology truly serve
             people.
           </p>
