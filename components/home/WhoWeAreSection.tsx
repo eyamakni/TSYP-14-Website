@@ -17,7 +17,7 @@ const ORGANIZATIONS = [
     label: "Section",
     description:
       "Founded in 2008, the IEEE Tunisia Section supports IEEE initiatives across Tunisia through educational programs, networking opportunities, student activities, chapters, awards, and technology-driven initiatives.",
-    stat: "43+",
+    stat: "55+",
     statLabel: "Student Branches",
     links: {
       facebook: "https://www.facebook.com/ieee.tunisia",
