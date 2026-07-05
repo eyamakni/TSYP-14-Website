@@ -19,7 +19,7 @@ const PARTNERS: Partner[] = [
   },
   {
     name: "SPAX",
-    logo: "/partners/spax.png",
+    logo: "/partners/spax.webp",
   },
 ];
 
@@ -44,7 +44,6 @@ function PartnerCard({
   src={partner.logo}
   alt={`${partner.name} logo`}
   fill
-  sizes="240px"
   className={styles.logo}
   unoptimized
 />
