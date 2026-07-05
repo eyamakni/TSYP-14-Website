@@ -249,9 +249,7 @@ export default function AboutPage() {
         {/* Title before each team except Executive Committee */}
         {team.title !== "Executive Committee" && (
           <motion.h2
-  initial={{ opacity: 0, x: -20 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true, margin: "-50px" }}
+
   style={{
     fontSize: "18px",
     fontWeight: 800,
