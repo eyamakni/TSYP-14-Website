@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from "./speakers.module.css";
@@ -10,6 +11,7 @@ type Speaker = {
   name: string;
   country: string;
   position: string;
+  photo: string;
 };
 
 const SPEAKERS: Speaker[] = [
@@ -17,40 +19,51 @@ const SPEAKERS: Speaker[] = [
     name: "Sneha Satish Hegde",
     country: "France",
     position: "2026 Administrative Committee",
+    photo: "/speakers/sneha-hegde.jpeg",
   },
   {
     name: "Nehad El-Sherif",
     country: "Egypt",
     position:
       "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, 2024 IEEE IAS Electrical Safety Committee Excellence Award",
+    photo: "/speakers/nehad-el-sherif.jpg",
   },
   {
     name: "Ranbir Sedhey",
     country: "India",
     position:
       "IEEE International Client Services & University Partnership Program Manager",
+    photo: "/speakers/ranbir-sedhey.jpeg",
   },
   {
     name: "Ahmed Ayman",
     country: "Egypt",
     position: "Initiative Lead, MGA Student Activities Committee",
+    photo: "/speakers/ahmed-ayman.jpeg",
   },
   {
     name: "Mohamed Saaed Darweesh",
     country: "Egypt",
     position:
       "R8 YP Chair, IEEE MGA Young Professionals Member 2025–2026, IEEE HTB Programs Committee Member",
+    photo: "/speakers/mohamed-darweesh.jpeg",
   },
   {
     name: "Andrew Douglas Lowery",
     country: "USA",
     position: "IEEE MGA VP",
+    photo: "/speakers/andrew-lowery.jpg",
   },
 ];
 
 function CountryIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
       <path
         d="M2 12h20M12 2c3 3 4.5 6.5 4.5 10S15 19 12 22M12 2C9 5 7.5 8.5 7.5 12S9 19 12 22"
@@ -64,7 +77,12 @@ function CountryIcon() {
 
 function RoleIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
       <path
         d="M12 14c3.31 0 6-2.69 6-6S15.31 2 12 2 6 4.69 6 8s2.69 6 6 6Z"
         stroke="currentColor"
@@ -89,13 +107,6 @@ function SpeakerCard({
   index: number;
   inView: boolean;
 }) {
-  const initials = speaker.name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
   return (
     <motion.article
       className={styles.card}
@@ -112,10 +123,17 @@ function SpeakerCard({
       <div className={styles.cardTopLine} />
       <div className={styles.cardGlow} />
 
-      <div className={styles.cardHeader}>
-        <div className={styles.avatar}>{initials}</div>
+      <div className={styles.photoFrame}>
+        <Image
+          src={speaker.photo}
+          alt={`${speaker.name} photo`}
+          fill
+          sizes="(max-width: 768px) 100vw, 360px"
+          className={styles.speakerPhoto}
+          unoptimized
+        />
 
-
+        <div className={styles.photoOverlay} />
       </div>
 
       <div className={styles.cardBody}>
@@ -190,7 +208,7 @@ export default function SpeakersPage() {
             <div className={styles.statDivider} />
 
             <div className={styles.statItem}>
-              <span className={styles.statValue}>05</span>
+              <span className={styles.statValue}>04</span>
               <span className={styles.statLabel}>Countries</span>
             </div>
 

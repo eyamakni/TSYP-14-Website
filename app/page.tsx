@@ -14,8 +14,8 @@ export default function Home() {
         <CountdownSection />
         <AboutSection />
         <WhoWeAreSection />
-        <ThemeSection />
         <PartnersSection />
+        <ThemeSection />
         <EditionsSection />
         <MemoriesSection />
       </main>
