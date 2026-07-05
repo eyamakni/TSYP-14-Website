@@ -14,6 +14,7 @@ type Edition = {
   date: string;
   participants: string;
   venue: string;
+  website?: string;
 };
 
 const EDITIONS: Edition[] = [
@@ -24,7 +25,8 @@ const EDITIONS: Edition[] = [
     host: "IEEE ENIS SB",
     date: "22–24 December 2025",
     participants: "1200+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
+    website: "https://tsyp.ieee.tn/",
   },
   {
     id: "tsyp12",
@@ -33,7 +35,8 @@ const EDITIONS: Edition[] = [
     host: "IEEE ENET'COM SB",
     date: "22–24 December 2024",
     participants: "1200+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
+    website: "https://2024-tsyp.ieee.tn/",
   },
   {
     id: "tsyp11",
@@ -42,7 +45,8 @@ const EDITIONS: Edition[] = [
     host: "IEEE ESSTHS SB",
     date: "18–20 December 2023",
     participants: "1200+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
+    website: "https://2023-tsyp.ieee.tn/",
   },
   {
     id: "tsyp10",
@@ -60,7 +64,7 @@ const EDITIONS: Edition[] = [
     host: "IEEE ENIS SB",
     date: "20–22 December 2021",
     participants: "700+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
   },
   {
     id: "tsyp8",
@@ -69,7 +73,7 @@ const EDITIONS: Edition[] = [
     host: "IEEE ENIG SB",
     date: "14–16 March 2021",
     participants: "500+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
   },
   {
     id: "tsyp7",
@@ -78,7 +82,7 @@ const EDITIONS: Edition[] = [
     host: "IEEE ENIT SB",
     date: "16–18 December 2019",
     participants: "1200+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
   },
   {
     id: "tsyp6",
@@ -87,7 +91,7 @@ const EDITIONS: Edition[] = [
     host: "IEEE INSAT SB",
     date: "16–18 December 2018",
     participants: "1000+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
   },
   {
     id: "tsyp5",
@@ -105,7 +109,7 @@ const EDITIONS: Edition[] = [
     host: "IEEE ULT SB",
     date: "18–20 December 2016",
     participants: "500+ Participants",
-    venue: "Medina Congress Center, Hammamet",
+    venue: "Medina Congress Center, Yasmine Hammamet",
   },
   {
     id: "tsbc3",
@@ -140,16 +144,38 @@ const LOOP_EDITIONS = [...EDITIONS, ...EDITIONS];
 
 function CalendarIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
-      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" />
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="18"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M16 2v4M8 2v4M3 10h18"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
     </svg>
   );
 }
 
 function PeopleIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
       <path
         d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
         stroke="currentColor"
@@ -167,7 +193,12 @@ function PeopleIcon() {
 
 function LocationIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
       <path
         d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"
         stroke="currentColor"
@@ -178,9 +209,28 @@ function LocationIcon() {
   );
 }
 
-function EditionCard({ edition }: { edition: Edition }) {
+function ExternalIcon() {
   return (
-    <article className={styles.card}>
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M7 17 17 7M10 7h7v7"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function EditionCardContent({ edition }: { edition: Edition }) {
+  return (
+    <>
       <div className={styles.cardTopLine} />
       <div className={styles.cardGlow} />
 
@@ -210,7 +260,60 @@ function EditionCard({ edition }: { edition: Edition }) {
         </div>
       </div>
 
+      {edition.website && (
+        <div
+          style={{
+            position: "relative",
+            zIndex: 3,
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            width: "fit-content",
+            marginTop: "22px",
+            padding: "8px 12px",
+            borderRadius: "999px",
+            background: "rgba(155, 48, 255, 0.08)",
+            border: "1px solid rgba(155, 48, 255, 0.2)",
+            color: "rgba(210, 190, 255, 0.82)",
+            fontSize: "9px",
+            fontWeight: 800,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+          }}
+        >
+          Visit Website
+          <ExternalIcon />
+        </div>
+      )}
+
       <span className={styles.cardWatermark}>{edition.year}</span>
+    </>
+  );
+}
+
+function EditionCard({ edition }: { edition: Edition }) {
+  if (edition.website) {
+    return (
+      <a
+        href={edition.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.card}
+        style={{
+          color: "inherit",
+          textDecoration: "none",
+          cursor: "pointer",
+        }}
+        aria-label={`Open ${edition.title} website`}
+      >
+        <EditionCardContent edition={edition} />
+      </a>
+    );
+  }
+
+  return (
+    <article className={styles.card}>
+      <EditionCardContent edition={edition} />
     </article>
   );
 }
@@ -244,7 +347,8 @@ export default function EditionsSection() {
           </h2>
 
           <p className={styles.subtitle}>
-            A continuous journey through the editions that shaped the TSYP legacy.
+            A continuous journey through the editions that shaped the TSYP
+            legacy.
           </p>
         </motion.div>
       </div>

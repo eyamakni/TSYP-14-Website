@@ -423,3 +423,19 @@
     font-size: 54px;
   }
 }
+.editionCard {
+  color: inherit;
+  text-decoration: none;
+}
+
+.clickableCard {
+  cursor: pointer;
+}
+
+.clickableCard:hover {
+  border-color: rgba(155, 48, 255, 0.48);
+}
+
+.clickableCard:hover .editionTitle {
+  color: #ffffff;
+}

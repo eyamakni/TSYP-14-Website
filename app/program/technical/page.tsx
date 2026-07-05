@@ -9,7 +9,6 @@ const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
 type ProgramItem = {
   time: string;
   title: string;
-  type: "main" | "break" | "networking" | "meal" | "challenge" | "ceremony";
 };
 
 type ProgramDay = {
@@ -30,32 +29,26 @@ const PROGRAM_DAYS: ProgramDay[] = [
       {
         time: "8:00 AM - 12:00 PM",
         title: "Check-in & Booth Setup",
-        type: "main",
       },
       {
         time: "1:30 PM - 5:00 PM",
         title: "Opening Ceremony",
-        type: "ceremony",
       },
       {
         time: "5:00 PM - 5:30 PM",
         title: "Networking Break",
-        type: "break",
       },
       {
         time: "5:30 PM - 7:30 PM",
         title: "Job Fair",
-        type: "networking",
       },
       {
         time: "7:30 PM - 9:30 PM",
         title: "Dinner",
-        type: "meal",
       },
       {
         time: "9:30 PM - 12:00 AM",
         title: "Networking Night & Surprise Challenge",
-        type: "challenge",
       },
     ],
   },
@@ -68,57 +61,46 @@ const PROGRAM_DAYS: ProgramDay[] = [
       {
         time: "7:00 AM - 8:30 AM",
         title: "Breakfast",
-        type: "meal",
       },
       {
         time: "9:00 AM - 10:30 AM",
         title: "Workshops, Technical Challenge Pitching & Noosphere Forum",
-        type: "main",
       },
       {
         time: "10:30 AM - 11:00 AM",
         title: "Networking Break",
-        type: "break",
       },
       {
         time: "11:00 AM - 12:30 PM",
         title: "Workshops, Technical Challenge Pitching & Noosphere Forum",
-        type: "main",
       },
       {
         time: "12:30 PM - 2:00 PM",
         title: "Networking Break",
-        type: "break",
       },
       {
         time: "2:30 PM - 4:00 PM",
         title: "Workshops, Technical Challenge Pitching & Noosphere Forum",
-        type: "main",
       },
       {
         time: "4:00 PM - 4:30 PM",
         title: "Networking Break",
-        type: "break",
       },
       {
         time: "4:30 PM - 6:00 PM",
         title: "Workshops, Technical Challenge Pitching & Noosphere Forum",
-        type: "main",
       },
       {
         time: "6:00 PM - 7:00 PM",
         title: "Transition Break",
-        type: "break",
       },
       {
         time: "7:00 PM - 8:30 PM",
         title: "Dinner",
-        type: "meal",
       },
       {
         time: "9:00 PM - 12:00 AM",
         title: "Awards Ceremony",
-        type: "ceremony",
       },
     ],
   },
@@ -131,27 +113,22 @@ const PROGRAM_DAYS: ProgramDay[] = [
       {
         time: "7:00 AM - 9:00 AM",
         title: "Breakfast & Check-out",
-        type: "meal",
       },
       {
         time: "9:30 AM - 10:30 AM",
         title: "Tunisia Section Awards",
-        type: "ceremony",
       },
       {
         time: "10:30 AM - 12:30 PM",
         title: "Three Finalists Pitching, Q&A & Voting",
-        type: "challenge",
       },
       {
         time: "12:30 PM - 12:50 PM",
         title: "Winner Announcement",
-        type: "ceremony",
       },
       {
         time: "12:50 PM - 1:00 PM",
         title: "Closing Word",
-        type: "main",
       },
     ],
   },
@@ -159,18 +136,45 @@ const PROGRAM_DAYS: ProgramDay[] = [
 
 function CalendarIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
-      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" />
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <rect
+        x="3"
+        y="4"
+        width="18"
+        height="18"
+        rx="2"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <path
+        d="M16 2v4M8 2v4M3 10h18"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
     </svg>
   );
 }
 
 function ClockIcon() {
   return (
-    <svg className={styles.icon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-      <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M12 6v6l4 2"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -184,7 +188,7 @@ function ProgramCard({
 }) {
   return (
     <motion.article
-      className={`${styles.programCard} ${styles[item.type]}`}
+      className={styles.programCard}
       initial={{ opacity: 0, x: -24 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{
@@ -193,16 +197,12 @@ function ProgramCard({
         delay: index * 0.045,
       }}
     >
-      <div className={styles.cardDot} />
-
       <div className={styles.cardTime}>
         <ClockIcon />
         <span>{item.time}</span>
       </div>
 
       <h3 className={styles.cardTitle}>{item.title}</h3>
-
-      <span className={styles.cardType}>{item.type}</span>
     </motion.article>
   );
 }
@@ -250,7 +250,7 @@ export default function TechnicalProgramPage() {
 
             <div className={styles.eventInfoItem}>
               <span className={styles.infoDot} />
-              <span>Medina Congress Center, Hammamet, Tunisia</span>
+              <span>Medina Congress Center, Yasmine Hammamet, Tunisia</span>
             </div>
           </div>
         </motion.div>
@@ -296,14 +296,17 @@ export default function TechnicalProgramPage() {
                 <h2 className={styles.summaryTitle}>{activeDay.title}</h2>
 
                 <p className={styles.summaryDate}>{activeDay.dateLabel}</p>
-
               </aside>
 
               <div className={styles.timeline}>
                 <div className={styles.timelineLine} />
 
                 {activeDay.items.map((item, index) => (
-                  <ProgramCard key={`${item.time}-${item.title}`} item={item} index={index} />
+                  <ProgramCard
+                    key={`${item.time}-${item.title}`}
+                    item={item}
+                    index={index}
+                  />
                 ))}
               </div>
             </motion.div>
