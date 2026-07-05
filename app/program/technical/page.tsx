@@ -297,12 +297,6 @@ export default function TechnicalProgramPage() {
 
                 <p className={styles.summaryDate}>{activeDay.dateLabel}</p>
 
-                <div className={styles.summaryCount}>
-                  <span className={styles.summaryNumber}>
-                    {String(activeDay.items.length).padStart(2, "0")}
-                  </span>
-                  <span className={styles.summaryText}>Program Slots</span>
-                </div>
               </aside>
 
               <div className={styles.timeline}>

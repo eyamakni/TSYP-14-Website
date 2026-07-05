@@ -115,9 +115,7 @@ function SpeakerCard({
       <div className={styles.cardHeader}>
         <div className={styles.avatar}>{initials}</div>
 
-        <div className={styles.speakerNumber}>
-          {String(index + 1).padStart(2, "0")}
-        </div>
+
       </div>
 
       <div className={styles.cardBody}>

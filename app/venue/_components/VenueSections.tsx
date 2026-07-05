@@ -504,26 +504,7 @@ export function VenueMap() {
         </div>
 
         <div className={styles.arrowButtons}>
-          <button
-            className={styles.roundButton}
-            onClick={() =>
-              setActiveMap(
-                (previous) =>
-                  (previous - 1 + VENUE_MAPS.length) % VENUE_MAPS.length
-              )
-            }
-          >
-            <ChevronLeft />
-          </button>
 
-          <button
-            className={styles.roundButton}
-            onClick={() =>
-              setActiveMap((previous) => (previous + 1) % VENUE_MAPS.length)
-            }
-          >
-            <ChevronRight />
-          </button>
         </div>
       </motion.div>
     </section>
