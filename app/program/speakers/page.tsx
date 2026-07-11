@@ -16,43 +16,37 @@ type Speaker = {
 
 const SPEAKERS: Speaker[] = [
   {
-    name: "Sneha Satish Hegde",
-    country: "France",
-    position: "2026 Administrative Committee",
-    photo: "/speakers/sneha-hegde.jpeg",
-  },
-  {
-    name: "Nehad El-Sherif",
-    country: "Egypt",
-    position:
-      "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, 2024 IEEE IAS Electrical Safety Committee Excellence Award",
-    photo: "/speakers/nehad-el-sherif.jpg",
-  },
-  {
-    name: "Ranbir Sedhey",
-    country: "India",
-    position:
-      "IEEE International Client Services & University Partnership Program Manager",
-    photo: "/speakers/ranbir-sedhey.jpeg",
+    name: "Andrew Douglas Lowery",
+    country: "USA",
+    position: "IEEE Member and Geographic Activities Vice President",
+    photo: "/speakers/andrew-lowery.jpg",
   },
   {
     name: "Ahmed Ayman",
     country: "Egypt",
-    position: "Initiative Lead, MGA Student Activities Committee",
+    position: "Initiative Lead, IEEE MGA Student Activities Committee",
     photo: "/speakers/ahmed-ayman.jpeg",
   },
   {
     name: "Mohamed Saaed Darweesh",
     country: "Egypt",
     position:
-      "R8 YP Chair, IEEE MGA Young Professionals Member 2025–2026, IEEE HTB Programs Committee Member",
+      "IEEE Region 8 Young Professionals Chair, IEEE MGA Young Professionals Committee Member 2025–2026, and IEEE HTB Programs Committee Member",
     photo: "/speakers/mohamed-darweesh.jpeg",
   },
   {
-    name: "Andrew Douglas Lowery",
-    country: "USA",
-    position: "IEEE MGA VP",
-    photo: "/speakers/andrew-lowery.jpg",
+    name: "Sneha Satish Hegde",
+    country: "France",
+    position:
+      "Chair, IEEE Dielectrics and Electrical Insulation Society Women in Engineering Committee 2026",
+    photo: "/speakers/sneha-hegde.jpeg",
+  },
+  {
+    name: "Nehad El-Sherif",
+    country: "Egypt",
+    position:
+      "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, and Recipient of the 2024 IEEE IAS Electrical Safety Committee Excellence Award",
+    photo: "/speakers/nehad-el-sherif.jpg",
   },
 ];
 
