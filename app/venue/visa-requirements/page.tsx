@@ -234,19 +234,63 @@ function VisaHero() {
       >
         <div className={styles.eyebrow}>
           <span className={styles.eyebrowLineLeft} />
-          <span className={styles.eyebrowText}>Travel Information</span>
+          <span className={styles.eyebrowText}>For Travelers to Tunisia</span>
           <span className={styles.eyebrowLineRight} />
         </div>
 
         <h1 className={styles.title}>
           <span className={styles.solidText}>Visa </span>
-          <span className={styles.gradientText}>Requirements</span>
+          <span className={styles.gradientText}>Info</span>
         </h1>
 
         <p className={styles.heroText}>
-          Review visa-free entry, special duration cases, and application options
-          before traveling to Tunisia for TSYP XIV.
+          Find out whether you may need a visa to travel to Tunisia, explore
+          visa-free entry information, and prepare the documents required for
+          your participation in TSYP XIV.
         </p>
+      </motion.div>
+    </section>
+  );
+}
+function VisaPolicySection() {
+  return (
+    <section className={styles.policySection}>
+      <div className={styles.sectionGlow} />
+
+      <motion.div
+        className={styles.policyCard}
+        initial={{ opacity: 0, y: 26 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-70px" }}
+        transition={{ duration: 0.75, ease: EASE }}
+      >
+        <span className={styles.policyLabel}>Before You Travel</span>
+
+        <h2 className={styles.policyTitle}>Visa Policy for Tunisia</h2>
+
+        <p className={styles.policyText}>
+          Entry requirements for Tunisia depend on your nationality, passport
+          type, purpose of travel, and intended duration of stay. Some travelers
+          may enter Tunisia without a visa for a limited period, while others
+          must obtain authorization from a Tunisian embassy or consulate before
+          departure.
+        </p>
+
+        <div className={styles.policyNotice}>
+          <span className={styles.policyNoticeIcon}>!</span>
+
+          <div>
+            <strong>Important travel notice</strong>
+
+            <p>
+              The information presented on this page is intended as an initial
+              guide for TSYP XIV participants. Before booking flights or making
+              final travel arrangements, verify the latest requirements with the
+              Tunisian embassy or consulate responsible for your country of
+              residence.
+            </p>
+          </div>
+        </div>
       </motion.div>
     </section>
   );
@@ -393,20 +437,19 @@ function HowToApplySection() {
         >
           <div className={styles.eyebrow}>
             <span className={styles.eyebrowLineLeft} />
-            <span className={styles.eyebrowText}>TSYP Travel Path</span>
+            <span className={styles.eyebrowText}>Visa Preparation</span>
             <span className={styles.eyebrowLineRight} />
           </div>
 
           <h2 className={styles.sectionTitle}>
-            Prepare Your{" "}
-            <span className={styles.outlinedText}>Journey to Tunisia</span>
-          </h2>
-
-          <p className={styles.applySubtitle}>
-            A TSYP-focused guide to help international participants organize
-            their travel documents, visa support needs, and final checks before
-            arriving in Hammamet.
-          </p>
+  Prepare Your{" "}
+  <span className={styles.outlinedText}>Visa Application</span>
+</h2>
+<p className={styles.applySubtitle}>
+  Follow these steps to verify your entry status, prepare your participant
+  file, request event-related documentation, and complete your application
+  early.
+</p>
         </motion.div>
 
         <div className={styles.travelGuideGrid}>
@@ -466,15 +509,148 @@ function HowToApplySection() {
     </section>
   );
 }
+const IMPORTANT_VISA_NOTES = [
+  {
+    number: "01",
+    title: "Verify Requirements Early",
+    text:
+      "All TSYP XIV participants are responsible for checking and fulfilling their own entry and visa requirements before traveling to Tunisia.",
+  },
+  {
+    number: "02",
+    title: "Regulations Vary by Nationality",
+    text:
+      "Visa procedures, supporting documents, permitted stay durations, fees, and processing times can differ depending on nationality and passport type.",
+  },
+  {
+    number: "03",
+    title: "Begin the Process Early",
+    text:
+      "Participants who require a visa should begin the application process as early as possible to avoid delays or last-minute travel complications.",
+  },
+];
 
+function ImportantVisaNotesSection() {
+  return (
+    <section className={styles.importantNotesSection}>
+      <div className={styles.sectionGlowLeft} />
+
+      <div className={styles.container}>
+        <motion.div
+          className={styles.applyHeader}
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-70px" }}
+          transition={{ duration: 0.75, ease: EASE }}
+        >
+          <div className={styles.eyebrow}>
+            <span className={styles.eyebrowLineLeft} />
+            <span className={styles.eyebrowText}>Participant Guidance</span>
+            <span className={styles.eyebrowLineRight} />
+          </div>
+
+          <h2 className={styles.sectionTitle}>
+            Important <span className={styles.outlinedText}>Visa Notes</span>
+          </h2>
+
+          <p className={styles.applySubtitle}>
+            Please review these points carefully before completing your travel
+            arrangements for TSYP XIV.
+          </p>
+        </motion.div>
+
+        <div className={styles.importantNotesGrid}>
+          {IMPORTANT_VISA_NOTES.map((note, index) => (
+            <motion.article
+              key={note.number}
+              className={styles.importantNoteCard}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.65,
+                ease: EASE,
+                delay: index * 0.08,
+              }}
+            >
+              <span className={styles.importantNoteNumber}>
+                {note.number}
+              </span>
+
+              <h3 className={styles.importantNoteTitle}>{note.title}</h3>
+
+              <p className={styles.importantNoteText}>{note.text}</p>
+            </motion.article>
+          ))}
+        </div>
+
+        <motion.div
+          className={styles.invitationLetterCard}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.16 }}
+        >
+          <div className={styles.invitationLetterHeader}>
+            <span className={styles.invitationLetterIcon}>✦</span>
+
+            <div>
+              <span className={styles.invitationLetterLabel}>
+                TSYP XIV Documentation
+              </span>
+
+              <h3 className={styles.invitationLetterTitle}>
+                Conference Invitation Letter
+              </h3>
+            </div>
+          </div>
+
+          <p className={styles.invitationLetterText}>
+            After your registration fees have been successfully paid and your
+            participation has been confirmed, an official conference invitation
+            letter may be made available to support your visa application.
+          </p>
+
+          <div className={styles.organizerNotice}>
+            <strong>Please note</strong>
+
+            <p>
+              The invitation letter confirms participation in TSYP XIV. It does
+              not guarantee that a visa will be issued. Conference organizers
+              cannot submit individual visa applications, influence processing
+              times, contact embassies on a participant&apos;s behalf, or
+              intervene in decisions made by diplomatic authorities.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.a
+          href="https://www.diplomatie.gov.tn/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.embassyButton}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
+        >
+          Find Tunisian Embassies &amp; Consulates
+          <span aria-hidden="true">↗</span>
+        </motion.a>
+      </div>
+    </section>
+  );
+}
 export default function VisaRequirementsPage() {
   return (
     <main className={styles.page}>
       <VisaHero />
+      <VisaPolicySection />
       <VisaChecker />
       <VisaFreeEntrySection />
       <SpecialDurationSection />
       <HowToApplySection />
+      <ImportantVisaNotesSection />
     </main>
   );
 }
