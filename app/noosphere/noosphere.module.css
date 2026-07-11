@@ -1,0 +1,403 @@
+.page {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.hero {
+  position: relative;
+  min-height: 92dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 145px clamp(20px, 5vw, 64px) 90px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.heroGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 65% 50% at 50% 30%,
+      rgba(155, 48, 255, 0.17),
+      transparent 72%
+    ),
+    radial-gradient(
+      circle at 75% 70%,
+      rgba(192, 38, 211, 0.07),
+      transparent 35%
+    );
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.055) 1px,
+    transparent 1px
+  );
+  background-size: 31px 31px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.watermark {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.045);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(90px, 16vw, 245px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.eyebrowLineLeft,
+.eyebrowLineRight {
+  width: 34px;
+  height: 1px;
+  display: block;
+}
+
+.eyebrowLineLeft {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.58)
+  );
+}
+
+.eyebrowLineRight {
+  background: linear-gradient(
+    90deg,
+    rgba(155, 48, 255, 0.58),
+    transparent
+  );
+}
+
+.eyebrowText {
+  color: rgba(155, 48, 255, 0.72);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.37em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(44px, 7.5vw, 104px);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.solidText {
+  color: #ffffff;
+}
+
+.outlinedText {
+  display: block;
+  margin-top: 10px;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.88);
+}
+
+.heroText {
+  max-width: 760px;
+  margin: 28px auto 0;
+  color: rgba(215, 210, 235, 0.66);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.85;
+}
+
+.explanationSection {
+  position: relative;
+  padding: 90px clamp(20px, 5vw, 64px) 130px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.definitionCard {
+  position: relative;
+  min-height: 470px;
+  padding: clamp(28px, 4vw, 44px);
+  overflow: hidden;
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  border-radius: 27px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 10, 35, 0.9),
+      rgba(8, 4, 18, 0.98)
+    ),
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(155, 48, 255, 0.12),
+      transparent 45%
+    );
+  box-shadow:
+    0 0 32px rgba(155, 48, 255, 0.08),
+    0 24px 72px rgba(0, 0, 0, 0.5);
+}
+
+.cardTopLine {
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.84),
+    rgba(192, 38, 211, 0.48),
+    transparent
+  );
+  box-shadow: 0 0 24px rgba(155, 48, 255, 0.32);
+}
+
+.iconBox {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 27px;
+  border: 1px solid rgba(155, 48, 255, 0.25);
+  border-radius: 18px;
+  background: rgba(155, 48, 255, 0.1);
+  color: rgba(195, 160, 255, 0.92);
+  box-shadow: 0 0 24px rgba(155, 48, 255, 0.11);
+}
+
+.icon {
+  width: 29px;
+  height: 29px;
+}
+
+.cardLabel {
+  display: inline-flex;
+  padding: 6px 11px;
+  border: 1px solid rgba(155, 48, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.07);
+  color: rgba(190, 155, 255, 0.8);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  margin: 21px 0 0;
+  color: #ffffff;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(27px, 3.5vw, 42px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.paragraph {
+  margin: 18px 0 0;
+  color: rgba(215, 210, 235, 0.63);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.statementCard {
+  position: relative;
+  margin-top: 28px;
+  padding: clamp(32px, 5vw, 58px);
+  overflow: hidden;
+  border: 1px solid rgba(155, 48, 255, 0.22);
+  border-radius: 28px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(22, 11, 44, 0.94),
+      rgba(8, 4, 18, 0.99)
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(155, 48, 255, 0.2),
+      transparent 42%
+    );
+  text-align: center;
+  box-shadow:
+    0 0 42px rgba(155, 48, 255, 0.12),
+    0 28px 82px rgba(0, 0, 0, 0.58);
+}
+
+.statementLabel {
+  display: inline-flex;
+  padding: 7px 13px;
+  border: 1px solid rgba(155, 48, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.1);
+  color: rgba(200, 170, 255, 0.9);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.statementText {
+  max-width: 950px;
+  margin: 25px auto 0;
+  color: #ffffff;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(24px, 4vw, 46px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.035em;
+}
+
+.ideasGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.ideaCard {
+  position: relative;
+  min-height: 300px;
+  padding: 27px 23px;
+  overflow: hidden;
+  border: 1px solid rgba(155, 48, 255, 0.14);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(17, 9, 33, 0.86),
+    rgba(7, 3, 17, 0.98)
+  );
+  box-shadow:
+    0 0 25px rgba(155, 48, 255, 0.06),
+    0 20px 56px rgba(0, 0, 0, 0.44);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ideaCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(155, 48, 255, 0.38);
+  box-shadow:
+    0 0 32px rgba(155, 48, 255, 0.14),
+    0 26px 66px rgba(0, 0, 0, 0.54);
+}
+
+.ideaNumber {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.64);
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.ideaTitle {
+  margin: 25px 0 0;
+  color: #ffffff;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+}
+
+.ideaText {
+  margin: 14px 0 0;
+  color: rgba(215, 210, 235, 0.59);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+@media (max-width: 1024px) {
+  .introGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .definitionCard {
+    min-height: auto;
+  }
+
+  .ideasGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+    padding: 135px 20px 85px;
+  }
+
+  .watermark {
+    font-size: 24vw;
+  }
+
+  .eyebrowText {
+    letter-spacing: 0.23em;
+  }
+
+  .explanationSection {
+    padding: 70px 20px 100px;
+  }
+
+  .definitionCard,
+  .statementCard {
+    border-radius: 22px;
+  }
+
+  .ideasGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ideaCard {
+    min-height: auto;
+  }
+}

@@ -8,7 +8,7 @@ const LINKS = ["Home", "The Noosphere", "Program", "Venue", "About Us"];
 
 const LINK_HREFS: Record<string, string> = {
   Home: "/",
-  "The Noosphere": "/#theme",
+  "The Noosphere": "/noosphere",
   Program: "/program/technical",
   Venue: "/venue/congress-venue",
   "About Us": "/about",
