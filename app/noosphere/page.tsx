@@ -95,10 +95,14 @@ export default function NoospherePage() {
             <span className={styles.eyebrowLineRight} />
           </div>
 
-          <h1 className={styles.title}>
-            <span className={styles.solidText}>Architects of the </span>
-            <span className={styles.outlinedText}>Noosphere</span>
-          </h1>
+         <h1 className={styles.title}>
+  <span className={styles.solidText}>
+    Architects of
+    <span className={styles.titleWordGap}>the</span>
+  </span>
+
+  <span className={styles.outlinedText}>Noosphere</span>
+</h1>
 
           <p className={styles.heroText}>
             Designing ethical, collaborative intelligence systems that help
@@ -163,22 +167,30 @@ export default function NoospherePage() {
               </p>
             </article>
           </motion.div>
+<motion.section
+  className={styles.missionBlock}
+  initial={{ opacity: 0, y: 24 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-70px" }}
+  transition={{ duration: 0.75, ease: EASE }}
+>
+  <div className={styles.missionAside}>
+    <span className={styles.missionLabel}>Core Vision</span>
+    <span className={styles.missionNumber}>01</span>
+  </div>
 
-          <motion.div
-            className={styles.statementCard}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-70px" }}
-            transition={{ duration: 0.75, ease: EASE }}
-          >
-            <span className={styles.statementLabel}>In One Sentence</span>
+  <div className={styles.missionContent}>
+    <h2 className={styles.missionHeading}>
+      Designing intelligence that communities can trust.
+    </h2>
 
-            <p className={styles.statementText}>
-              Student teams design ethical, collaborative intelligence systems, whether
-technological, organizational, or social, that strengthen how communities
-decide and recover under pressure.
-            </p>
-          </motion.div>
+    <p className={styles.missionText}>
+      Student teams design ethical, collaborative intelligence systems across
+      technological, organizational, and social contexts to strengthen how
+      communities decide and recover under pressure.
+    </p>
+  </div>
+</motion.section>
 
           <div className={styles.ideasGrid}>
             {KEY_IDEAS.map((idea, index) => (
