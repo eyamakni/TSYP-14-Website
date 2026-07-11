@@ -955,14 +955,7 @@ export function CurrencyConverter() {
                   </p>
                 )}
 
-                <a
-                  href="https://www.exchangerate-api.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.rateAttribution}
-                >
-                  Rates by ExchangeRate-API
-                </a>
+                
               </>
             )}
           </motion.div>
