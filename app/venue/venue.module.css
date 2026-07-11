@@ -1479,3 +1479,49 @@
     padding: 20px 20px 90px;
   }
 }
+.currencyStatus {
+  margin: 16px 0 0;
+  color: rgba(210, 205, 230, 0.62);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.currencyError {
+  color: rgba(248, 113, 113, 0.9);
+}
+
+.exchangeRateText {
+  margin: 13px 0 0;
+  color: rgba(210, 190, 255, 0.72);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.rateUpdateText {
+  margin: 8px 0 0;
+  color: rgba(200, 195, 220, 0.45);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.rateAttribution {
+  display: inline-flex;
+  margin-top: 9px;
+  color: rgba(155, 48, 255, 0.68);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.rateAttribution:hover {
+  color: #ffffff;
+}
+
+.selectInput:disabled,
+.amountInput:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

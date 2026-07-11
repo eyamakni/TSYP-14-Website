@@ -218,20 +218,20 @@ export const VISA_FREE = [
   "Zimbabwe",
 ];
 
-export const CURRENCIES: Record<string, { name: string; rate: number }> = {
-  USD: { name: "US Dollar", rate: 3.12 },
-  EUR: { name: "Euro", rate: 3.42 },
-  GBP: { name: "British Pound", rate: 3.95 },
-  CAD: { name: "Canadian Dollar", rate: 2.28 },
-  AED: { name: "UAE Dirham", rate: 0.85 },
-  SAR: { name: "Saudi Riyal", rate: 0.83 },
-  JPY: { name: "Japanese Yen", rate: 0.021 },
-  INR: { name: "Indian Rupee", rate: 0.037 },
-  CNY: { name: "Chinese Yuan", rate: 0.43 },
-  MAD: { name: "Moroccan Dirham", rate: 0.31 },
-  EGP: { name: "Egyptian Pound", rate: 0.064 },
-  DZD: { name: "Algerian Dinar", rate: 0.023 },
-  LYD: { name: "Libyan Dinar", rate: 0.65 },
+export const CURRENCIES: Record<string, { name: string }> = {
+  USD: { name: "US Dollar" },
+  EUR: { name: "Euro" },
+  GBP: { name: "British Pound" },
+  CAD: { name: "Canadian Dollar" },
+  AED: { name: "UAE Dirham" },
+  SAR: { name: "Saudi Riyal" },
+  JPY: { name: "Japanese Yen" },
+  INR: { name: "Indian Rupee" },
+  CNY: { name: "Chinese Yuan" },
+  MAD: { name: "Moroccan Dirham" },
+  EGP: { name: "Egyptian Pound" },
+  DZD: { name: "Algerian Dinar" },
+  LYD: { name: "Libyan Dinar" },
 };
 
 export const FLOATING_FLAGS = [

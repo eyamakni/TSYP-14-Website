@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState } from "react";import { motion, useInView, AnimatePresence } from "framer-motion";
 import styles from "../venue.module.css";
 import {
   CURRENCIES,
@@ -749,15 +748,91 @@ export function VisaChecker() {
   );
 }
 
+type CurrencyApiResponse = {
+  base: string;
+  rates: Record<string, number>;
+  lastUpdated: string | null;
+  nextUpdate: string | null;
+  error?: string;
+};
+
 export function CurrencyConverter() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+
   const [from, setFrom] = useState("USD");
   const [amount, setAmount] = useState("");
+  const [rates, setRates] = useState<Record<string, number>>({});
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const converted = amount
-    ? (parseFloat(amount) * (CURRENCIES[from]?.rate || 0)).toFixed(2)
-    : "0.00";
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function loadRates() {
+      try {
+        setIsLoading(true);
+        setError("");
+
+        const response = await fetch("/api/exchange-rates", {
+          signal: controller.signal,
+        });
+
+        const data = (await response.json()) as CurrencyApiResponse;
+
+        if (!response.ok || data.error) {
+          throw new Error(data.error ?? "Unable to retrieve exchange rates.");
+        }
+
+        setRates(data.rates);
+        setLastUpdated(data.lastUpdated);
+      } catch (requestError) {
+        if (
+          requestError instanceof Error &&
+          requestError.name === "AbortError"
+        ) {
+          return;
+        }
+
+        console.error(requestError);
+        setError(
+          "Live exchange rates are temporarily unavailable. Please try again later."
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadRates();
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  const numericAmount = Number.parseFloat(amount);
+  const foreignUnitsPerTnd = rates[from];
+
+  /*
+   * API base: TND
+   *
+   * Example:
+   * 1 TND = 0.34 USD
+   * 100 USD / 0.34 = approximately 294 TND
+   */
+  const convertedValue =
+    Number.isFinite(numericAmount) &&
+    numericAmount >= 0 &&
+    typeof foreignUnitsPerTnd === "number" &&
+    foreignUnitsPerTnd > 0
+      ? numericAmount / foreignUnitsPerTnd
+      : 0;
+
+  const converted = new Intl.NumberFormat("en-US", {
+    minimumFractionDigits: 3,
+    maximumFractionDigits: 3,
+  }).format(convertedValue);
 
   return (
     <section
@@ -782,17 +857,24 @@ export function CurrencyConverter() {
 
             <p className={styles.paragraphSmall}>
               The national currency is the{" "}
-              <strong>Tunisian Dinar (TND)</strong>. The converter below uses
-              static rates for display purposes.
+              <strong>Tunisian Dinar (TND)</strong>. Convert foreign currencies
+              using the latest available daily exchange rates.
             </p>
 
             <div className={styles.currencyControls}>
-              <span className={styles.currencyLabel}>From</span>
+              <label
+                htmlFor="source-currency"
+                className={styles.currencyLabel}
+              >
+                From
+              </label>
 
               <select
+                id="source-currency"
                 value={from}
                 onChange={(event) => setFrom(event.target.value)}
                 className={styles.selectInput}
+                disabled={isLoading}
               >
                 {Object.entries(CURRENCIES).map(([code, { name }]) => (
                   <option key={code} value={code}>
@@ -803,24 +885,86 @@ export function CurrencyConverter() {
 
               <span className={styles.currencyLabel}>To</span>
 
-              <div className={styles.tndBox}>Tunisian Dinar (TND)</div>
+              <div className={styles.tndBox}>
+                Tunisian Dinar (TND)
+              </div>
             </div>
 
             <div className={styles.amountBox}>
               <input
                 type="number"
+                min="0"
+                step="any"
+                inputMode="decimal"
                 value={amount}
                 onChange={(event) => setAmount(event.target.value)}
-                placeholder="Enter amount"
+                placeholder={`Enter amount in ${from}`}
                 className={styles.amountInput}
+                disabled={isLoading || Boolean(error)}
+                aria-label={`Amount in ${from}`}
               />
             </div>
 
-            <motion.div animate={{ opacity: 1 }} className={styles.convertedAmount}>
-              <span className={styles.convertedLabel}>Converted amount:</span>
-              <span className={styles.convertedValue}>{converted}</span>
-              <span className={styles.convertedCurrency}>TND</span>
-            </motion.div>
+            {isLoading && (
+              <p className={styles.currencyStatus}>
+                Loading the latest exchange rates...
+              </p>
+            )}
+
+            {error && (
+              <p className={`${styles.currencyStatus} ${styles.currencyError}`}>
+                {error}
+              </p>
+            )}
+
+            {!isLoading && !error && (
+              <>
+                <motion.div
+                  key={`${from}-${amount}-${converted}`}
+                  initial={{ opacity: 0.45, y: 4 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={styles.convertedAmount}
+                >
+                  <span className={styles.convertedLabel}>
+                    Converted amount:
+                  </span>
+
+                  <span className={styles.convertedValue}>
+                    {converted}
+                  </span>
+
+                  <span className={styles.convertedCurrency}>
+                    TND
+                  </span>
+                </motion.div>
+
+                {foreignUnitsPerTnd && (
+                  <p className={styles.exchangeRateText}>
+                    1 {from} ≈{" "}
+                    {(1 / foreignUnitsPerTnd).toFixed(3)} TND
+                  </p>
+                )}
+
+                {lastUpdated && (
+                  <p className={styles.rateUpdateText}>
+                    Last rate update:{" "}
+                    {new Date(lastUpdated).toLocaleString("en-GB", {
+                      dateStyle: "medium",
+                      timeStyle: "short",
+                    })}
+                  </p>
+                )}
+
+                <a
+                  href="https://www.exchangerate-api.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.rateAttribution}
+                >
+                  Rates by ExchangeRate-API
+                </a>
+              </>
+            )}
           </motion.div>
 
           <motion.div
@@ -831,13 +975,13 @@ export function CurrencyConverter() {
           >
             <div className={`${styles.imageCard} ${styles.currencyImageCard}`}>
               <Image
-  src="/venue/tnd-bills.png"
-  alt="Tunisian Dinar banknotes"
-  fill
-  loading="lazy"
-  sizes="(max-width: 767px) 100vw, 460px"
-  className={styles.imageCover}
-/>
+                src="/venue/tnd-bills.png"
+                alt="Tunisian Dinar banknotes"
+                fill
+                loading="lazy"
+                sizes="(max-width: 767px) 100vw, 460px"
+                className={styles.imageCover}
+              />
 
               <div className={styles.banknoteOverlay} />
               <div className={styles.topGlow} />
