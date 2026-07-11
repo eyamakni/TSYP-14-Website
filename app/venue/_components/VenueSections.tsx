@@ -352,7 +352,6 @@ export function VenueHero() {
   );
 }
 
-
 export function VenueMap() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });

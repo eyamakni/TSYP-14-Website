@@ -380,7 +380,7 @@ export default function HeroSection() {
         <div style={{ textAlign: "center" }}>
           <LineReveal delay={0.35}>
             <span style={{ color: "#ffffff" }}>
-              Tunisian Student and Young
+              IEEE Tunisian Student and Young
             </span>
           </LineReveal>
 
