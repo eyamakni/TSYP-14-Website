@@ -174,9 +174,9 @@ export default function NoospherePage() {
             <span className={styles.statementLabel}>In One Sentence</span>
 
             <p className={styles.statementText}>
-              Student teams design ethical, collaborative intelligence systems
-              — technological, organizational, or social — that strengthen how
-              communities decide and recover under pressure.
+              Student teams design ethical, collaborative intelligence systems, whether
+technological, organizational, or social, that strengthen how communities
+decide and recover under pressure.
             </p>
           </motion.div>
 
