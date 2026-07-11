@@ -128,45 +128,9 @@
   color: rgba(210, 205, 230, 0.58);
 }
 
-.marqueeWrapper {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-}
 
-.marqueeMask {
-  width: 100%;
-  overflow: hidden;
-  padding: 20px 0 28px;
-  mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 7%,
-    black 93%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent,
-    black 7%,
-    black 93%,
-    transparent
-  );
-}
 
-.marqueeTrack {
-  display: flex;
-  align-items: stretch;
-  gap: 22px;
-  width: max-content;
-  padding: 0 22px;
-  animation: editionsScroll 62s linear infinite;
-  will-change: transform;
-}
 
-.marqueeTrack:hover {
-  animation-play-state: paused;
-}
 
 @keyframes editionsScroll {
   from {
@@ -346,34 +310,6 @@
   user-select: none;
 }
 
-.progressArrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  max-width: 780px;
-  margin: 22px auto 0;
-  padding: 0 24px;
-}
-
-.arrowLine {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(155, 48, 255, 0.4),
-    rgba(192, 38, 211, 0.35)
-  );
-}
-
-.arrowHead {
-  color: rgba(155, 48, 255, 0.82);
-  font-size: 28px;
-  line-height: 1;
-  filter: drop-shadow(0 0 10px rgba(155, 48, 255, 0.45));
-}
-
 @media (prefers-reduced-motion: reduce) {
   .marqueeTrack {
     animation: none;
@@ -438,4 +374,128 @@
 
 .clickableCard:hover .editionTitle {
   color: #ffffff;
+}
+.sliderControls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.arrowButton {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(155, 48, 255, 0.32);
+  border-radius: 50%;
+  background: rgba(12, 6, 28, 0.9);
+  color: rgba(205, 175, 255, 0.82);
+  cursor: pointer;
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.08),
+    0 16px 38px rgba(0, 0, 0, 0.44);
+  transition:
+    color 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.arrowButton:hover {
+  color: #ffffff;
+  border-color: rgba(155, 48, 255, 0.68);
+  background: rgba(155, 48, 255, 0.16);
+  transform: translateY(-3px);
+  box-shadow:
+    0 0 32px rgba(155, 48, 255, 0.2),
+    0 20px 48px rgba(0, 0, 0, 0.56);
+}
+
+.arrowButton:active {
+  transform: scale(0.94);
+}
+
+.arrowIcon {
+  width: 25px;
+  height: 25px;
+}
+
+.sliderWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 26px;
+  overflow: hidden;
+}
+
+.editionsSlider {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  padding:
+    20px
+    max(28px, calc((100vw - 1280px) / 2 + 28px))
+    38px;
+  scrollbar-width: none;
+}
+
+.editionsSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.editionsSlider .card {
+  flex: 0 0 clamp(330px, 31vw, 465px);
+  scroll-snap-align: start;
+}
+
+.websiteButton {
+  position: relative;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 22px;
+  padding: 8px 12px;
+  border: 1px solid rgba(155, 48, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.08);
+  color: rgba(210, 190, 255, 0.82);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+  .sliderControls {
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .arrowButton {
+    width: 50px;
+    height: 50px;
+  }
+
+  .arrowIcon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .editionsSlider {
+    gap: 16px;
+    padding: 16px 18px 30px;
+  }
+
+  .editionsSlider .card {
+    flex-basis: 86%;
+  }
 }

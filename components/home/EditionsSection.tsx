@@ -140,8 +140,6 @@ const EDITIONS: Edition[] = [
   },
 ];
 
-const LOOP_EDITIONS = [...EDITIONS, ...EDITIONS];
-
 function CalendarIcon() {
   return (
     <svg
@@ -228,6 +226,44 @@ function ExternalIcon() {
   );
 }
 
+function ArrowLeftIcon() {
+  return (
+    <svg
+      className={styles.arrowIcon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="m15 18-6-6 6-6"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg
+      className={styles.arrowIcon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="m9 18 6-6-6-6"
+        stroke="currentColor"
+        strokeWidth="2.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function EditionCardContent({ edition }: { edition: Edition }) {
   return (
     <>
@@ -261,29 +297,10 @@ function EditionCardContent({ edition }: { edition: Edition }) {
       </div>
 
       {edition.website && (
-        <div
-          style={{
-            position: "relative",
-            zIndex: 3,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            width: "fit-content",
-            marginTop: "22px",
-            padding: "8px 12px",
-            borderRadius: "999px",
-            background: "rgba(155, 48, 255, 0.08)",
-            border: "1px solid rgba(155, 48, 255, 0.2)",
-            color: "rgba(210, 190, 255, 0.82)",
-            fontSize: "9px",
-            fontWeight: 800,
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-          }}
-        >
-          Visit Website
+        <span className={styles.websiteButton}>
+          Visit website
           <ExternalIcon />
-        </div>
+        </span>
       )}
 
       <span className={styles.cardWatermark}>{edition.year}</span>
@@ -299,11 +316,6 @@ function EditionCard({ edition }: { edition: Edition }) {
         target="_blank"
         rel="noopener noreferrer"
         className={styles.card}
-        style={{
-          color: "inherit",
-          textDecoration: "none",
-          cursor: "pointer",
-        }}
         aria-label={`Open ${edition.title} website`}
       >
         <EditionCardContent edition={edition} />
@@ -320,10 +332,57 @@ function EditionCard({ edition }: { edition: Edition }) {
 
 export default function EditionsSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  const inView = useInView(sectionRef, {
+    once: true,
+    margin: "-80px",
+  });
+
+  const scrollPrevious = () => {
+    const slider = sliderRef.current;
+
+    if (!slider) {
+      return;
+    }
+
+    const firstCard = slider.querySelector<HTMLElement>(
+      `.${styles.card}`
+    );
+
+    const cardWidth = firstCard?.offsetWidth ?? 430;
+
+    slider.scrollBy({
+      left: -(cardWidth + 24),
+      behavior: "smooth",
+    });
+  };
+
+  const scrollNext = () => {
+    const slider = sliderRef.current;
+
+    if (!slider) {
+      return;
+    }
+
+    const firstCard = slider.querySelector<HTMLElement>(
+      `.${styles.card}`
+    );
+
+    const cardWidth = firstCard?.offsetWidth ?? 430;
+
+    slider.scrollBy({
+      left: cardWidth + 24,
+      behavior: "smooth",
+    });
+  };
 
   return (
-    <section id="previous-editions" ref={sectionRef} className={styles.section}>
+    <section
+      id="previous-editions"
+      ref={sectionRef}
+      className={styles.section}
+    >
       <div className={styles.ambientGlowOne} />
       <div className={styles.ambientGlowTwo} />
       <div className={styles.gridPattern} />
@@ -351,27 +410,53 @@ export default function EditionsSection() {
             legacy.
           </p>
         </motion.div>
+
+        <motion.div
+          className={styles.sliderControls}
+          initial={{ opacity: 0, y: 16 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{
+            duration: 0.65,
+            ease: EASE,
+            delay: 0.15,
+          }}
+        >
+          <button
+            type="button"
+            className={styles.arrowButton}
+            onClick={scrollPrevious}
+            aria-label="Show previous editions"
+          >
+            <ArrowLeftIcon />
+          </button>
+
+          <button
+            type="button"
+            className={styles.arrowButton}
+            onClick={scrollNext}
+            aria-label="Show next editions"
+          >
+            <ArrowRightIcon />
+          </button>
+        </motion.div>
       </div>
 
       <motion.div
-        className={styles.marqueeWrapper}
+        className={styles.sliderWrapper}
         initial={{ opacity: 0, y: 28 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.85, ease: EASE, delay: 0.2 }}
+        transition={{
+          duration: 0.85,
+          ease: EASE,
+          delay: 0.2,
+        }}
       >
         <div className={styles.timelineLine} />
 
-        <div className={styles.marqueeMask}>
-          <div className={styles.marqueeTrack}>
-            {LOOP_EDITIONS.map((edition, index) => (
-              <EditionCard key={`${edition.id}-${index}`} edition={edition} />
-            ))}
-          </div>
-        </div>
-
-        <div className={styles.progressArrow}>
-          <span className={styles.arrowLine} />
-          <span className={styles.arrowHead}>→</span>
+        <div ref={sliderRef} className={styles.editionsSlider}>
+          {EDITIONS.map((edition) => (
+            <EditionCard key={edition.id} edition={edition} />
+          ))}
         </div>
       </motion.div>
     </section>
