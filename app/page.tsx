@@ -6,6 +6,7 @@ import WhoWeAreSection from "@/components/home/WhoWeAreSection";
 import MemoriesSection from "@/components/home/MemoriesSection";
 import EditionsSection from "@/components/home/EditionsSection";
 import PartnersSection from "@/components/home/PartnersSection";
+import HostsSection from "@/components/home/HostsSection";
 export default function Home() {
   return (
     <>
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroSection />
         <CountdownSection />
         <AboutSection />
+        <HostsSection />
         <WhoWeAreSection />
         <PartnersSection />
         <ThemeSection />

@@ -26,7 +26,7 @@ const EDITIONS: Edition[] = [
     date: "22–24 December 2025",
     participants: "1200+ Participants",
     venue: "Medina Congress Center, Yasmine Hammamet",
-    website: "https://tsyp.ieee.tn/",
+    website: "https://2025-tsyp.ieee.tn/",
   },
   {
     id: "tsyp12",

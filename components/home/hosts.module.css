@@ -1,0 +1,339 @@
+.section {
+  position: relative;
+  width: 100%;
+  padding: 105px 0 125px;
+  overflow: hidden;
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+.ambientGlowOne {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  width: 720px;
+  height: 430px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.11) 0%,
+    rgba(124, 58, 237, 0.04) 40%,
+    transparent 72%
+  );
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+.ambientGlowTwo {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+  width: 380px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(192, 38, 211, 0.06) 0%,
+    transparent 72%
+  );
+  filter: blur(65px);
+  pointer-events: none;
+}
+
+.gridPattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 30px 30px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 56px);
+}
+
+.header {
+  max-width: 800px;
+  margin: 0 auto 58px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.eyebrowLineLeft,
+.eyebrowLineRight {
+  display: block;
+  width: 34px;
+  height: 1px;
+}
+
+.eyebrowLineLeft {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.58)
+  );
+}
+
+.eyebrowLineRight {
+  background: linear-gradient(
+    90deg,
+    rgba(155, 48, 255, 0.58),
+    transparent
+  );
+}
+
+.eyebrowText {
+  color: rgba(155, 48, 255, 0.72);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(36px, 5vw, 66px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.solidText {
+  color: #ffffff;
+}
+
+.outlinedText {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.78);
+}
+
+.subtitle {
+  max-width: 660px;
+  margin: 18px auto 0;
+  color: rgba(210, 205, 230, 0.6);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.hostsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.hostCard {
+  position: relative;
+  min-height: 330px;
+  padding: 30px 28px 26px;
+  overflow: hidden;
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  border-radius: 26px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(18, 10, 35, 0.88),
+      rgba(7, 3, 18, 0.98)
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(155, 48, 255, 0.12),
+      transparent 50%
+    );
+  color: inherit;
+  text-decoration: none;
+  box-shadow:
+    0 0 30px rgba(155, 48, 255, 0.08),
+    0 22px 68px rgba(0, 0, 0, 0.48);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.hostCard:hover {
+  border-color: rgba(155, 48, 255, 0.45);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 12, 48, 0.94),
+      rgba(9, 4, 22, 0.99)
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(155, 48, 255, 0.18),
+      transparent 54%
+    );
+  box-shadow:
+    0 0 38px rgba(155, 48, 255, 0.17),
+    0 30px 82px rgba(0, 0, 0, 0.6);
+}
+
+.cardTopLine {
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(155, 48, 255, 0.85),
+    rgba(192, 38, 211, 0.48),
+    transparent
+  );
+  box-shadow: 0 0 24px rgba(155, 48, 255, 0.34);
+}
+
+.cardGlow {
+  position: absolute;
+  top: -90px;
+  right: -90px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.14),
+    transparent 70%
+  );
+  filter: blur(24px);
+  pointer-events: none;
+}
+
+.logoArea {
+  position: relative;
+  width: 100%;
+  height: 145px;
+  overflow: hidden;
+  border: 1px solid rgba(155, 48, 255, 0.1);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.logo {
+  object-fit: contain;
+  padding: 18px;
+  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.48));
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.hostCard:hover .logo {
+  transform: scale(1.045);
+  filter:
+    saturate(1.08)
+    brightness(1.06)
+    drop-shadow(0 14px 32px rgba(155, 48, 255, 0.18));
+}
+
+.cardInfo {
+  position: relative;
+  z-index: 2;
+  margin-top: 24px;
+}
+
+.hostRole {
+  display: inline-flex;
+  padding: 6px 10px;
+  border: 1px solid rgba(155, 48, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.08);
+  color: rgba(190, 160, 255, 0.8);
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.hostName {
+  margin: 15px 0 0;
+  color: #ffffff;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-size: clamp(21px, 2.4vw, 29px);
+  font-weight: 800;
+  line-height: 1.18;
+  letter-spacing: -0.035em;
+}
+
+.visitLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 17px;
+  color: rgba(155, 48, 255, 0.75);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition:
+    color 0.22s ease,
+    gap 0.22s ease;
+}
+
+.hostCard:hover .visitLink {
+  gap: 10px;
+  color: #ffffff;
+}
+
+.externalIcon {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 88px 0 100px;
+  }
+
+  .container {
+    padding: 0 18px;
+  }
+
+  .header {
+    margin-bottom: 42px;
+  }
+
+  .eyebrowText {
+    letter-spacing: 0.22em;
+  }
+
+  .hostsGrid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .hostCard {
+    min-height: auto;
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .logoArea {
+    height: 125px;
+    border-radius: 17px;
+  }
+
+  .logo {
+    padding: 16px;
+  }
+}
