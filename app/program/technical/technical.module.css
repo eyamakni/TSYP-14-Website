@@ -552,3 +552,18 @@
     font-size: 9px;
   }
 }
+.programNotice {
+  margin-bottom: 32px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(155, 48, 255, 0.18);
+  background: rgba(155, 48, 255, 0.06);
+  color: rgba(235, 235, 245, 0.88);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.programNotice strong {
+  color: #ffffff;
+}

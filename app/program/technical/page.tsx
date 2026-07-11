@@ -259,6 +259,15 @@ export default function TechnicalProgramPage() {
       <section className={styles.programSection}>
         <div className={styles.programContainer}>
           <motion.div
+  className={styles.programNotice}
+  initial={{ opacity: 0, y: 18 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: EASE }}
+>
+  <strong>Program is subject to change.</strong> The final version of the
+  program will be available on <strong>30 November 2026</strong>.
+</motion.div>
+          <motion.div
             className={styles.dayTabs}
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -312,9 +321,7 @@ export default function TechnicalProgramPage() {
             </motion.div>
           </AnimatePresence>
 
-          <p className={styles.note}>
-            Program timing may be adjusted slightly depending on event logistics.
-          </p>
+        
         </div>
       </section>
     </main>
