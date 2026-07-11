@@ -248,7 +248,7 @@
 .missionBlock {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(150px, 210px) minmax(0, 1fr);
+  grid-template-columns: 190px minmax(0, 1fr);
   gap: clamp(32px, 5vw, 72px);
   margin-top: 28px;
   padding: clamp(38px, 5vw, 66px);
@@ -303,13 +303,10 @@
   position: relative;
   z-index: 1;
   display: flex;
-  min-height: 220px;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
   padding-right: clamp(28px, 4vw, 50px);
   border-right: 1px solid rgba(155, 48, 255, 0.18);
 }
-
 .missionLabel {
   color: rgba(195, 160, 255, 0.86);
   font-size: 10px;
@@ -318,15 +315,6 @@
   text-transform: uppercase;
 }
 
-.missionNumber {
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.58);
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(64px, 7vw, 92px);
-  font-weight: 800;
-  line-height: 0.8;
-  letter-spacing: -0.08em;
-}
 
 .missionContent {
   position: relative;
@@ -470,9 +458,6 @@
   border-bottom: 1px solid rgba(155, 48, 255, 0.18);
 }
 
-.missionNumber {
-  font-size: 52px;
-}
 
 .missionHeading {
   font-size: clamp(29px, 9vw, 40px);

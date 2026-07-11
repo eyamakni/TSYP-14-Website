@@ -176,7 +176,6 @@ export default function NoospherePage() {
 >
   <div className={styles.missionAside}>
     <span className={styles.missionLabel}>Core Vision</span>
-    <span className={styles.missionNumber}>01</span>
   </div>
 
   <div className={styles.missionContent}>
