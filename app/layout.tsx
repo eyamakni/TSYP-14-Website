@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -18,6 +19,12 @@ export const metadata: Metadata = {
   title: "TSYP 14 | IEEE Tunisian Student and Young Professional Congress",
   description:
     "14th edition of the IEEE Tunisian Student and Young Professional Congress.",
+
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +36,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${jakarta.variable}`}>
         <Navbar />
+
         {children}
+
         <Footer />
       </body>
     </html>

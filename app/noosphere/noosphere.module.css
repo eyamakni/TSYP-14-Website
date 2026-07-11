@@ -3,7 +3,10 @@
   overflow-x: hidden;
   background: #000000;
   color: #ffffff;
-  font-family: var(--font-inter), "Inter", sans-serif;
+  font-family:
+    var(--font-inter),
+    "Inter",
+    sans-serif;
 }
 
 .hero {
@@ -53,8 +56,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: transparent;
-  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.045);
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  -webkit-text-stroke: 1px
+    rgba(155, 48, 255, 0.045);
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
   font-size: clamp(90px, 16vw, 245px);
   font-weight: 800;
   line-height: 1;
@@ -67,6 +74,7 @@
 .heroContent {
   position: relative;
   z-index: 2;
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
@@ -81,9 +89,9 @@
 
 .eyebrowLineLeft,
 .eyebrowLineRight {
+  display: block;
   width: 34px;
   height: 1px;
-  display: block;
 }
 
 .eyebrowLineLeft {
@@ -112,7 +120,10 @@
 
 .title {
   margin: 0;
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
   font-size: clamp(44px, 7.5vw, 104px);
   font-weight: 800;
   line-height: 0.98;
@@ -123,11 +134,17 @@
   color: #ffffff;
 }
 
+.titleWordGap {
+  display: inline-block;
+  margin-left: 0.22em;
+}
+
 .outlinedText {
   display: block;
   margin-top: 10px;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.88);
+  -webkit-text-stroke: 1px
+    rgba(155, 48, 255, 0.88);
 }
 
 .heroText {
@@ -153,7 +170,8 @@
 
 .introGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -162,7 +180,8 @@
   min-height: 470px;
   padding: clamp(28px, 4vw, 44px);
   overflow: hidden;
-  border: 1px solid rgba(155, 48, 255, 0.16);
+  border: 1px solid
+    rgba(155, 48, 255, 0.16);
   border-radius: 27px;
   background:
     linear-gradient(
@@ -183,8 +202,8 @@
 .cardTopLine {
   position: absolute;
   top: 0;
-  left: 18%;
   right: 18%;
+  left: 18%;
   height: 2px;
   background: linear-gradient(
     90deg,
@@ -193,7 +212,8 @@
     rgba(192, 38, 211, 0.48),
     transparent
   );
-  box-shadow: 0 0 24px rgba(155, 48, 255, 0.32);
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.32);
 }
 
 .iconBox {
@@ -203,11 +223,13 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 27px;
-  border: 1px solid rgba(155, 48, 255, 0.25);
+  border: 1px solid
+    rgba(155, 48, 255, 0.25);
   border-radius: 18px;
   background: rgba(155, 48, 255, 0.1);
   color: rgba(195, 160, 255, 0.92);
-  box-shadow: 0 0 24px rgba(155, 48, 255, 0.11);
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.11);
 }
 
 .icon {
@@ -218,7 +240,8 @@
 .cardLabel {
   display: inline-flex;
   padding: 6px 11px;
-  border: 1px solid rgba(155, 48, 255, 0.2);
+  border: 1px solid
+    rgba(155, 48, 255, 0.2);
   border-radius: 999px;
   background: rgba(155, 48, 255, 0.07);
   color: rgba(190, 155, 255, 0.8);
@@ -231,7 +254,10 @@
 .sectionTitle {
   margin: 21px 0 0;
   color: #ffffff;
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
   font-size: clamp(27px, 3.5vw, 42px);
   font-weight: 800;
   line-height: 1.12;
@@ -247,13 +273,11 @@
 
 .missionBlock {
   position: relative;
-  display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 72px);
   margin-top: 28px;
-  padding: clamp(38px, 5vw, 66px);
+  padding: clamp(42px, 6vw, 76px);
   overflow: hidden;
-  border: 1px solid rgba(155, 48, 255, 0.2);
+  border: 1px solid
+    rgba(155, 48, 255, 0.2);
   border-radius: 28px;
   background: linear-gradient(
     120deg,
@@ -280,7 +304,8 @@
     rgba(192, 38, 211, 0.5),
     transparent
   );
-  box-shadow: 0 0 24px rgba(155, 48, 255, 0.35);
+  box-shadow:
+    0 0 24px rgba(155, 48, 255, 0.35);
 }
 
 .missionBlock::after {
@@ -299,45 +324,55 @@
   pointer-events: none;
 }
 
-.missionAside {
+.missionContent {
   position: relative;
   z-index: 1;
-  display: flex;
-  align-items: flex-start;
-  padding-right: clamp(28px, 4vw, 50px);
-  border-right: 1px solid rgba(155, 48, 255, 0.18);
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
 }
+
 .missionLabel {
-  color: rgba(195, 160, 255, 0.86);
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 28px;
+  color: rgba(195, 160, 255, 0.9);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
-
-.missionContent {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.missionLabel::before {
+  content: "";
+  display: block;
+  width: 38px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(155, 48, 255, 0.95),
+    rgba(192, 38, 211, 0.3)
+  );
 }
 
 .missionHeading {
-  max-width: 780px;
+  max-width: 950px;
   margin: 0;
   color: #ffffff;
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
-  font-size: clamp(32px, 4.2vw, 54px);
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
+  font-size: clamp(34px, 4.6vw, 60px);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -0.05em;
 }
 
 .missionText {
-  max-width: 760px;
-  margin: 26px 0 0;
+  max-width: 900px;
+  margin: 28px 0 0;
   color: rgba(215, 210, 235, 0.65);
   font-size: clamp(15px, 1.5vw, 18px);
   line-height: 1.85;
@@ -345,7 +380,8 @@
 
 .ideasGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
   gap: 18px;
   margin-top: 28px;
 }
@@ -355,7 +391,8 @@
   min-height: 300px;
   padding: 27px 23px;
   overflow: hidden;
-  border: 1px solid rgba(155, 48, 255, 0.14);
+  border: 1px solid
+    rgba(155, 48, 255, 0.14);
   border-radius: 22px;
   background: linear-gradient(
     145deg,
@@ -381,8 +418,12 @@
 
 .ideaNumber {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.64);
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  -webkit-text-stroke: 1px
+    rgba(155, 48, 255, 0.64);
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
   font-size: 44px;
   font-weight: 800;
   line-height: 1;
@@ -392,7 +433,10 @@
 .ideaTitle {
   margin: 25px 0 0;
   color: #ffffff;
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
   font-size: 19px;
   font-weight: 800;
   line-height: 1.25;
@@ -416,7 +460,8 @@
   }
 
   .ideasGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -430,42 +475,69 @@
     font-size: 24vw;
   }
 
+  .eyebrow {
+    gap: 8px;
+  }
+
+  .eyebrowLineLeft,
+  .eyebrowLineRight {
+    width: 24px;
+  }
+
   .eyebrowText {
     letter-spacing: 0.23em;
+  }
+
+  .title {
+    font-size: clamp(42px, 13vw, 68px);
+    line-height: 1;
+  }
+
+  .titleWordGap {
+    margin-left: 0.18em;
+  }
+
+  .outlinedText {
+    margin-top: 8px;
+  }
+
+  .heroText {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.75;
   }
 
   .explanationSection {
     padding: 70px 20px 100px;
   }
 
- .definitionCard,
-.missionBlock {
-  border-radius: 22px;
-}
-.missionBlock {
-  grid-template-columns: 1fr;
-  gap: 28px;
-  padding: 30px 24px;
-}
+  .definitionCard,
+  .missionBlock {
+    border-radius: 22px;
+  }
 
-.missionAside {
-  min-height: auto;
-  flex-direction: row;
-  align-items: center;
-  padding-right: 0;
-  padding-bottom: 22px;
-  border-right: none;
-  border-bottom: 1px solid rgba(155, 48, 255, 0.18);
-}
+  .missionBlock {
+    padding: 34px 24px;
+  }
 
+  .missionLabel {
+    gap: 10px;
+    margin-bottom: 22px;
+  }
 
-.missionHeading {
-  font-size: clamp(29px, 9vw, 40px);
-}
+  .missionLabel::before {
+    width: 28px;
+  }
 
-.missionText {
-  margin-top: 20px;
-}
+  .missionHeading {
+    font-size: clamp(29px, 9vw, 40px);
+  }
+
+  .missionText {
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
 
   .ideasGrid {
     grid-template-columns: 1fr;
@@ -474,8 +546,4 @@
   .ideaCard {
     min-height: auto;
   }
-}
-.titleWordGap {
-  display: inline-block;
-  margin-left: 0.2em;
 }
