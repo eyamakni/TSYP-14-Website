@@ -22,7 +22,7 @@ const ORGANIZATIONS = [
   {
     id: "ieee-insat",
     logo: "/sb.png",
-    title: "IEEE INSAT",
+    title: "IEEE INSAT SB",
     label: "Student Branch",
     description:
       "IEEE INSAT Student Branch brings together engineering students through technical workshops, competitions, leadership experiences, collaborative projects, and large-scale IEEE events.",
