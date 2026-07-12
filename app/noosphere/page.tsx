@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from "./noosphere.module.css";
@@ -105,15 +106,10 @@ export default function NoospherePage() {
 
   return (
     <main className={styles.page}>
-      <section
-        ref={sectionRef}
-        className={styles.hero}
-      >
+      <section ref={sectionRef} className={styles.hero}>
         <div className={styles.heroGlow} />
         <div className={styles.gridPattern} />
-        <div className={styles.watermark}>
-          NOOSPHERE
-        </div>
+        <div className={styles.watermark}>NOOSPHERE</div>
 
         <motion.div
           className={styles.heroContent}
@@ -131,25 +127,19 @@ export default function NoospherePage() {
           }}
         >
           <div className={styles.eyebrow}>
-            <span
-              className={styles.eyebrowLineLeft}
-            />
+            <span className={styles.eyebrowLineLeft} />
 
             <span className={styles.eyebrowText}>
               TSYP XIV Theme
             </span>
 
-            <span
-              className={styles.eyebrowLineRight}
-            />
+            <span className={styles.eyebrowLineRight} />
           </div>
 
           <h1 className={styles.title}>
             <span className={styles.solidText}>
               Architects of
-              <span
-                className={styles.titleWordGap}
-              >
+              <span className={styles.titleWordGap}>
                 the
               </span>
             </span>
@@ -160,17 +150,46 @@ export default function NoospherePage() {
           </h1>
 
           <p className={styles.heroText}>
-            Designing ethical, collaborative
-            intelligence systems that help
-            communities reason, decide, and act
-            wisely under pressure.
+            Designing ethical, collaborative intelligence systems that help
+            communities reason, decide, and act wisely under pressure.
           </p>
         </motion.div>
       </section>
 
-      <section
-        className={styles.explanationSection}
+      <motion.section
+        className={styles.themeVisualSection}
+        initial={{
+          opacity: 0,
+          y: 35,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          margin: "-80px",
+        }}
+        transition={{
+          duration: 0.85,
+          ease: EASE,
+        }}
       >
+        <div className={styles.themeVisualGlow} />
+
+        <div className={styles.themeVisualCard}>
+          <Image
+            src="/noosphere.svg"
+            alt="Architects of the Noosphere theme illustration"
+            width={1200}
+            height={760}
+            unoptimized
+            className={styles.themeVisualImage}
+          />
+        </div>
+      </motion.section>
+
+      <section className={styles.explanationSection}>
         <div className={styles.container}>
           <motion.div
             className={styles.introGrid}
@@ -192,12 +211,8 @@ export default function NoospherePage() {
               delay: 0.12,
             }}
           >
-            <article
-              className={styles.definitionCard}
-            >
-              <div
-                className={styles.cardTopLine}
-              />
+            <article className={styles.definitionCard}>
+              <div className={styles.cardTopLine} />
 
               <div className={styles.iconBox}>
                 <BrainIcon />
@@ -207,38 +222,26 @@ export default function NoospherePage() {
                 The Concept
               </span>
 
-              <h2
-                className={styles.sectionTitle}
-              >
+              <h2 className={styles.sectionTitle}>
                 What is the Noosphere?
               </h2>
 
               <p className={styles.paragraph}>
-                The noosphere is the idea of a
-                third layer of the planet,
-                alongside the geosphere and
-                biosphere: the sphere of
-                collective human thought and
-                reasoning.
+                The noosphere is the idea of a third layer of the planet,
+                alongside the geosphere and biosphere: the sphere of collective
+                human thought and reasoning.
               </p>
 
               <p className={styles.paragraph}>
-                “Architects of the Noosphere”
-                borrows that image on purpose.
-                Teams are not asked to build an
-                isolated piece of software or
-                hardware, but to design a
-                connected layer of ethical,
+                “Architects of the Noosphere” borrows that image on purpose.
+                Teams are not asked to build an isolated piece of software or
+                hardware, but to design a connected layer of ethical,
                 collective intelligence.
               </p>
             </article>
 
-            <article
-              className={styles.definitionCard}
-            >
-              <div
-                className={styles.cardTopLine}
-              />
+            <article className={styles.definitionCard}>
+              <div className={styles.cardTopLine} />
 
               <div className={styles.iconBox}>
                 <NetworkIcon />
@@ -248,26 +251,19 @@ export default function NoospherePage() {
                 The Challenge
               </span>
 
-              <h2
-                className={styles.sectionTitle}
-              >
+              <h2 className={styles.sectionTitle}>
                 Why does it matter?
               </h2>
 
               <p className={styles.paragraph}>
-                Recent crises show that
-                technology alone rarely saves a
-                system under stress.
+                Recent crises show that technology alone rarely saves a system
+                under stress.
               </p>
 
               <p className={styles.paragraph}>
-                What breaks first is often not
-                the infrastructure, but the
-                decision-making around it:
-                fragmented information, eroded
-                trust, weak coordination, and
-                ethical shortcuts taken in a
-                hurry.
+                What breaks first is often not the infrastructure, but the
+                decision-making around it: fragmented information, eroded trust,
+                weak coordination, and ethical shortcuts taken in a hurry.
               </p>
             </article>
           </motion.div>
@@ -291,76 +287,60 @@ export default function NoospherePage() {
               ease: EASE,
             }}
           >
-            <div
-              className={styles.missionContent}
-            >
-              <span
-                className={styles.missionLabel}
-              >
+            <div className={styles.missionContent}>
+              <span className={styles.missionLabel}>
                 Core Vision
               </span>
 
-              <h2
-                className={styles.missionHeading}
-              >
-                Designing intelligence that
-                communities can trust.
+              <h2 className={styles.missionHeading}>
+                Designing intelligence that communities can trust.
               </h2>
 
               <p className={styles.missionText}>
-                Student teams design ethical,
-                collaborative intelligence
-                systems across technological,
-                organizational, and social
-                contexts to strengthen how
-                communities decide and recover
-                under pressure.
+                Student teams design ethical, collaborative intelligence
+                systems across technological, organizational, and social
+                contexts to strengthen how communities decide and recover under
+                pressure.
               </p>
             </div>
           </motion.section>
 
           <div className={styles.ideasGrid}>
-            {KEY_IDEAS.map(
-              (idea, index) => (
-                <motion.article
-                  key={idea.number}
-                  className={styles.ideaCard}
-                  initial={{
-                    opacity: 0,
-                    y: 24,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                    margin: "-60px",
-                  }}
-                  transition={{
-                    duration: 0.65,
-                    ease: EASE,
-                    delay: index * 0.08,
-                  }}
-                >
-                  <span
-                    className={styles.ideaNumber}
-                  >
-                    {idea.number}
-                  </span>
+            {KEY_IDEAS.map((idea, index) => (
+              <motion.article
+                key={idea.number}
+                className={styles.ideaCard}
+                initial={{
+                  opacity: 0,
+                  y: 24,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  margin: "-60px",
+                }}
+                transition={{
+                  duration: 0.65,
+                  ease: EASE,
+                  delay: index * 0.08,
+                }}
+              >
+                <span className={styles.ideaNumber}>
+                  {idea.number}
+                </span>
 
-                  <h3
-                    className={styles.ideaTitle}
-                  >
-                    {idea.title}
-                  </h3>
+                <h3 className={styles.ideaTitle}>
+                  {idea.title}
+                </h3>
 
-                  <p className={styles.ideaText}>
-                    {idea.text}
-                  </p>
-                </motion.article>
-              ),
-            )}
+                <p className={styles.ideaText}>
+                  {idea.text}
+                </p>
+              </motion.article>
+            ))}
           </div>
         </div>
       </section>

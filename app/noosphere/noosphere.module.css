@@ -56,8 +56,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: transparent;
-  -webkit-text-stroke: 1px
-    rgba(155, 48, 255, 0.045);
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.045);
   font-family:
     var(--font-jakarta),
     "Plus Jakarta Sans",
@@ -143,8 +142,7 @@
   display: block;
   margin-top: 10px;
   color: transparent;
-  -webkit-text-stroke: 1px
-    rgba(155, 48, 255, 0.88);
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.88);
 }
 
 .heroText {
@@ -154,6 +152,65 @@
   font-size: clamp(15px, 1.6vw, 18px);
   line-height: 1.85;
 }
+
+/* Theme visual */
+
+.themeVisualSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 0 clamp(20px, 5vw, 64px) 90px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.themeVisualGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(760px, 82vw);
+  height: 360px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(155, 48, 255, 0.12),
+    rgba(155, 48, 255, 0.04) 42%,
+    transparent 72%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+.themeVisualCard {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  overflow: visible;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.themeVisualCard::before {
+  display: none;
+  content: none;
+}
+
+.themeVisualImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+}
+
+/* Explanation section */
 
 .explanationSection {
   position: relative;
@@ -170,8 +227,7 @@
 
 .introGrid {
   display: grid;
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -180,8 +236,7 @@
   min-height: 470px;
   padding: clamp(28px, 4vw, 44px);
   overflow: hidden;
-  border: 1px solid
-    rgba(155, 48, 255, 0.16);
+  border: 1px solid rgba(155, 48, 255, 0.16);
   border-radius: 27px;
   background:
     linear-gradient(
@@ -212,8 +267,7 @@
     rgba(192, 38, 211, 0.48),
     transparent
   );
-  box-shadow:
-    0 0 24px rgba(155, 48, 255, 0.32);
+  box-shadow: 0 0 24px rgba(155, 48, 255, 0.32);
 }
 
 .iconBox {
@@ -223,13 +277,11 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 27px;
-  border: 1px solid
-    rgba(155, 48, 255, 0.25);
+  border: 1px solid rgba(155, 48, 255, 0.25);
   border-radius: 18px;
   background: rgba(155, 48, 255, 0.1);
   color: rgba(195, 160, 255, 0.92);
-  box-shadow:
-    0 0 24px rgba(155, 48, 255, 0.11);
+  box-shadow: 0 0 24px rgba(155, 48, 255, 0.11);
 }
 
 .icon {
@@ -240,8 +292,7 @@
 .cardLabel {
   display: inline-flex;
   padding: 6px 11px;
-  border: 1px solid
-    rgba(155, 48, 255, 0.2);
+  border: 1px solid rgba(155, 48, 255, 0.2);
   border-radius: 999px;
   background: rgba(155, 48, 255, 0.07);
   color: rgba(190, 155, 255, 0.8);
@@ -276,8 +327,7 @@
   margin-top: 28px;
   padding: clamp(42px, 6vw, 76px);
   overflow: hidden;
-  border: 1px solid
-    rgba(155, 48, 255, 0.2);
+  border: 1px solid rgba(155, 48, 255, 0.2);
   border-radius: 28px;
   background: linear-gradient(
     120deg,
@@ -304,8 +354,7 @@
     rgba(192, 38, 211, 0.5),
     transparent
   );
-  box-shadow:
-    0 0 24px rgba(155, 48, 255, 0.35);
+  box-shadow: 0 0 24px rgba(155, 48, 255, 0.35);
 }
 
 .missionBlock::after {
@@ -380,8 +429,7 @@
 
 .ideasGrid {
   display: grid;
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   margin-top: 28px;
 }
@@ -391,8 +439,7 @@
   min-height: 300px;
   padding: 27px 23px;
   overflow: hidden;
-  border: 1px solid
-    rgba(155, 48, 255, 0.14);
+  border: 1px solid rgba(155, 48, 255, 0.14);
   border-radius: 22px;
   background: linear-gradient(
     145deg,
@@ -418,8 +465,7 @@
 
 .ideaNumber {
   color: transparent;
-  -webkit-text-stroke: 1px
-    rgba(155, 48, 255, 0.64);
+  -webkit-text-stroke: 1px rgba(155, 48, 255, 0.64);
   font-family:
     var(--font-jakarta),
     "Plus Jakarta Sans",
@@ -460,15 +506,14 @@
   }
 
   .ideasGrid {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 767px) {
   .hero {
     min-height: auto;
-    padding: 135px 20px 85px;
+    padding: 135px 20px 75px;
   }
 
   .watermark {
@@ -505,6 +550,24 @@
     margin-top: 24px;
     font-size: 15px;
     line-height: 1.75;
+  }
+
+  .themeVisualSection {
+    padding: 0 20px 70px;
+  }
+
+  .themeVisualGlow {
+    width: 88vw;
+    height: 240px;
+  }
+
+  .themeVisualCard {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .themeVisualImage {
+    max-height: 320px;
   }
 
   .explanationSection {
