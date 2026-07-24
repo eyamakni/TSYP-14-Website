@@ -1,9 +1,12 @@
 .section {
   position: relative;
   width: 100%;
-  background: #000000;
   overflow: hidden;
-  font-family: var(--font-inter), "Inter", sans-serif;
+  background: #000000;
+  font-family:
+    var(--font-inter),
+    "Inter",
+    sans-serif;
 }
 
 .canvasZone {
@@ -15,60 +18,76 @@
 
 .canvas {
   position: absolute;
+  z-index: 0;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
 }
 
 .topFade {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  background: linear-gradient(180deg, #000000 0%, transparent 100%);
   z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 120px;
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
 .bottomFade {
   position: absolute;
+  z-index: 2;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
   height: 160px;
-  background: linear-gradient(0deg, #000000 0%, transparent 100%);
-  z-index: 2;
+  background: linear-gradient(
+    0deg,
+    #000000 0%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
 .leftFade {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 120px;
-  background: linear-gradient(90deg, #000000 0%, transparent 100%);
   z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 120px;
+  background: linear-gradient(
+    90deg,
+    #000000 0%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
 .rightFade {
   position: absolute;
+  z-index: 2;
   top: 0;
   right: 0;
   bottom: 0;
   width: 120px;
-  background: linear-gradient(270deg, #000000 0%, transparent 100%);
-  z-index: 2;
+  background: linear-gradient(
+    270deg,
+    #000000 0%,
+    transparent 100%
+  );
   pointer-events: none;
 }
 
 .titleContent {
   position: absolute;
-  inset: 0;
   z-index: 3;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,35 +103,40 @@
 }
 
 .eyebrowLine {
+  display: block;
   width: 32px;
   height: 1px;
   background: rgba(155, 48, 255, 0.5);
-  display: block;
 }
 
 .eyebrowText {
+  color: rgba(175, 95, 255, 0.88);
   font-size: 9px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.5em;
   text-transform: uppercase;
-  color: rgba(155, 48, 255, 0.75);
 }
 
 .title {
+  margin: 0;
+  color: #ffffff;
+  font-family:
+    var(--font-jakarta),
+    "Plus Jakarta Sans",
+    sans-serif;
   font-size: clamp(28px, 7vw, 88px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
   text-align: center;
-  margin: 0;
-  user-select: none;
   word-break: break-word;
-  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  user-select: none;
 }
 
 .titleWhite {
   color: #ffffff;
-  text-shadow: 0 0 60px rgba(155, 48, 255, 0.4);
+  text-shadow:
+    0 0 60px rgba(155, 48, 255, 0.4);
 }
 
 .titleGradient {
@@ -123,22 +147,25 @@
     #a78bfa 65%,
     #7c3aed 100%
   );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 .descriptionZone {
   position: relative;
   z-index: 4;
+  width: 100%;
   max-width: 740px;
   margin: 0 auto;
-  text-align: center;
   padding: 0 24px 96px;
+  text-align: center;
 }
 
 .divider {
   height: 1px;
+  margin-bottom: 40px;
   background: linear-gradient(
     90deg,
     transparent,
@@ -146,32 +173,31 @@
     transparent
   );
   transform-origin: center;
-  margin-bottom: 40px;
 }
 
 .descriptionGrid {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  gap: 28px;
   align-items: stretch;
-  text-align: left;
+  gap: 28px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 .primaryText {
-  font-size: clamp(13px, 1.3vw, 15px);
-  line-height: 1.8;
-  color: rgba(210, 200, 235, 0.72);
-  font-weight: 400;
   margin: 0;
+  color: rgba(221, 213, 241, 0.78);
+  font-size: clamp(13px, 1.3vw, 15px);
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 .secondaryText {
-  font-size: clamp(13px, 1.3vw, 15px);
-  line-height: 1.8;
-  color: rgba(175, 160, 210, 0.5);
-  font-weight: 300;
   margin: 0;
+  color: rgba(202, 190, 228, 0.68);
+  font-size: clamp(13px, 1.3vw, 15px);
+  font-weight: 400;
+  line-height: 1.8;
 }
 
 .descriptionDivider {
@@ -179,41 +205,69 @@
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(155, 48, 255, 0.25),
+    rgba(155, 48, 255, 0.3),
     transparent
   );
 }
 
 .pillars {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 32px;
 }
 
 .pillar {
-  font-size: 8px;
-  font-weight: 500;
-  letter-spacing: 0.15em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 7px 15px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 9px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-align: center;
   text-transform: uppercase;
-  color: rgba(155, 48, 255, 0.42);
-  padding: 4px 11px;
-  border: 1px solid rgba(155, 48, 255, 0.1);
-  border-radius: 100px;
-  background: rgba(155, 48, 255, 0.03);
   white-space: nowrap;
+  opacity: 1;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.pillarStandard {
+  border-color: rgba(155, 48, 255, 0.28);
+  background: rgba(155, 48, 255, 0.07);
+  color: rgba(183, 111, 255, 0.9);
 }
 
 .pillarAccent {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  color: rgba(155, 48, 255, 0.75);
-  padding: 5px 13px;
-  border-color: rgba(155, 48, 255, 0.22);
-  background: rgba(155, 48, 255, 0.07);
+  padding: 8px 17px;
+  border-color: rgba(155, 48, 255, 0.48);
+  background: rgba(155, 48, 255, 0.12);
+  color: rgba(193, 132, 255, 1);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.24em;
+  box-shadow:
+    inset 0 0 18px rgba(155, 48, 255, 0.04);
+}
+
+.pillar:hover {
+  transform: translateY(-2px);
+  border-color: rgba(172, 87, 255, 0.72);
+  background: rgba(155, 48, 255, 0.16);
+  color: #d7b4ff;
+  box-shadow:
+    0 0 22px rgba(155, 48, 255, 0.15);
 }
 
 @media (max-width: 767px) {
@@ -226,9 +280,17 @@
     width: 60px;
   }
 
+  .eyebrow {
+    gap: 8px;
+  }
+
+  .eyebrowLine {
+    width: 24px;
+  }
+
   .eyebrowText {
-    letter-spacing: 0.28em;
     font-size: 8px;
+    letter-spacing: 0.28em;
   }
 
   .title {
@@ -251,13 +313,27 @@
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(155, 48, 255, 0.25),
+      rgba(155, 48, 255, 0.3),
       transparent
     );
   }
 
+  .pillars {
+    gap: 8px;
+  }
+
   .pillar,
-  .pillarAccent {
+  .pillarAccent,
+  .pillarStandard {
+    min-height: 30px;
+    padding: 7px 12px;
+    font-size: 8px;
+    letter-spacing: 0.13em;
     white-space: normal;
+  }
+
+  .pillarAccent {
+    font-size: 9px;
+    letter-spacing: 0.18em;
   }
 }

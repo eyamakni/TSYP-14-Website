@@ -49,7 +49,7 @@ const ORGANIZATIONS = [
     description:
       "The Technical Activities Committee coordinates technical activities within IEEE Tunisia Section, supports technical chapters, promotes innovation, and strengthens collaboration between academia, industry, and IEEE societies.",
     stat: "30",
-    statLabel: "Technical Societies",
+    statLabel: "Technical Chapters",
     website: "https://ieee.tn/activities/tac/",
   },
   {

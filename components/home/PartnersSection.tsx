@@ -5,21 +5,30 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import styles from "./partners.module.css";
 
-const EASE = [0.16, 1, 0.3, 1] as [number, number, number, number];
+const EASE = [0.16, 1, 0.3, 1] as [
+  number,
+  number,
+  number,
+  number,
+];
 
 interface Partner {
   name: string;
   logo: string;
+  website: string;
 }
 
 const PARTNERS: Partner[] = [
   {
-    name: "Foundation",
+    name: "IEEE Foundation",
     logo: "/partners/foundation.png",
+    website: "https://www.ieeefoundation.org/",
   },
   {
     name: "SPAX",
     logo: "/partners/spax.webp",
+    website:
+      "https://students.ieee.org/student-opportunities/professional-awareness/spax-events/",
   },
 ];
 
@@ -31,64 +40,133 @@ function PartnerCard({
   delay: number;
 }) {
   return (
-    <motion.div
+    <motion.a
+      href={partner.website}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit the ${partner.name} website`}
       className={styles.partnerCard}
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.55, ease: EASE, delay }}
-      whileHover={{ y: -5 }}
+      transition={{
+        duration: 0.55,
+        ease: EASE,
+        delay,
+      }}
+      whileHover={{
+        y: -5,
+      }}
+      whileTap={{
+        scale: 0.98,
+      }}
     >
       <div className={styles.logoWrap}>
-     <Image
-  src={partner.logo}
-  alt={`${partner.name} logo`}
-  fill
-  className={styles.logo}
-  unoptimized
-/>
+        <Image
+          src={partner.logo}
+          alt={`${partner.name} logo`}
+          fill
+          sizes="(max-width: 767px) 80vw, 420px"
+          className={styles.logo}
+          unoptimized
+        />
       </div>
-    </motion.div>
+    </motion.a>
   );
 }
 
 export default function PartnersSection() {
   const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-70px" });
+
+  const inView = useInView(ref, {
+    once: true,
+    margin: "-70px",
+  });
 
   return (
-    <section ref={ref} className={styles.section}>
+    <section
+      ref={ref}
+      className={styles.section}
+    >
       <div className={styles.ambientGlowRight} />
       <div className={styles.ambientGlowLeft} />
 
       <div className={styles.header}>
         <motion.div
           className={styles.eyebrow}
-          initial={{ opacity: 0, y: 12 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: EASE }}
+          initial={{
+            opacity: 0,
+            y: 12,
+          }}
+          animate={
+            inView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.6,
+            ease: EASE,
+          }}
         >
           <span className={styles.eyebrowLineLeft} />
-          <span className={styles.eyebrowText}>They Support TSYP XIV</span>
+
+          <span className={styles.eyebrowText}>
+            They Support TSYP XIV
+          </span>
+
           <span className={styles.eyebrowLineRight} />
         </motion.div>
 
         <motion.h2
           className={styles.title}
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: EASE, delay: 0.08 }}
+          initial={{
+            opacity: 0,
+            y: 16,
+          }}
+          animate={
+            inView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                }
+              : {}
+          }
+          transition={{
+            duration: 0.8,
+            ease: EASE,
+            delay: 0.08,
+          }}
         >
           <span>Our </span>
-          <span className={styles.outlinedText}>Partners</span>
+
+          <span className={styles.outlinedText}>
+            Partners
+          </span>
         </motion.h2>
       </div>
 
       <motion.div
         className={styles.partnersGrid}
-        initial={{ opacity: 0, y: 22 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
+        initial={{
+          opacity: 0,
+          y: 22,
+        }}
+        animate={
+          inView
+            ? {
+                opacity: 1,
+                y: 0,
+              }
+            : {}
+        }
+        transition={{
+          duration: 0.8,
+          ease: EASE,
+          delay: 0.2,
+        }}
       >
         {PARTNERS.map((partner, index) => (
           <PartnerCard
