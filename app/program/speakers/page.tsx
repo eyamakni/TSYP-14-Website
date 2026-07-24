@@ -48,6 +48,12 @@ const SPEAKERS: Speaker[] = [
       "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, and Recipient of the 2024 IEEE IAS Electrical Safety Committee Excellence Award",
     photo: "/speakers/nehad-el-sherif.jpg",
   },
+  {
+  name: "Khaled Ltaief",
+  country: "Saudi Arabia",
+  position: "2019 President, IEEE Communications Society",
+  photo: "/speakers/khaled-ltaief.jpg",
+},
 ];
 
 function CountryIcon() {
@@ -195,14 +201,14 @@ export default function SpeakersPage() {
             transition={{ duration: 0.7, ease: EASE, delay: 0.18 }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>05</span>
+              <span className={styles.statValue}>06</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 
             <div className={styles.statDivider} />
 
             <div className={styles.statItem}>
-              <span className={styles.statValue}>03</span>
+              <span className={styles.statValue}>04</span>
               <span className={styles.statLabel}>Countries</span>
             </div>
 

@@ -137,12 +137,7 @@ export default function NoospherePage() {
           </div>
 
           <h1 className={styles.title}>
-            <span className={styles.solidText}>
-              Architects of
-              <span className={styles.titleWordGap}>
-                the
-              </span>
-            </span>
+           
 
             <span className={styles.outlinedText}>
               Noosphere
