@@ -50,6 +50,17 @@ const PARTNERS: Partner[] = [
     logo: "/partners/smart-city.png",
     website: "https://smartcities.ieee.org/",
   },
+  {
+    name: "IEEE WIE",
+    logo: "/partners/WIE.png",
+    website: "https://wie.ieee.org/",
+  },
+  {
+    name: "IEEE IAS",
+    logo: "/partners/IAS.png",
+    website: "https://ias.ieee.org/",
+  },
+
 ];
 
 function PartnerCard({
