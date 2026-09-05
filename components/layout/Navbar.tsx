@@ -18,6 +18,7 @@ const PROGRAM_DROPDOWN = [
   { label: "Technical Program", href: "/program/technical" },
   { label: "Speakers", href: "/program/speakers" },
   { label: "Challenges", href: "/program/challenges" },
+  { label: "AOTN", href: "/program/aotn" },
 ];
 
 const VENUE_DROPDOWN = [

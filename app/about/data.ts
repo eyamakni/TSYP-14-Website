@@ -34,13 +34,7 @@ export const executiveCommittee = [
     email: "labidimedyoussef@gmail.com",
     photo: "/team/labidi.jpg"
   },
-  {
-    name: "Hamza Sammoud",
-    phone: "24651753",
-    position: "Sessions Manager",
-    email: "hamza.sammoud11@gmail.com",
-    photo: "/team/sammoud.jpg"
-  },
+ 
   {
     name: "Hiba Rahmouni",
     phone: "99853671",
@@ -120,7 +114,7 @@ export const mediaTeam = [
   {
     name: "Wyssem Neila",
     phone: "55797615",
-    position: "Media team",
+    position: "Media Manager",
     email: "wyssemneila@ieee.org",
     photo: "/team/wyssem.jpg"
   },
@@ -172,13 +166,7 @@ export const aotnTeam = [
     email: "adam.bhouri@gmail.com",
     photo: "/team/bhouri.jpg"
   },
-  {
-    name: "Farouk Thabet",
-    phone: "94273344",
-    position: "AOTN Mentoring Manager",
-    email: "faroukthabet40@gmail.com",
-    photo: "/team/pookie.jpg"
-  }
+
 ];
 
 export const sponsoringTeam = [
@@ -203,20 +191,8 @@ export const sponsoringTeam = [
     email: "mariembenabid2004@gmail.com",
     photo: "/team/benabid.jpg"
   },
-  {
-    name: "Mohamed Abdelwahed",
-    phone: "58444030",
-    position: "Sponsoring Team",
-    email: "Mohamedabdelwahed279@gmail.com",
-    photo: "/team/wan.jpg"
-  },
-  {
-    name: "Ahmed Ksibi",
-    phone: "99104203",
-    position: "Sponsoring Team",
-    email: "ahmed.ksibi2004@gmail.com",
-    photo: "/team/ksibi.jpg"
-  },
+  
+  
   {
     name: "Houssem Chourou",
     phone: "92824054",

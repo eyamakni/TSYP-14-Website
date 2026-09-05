@@ -22,6 +22,19 @@ const SPEAKERS: Speaker[] = [
     photo: "/speakers/andrew-lowery.jpg",
   },
   {
+    name: "Khaled B.Ltaief",
+    country: "Hong Kong",
+    position: "2019 President, IEEE Communications Society",
+    photo: "/speakers/khaled-ltaief.jpg",
+  },
+  {
+    name: "Erika Ross",
+    country: "USA",
+    position: "IEEE EMBS President",
+    photo: "/speakers/erika-ross.jpg",
+  },
+
+  {
     name: "Ahmed Ayman",
     country: "Egypt",
     position: "Initiative Lead, IEEE MGA Student Activities Committee",
@@ -43,17 +56,18 @@ const SPEAKERS: Speaker[] = [
   },
   {
     name: "Nehad El-Sherif",
-    country: "Egypt",
+    country: "Canada",
     position:
       "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, and Recipient of the 2024 IEEE IAS Electrical Safety Committee Excellence Award",
     photo: "/speakers/nehad-el-sherif.jpg",
   },
   {
-  name: "Khaled Ltaief",
-  country: "Saudi Arabia",
-  position: "2019 President, IEEE Communications Society",
-  photo: "/speakers/khaled-ltaief.jpg",
-},
+    name: "Zied Bouida",
+    country: "Kuwait",
+    position: " Assistant Professor at Kuwait College of Science and Technology (KCST)",
+    photo: "/speakers/zied-bouida.jpg",
+  },
+
 ];
 
 function CountryIcon() {
@@ -201,14 +215,14 @@ export default function SpeakersPage() {
             transition={{ duration: 0.7, ease: EASE, delay: 0.18 }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>06</span>
+              <span className={styles.statValue}>08</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 
             <div className={styles.statDivider} />
 
             <div className={styles.statItem}>
-              <span className={styles.statValue}>04</span>
+              <span className={styles.statValue}>06</span>
               <span className={styles.statLabel}>Countries</span>
             </div>
 
