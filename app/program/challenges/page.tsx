@@ -35,6 +35,30 @@ function ArrowIcon() {
 }
 
 /* ─────────────────────────────────────
+   CALENDAR ICON
+───────────────────────────────────── */
+
+function CalendarIcon() {
+  return (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="rgba(155,48,255,0.6)"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <line x1="16" y1="2" x2="16" y2="6" />
+      <line x1="8" y1="2" x2="8" y2="6" />
+      <line x1="3" y1="10" x2="21" y2="10" />
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────
    FLIP CARD
 ───────────────────────────────────── */
 
@@ -104,12 +128,10 @@ function ChallengeCard({
               style={{
                 background:
                   "linear-gradient(145deg, rgba(18,10,35,0.95) 0%, rgba(8,4,18,0.98) 100%)",
-
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-
                 gap: "20px",
                 padding: "24px 16px",
               }}
@@ -119,12 +141,10 @@ function ChallengeCard({
                 style={{
                   width: "100%",
                   minHeight: "100px",
-
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexWrap: "wrap",
-
                   gap: "12px",
                   padding: "8px",
                 }}
@@ -135,21 +155,13 @@ function ChallengeCard({
                     style={{
                       width: "72px",
                       height: "72px",
-
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-
-                      background:
-                        "rgba(255,255,255,0.025)",
-
-                      border:
-                        "1px solid rgba(255,255,255,0.06)",
-
+                      background: "rgba(255,255,255,0.025)",
+                      border: "1px solid rgba(255,255,255,0.06)",
                       borderRadius: "14px",
-
                       padding: "8px",
-
                       overflow: "hidden",
                     }}
                   >
@@ -160,12 +172,9 @@ function ChallengeCard({
                         width: "100%",
                         height: "100%",
                         objectFit: "contain",
-
                         filter:
                           "brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.15))",
-
-                        transition:
-                          "transform 0.3s ease",
+                        transition: "transform 0.3s ease",
                       }}
                     />
                   </div>
@@ -178,30 +187,16 @@ function ChallengeCard({
                   fontSize: "15px",
                   fontWeight: 700,
                   color: "#ffffff",
-
                   textAlign: "center",
                   lineHeight: 1.3,
                   letterSpacing: "-0.01em",
-
                   margin: 0,
-
                   fontFamily:
                     "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
                 }}
               >
                 {challenge.name}
               </h3>
-
-              {/* Hint */}
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-              >
-
-              </div>
             </div>
 
             {/* ─────────────────────────────
@@ -213,12 +208,10 @@ function ChallengeCard({
               style={{
                 background:
                   "linear-gradient(145deg, rgba(30,10,60,0.97) 0%, rgba(10,4,25,0.99) 100%)",
-
                 display: "flex",
                 flexDirection: "column",
-
                 padding: "20px 16px",
-                gap: "12px",
+                gap: "10px",
               }}
             >
               {/* Label + Title */}
@@ -236,10 +229,7 @@ function ChallengeCard({
                       width: "4px",
                       height: "4px",
                       borderRadius: "50%",
-
-                      background:
-                        "rgba(155,48,255,0.9)",
-
+                      background: "rgba(155,48,255,0.9)",
                       boxShadow:
                         "0 0 5px rgba(155,48,255,0.6)",
                     }}
@@ -264,14 +254,11 @@ function ChallengeCard({
                     fontWeight: 700,
                     color: "#ffffff",
                     lineHeight: 1.3,
-
                     margin: 0,
-
                     display: "-webkit-box",
                     WebkitLineClamp: 3,
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
-
                     fontFamily:
                       "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
                   }}
@@ -280,24 +267,87 @@ function ChallengeCard({
                 </h3>
               </div>
 
+              
+
+              {/* Dates */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "4px",
+                }}
+              >
+                {/* Info Session */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  <CalendarIcon />
+
+                  <span
+                    style={{
+                      fontSize: "8.5px",
+                      color: "rgba(255,255,255,0.4)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "rgba(155,48,255,0.6)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Info Session:
+                    </span>{" "}
+                    {challenge.infoSessionDate}
+                  </span>
+                </div>
+
+                {/* Phase 1 Deadline */}
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  <CalendarIcon />
+
+                  <span
+                    style={{
+                      fontSize: "8.5px",
+                      color: "rgba(255,255,255,0.4)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: "rgba(155,48,255,0.6)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Phase 1 Deadline:
+                    </span>{" "}
+                    {challenge.phase1Deadline}
+                  </span>
+                </div>
+              </div>
               {/* Divider */}
               <div
                 style={{
                   width: "100%",
                   height: "1px",
-                  background:
-                    "rgba(155,48,255,0.08)",
+                  background: "rgba(155,48,255,0.08)",
                 }}
               />
-
-              {/* Logos on Back */}
+              {/* Logos */}
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexWrap: "wrap",
-
                   gap: "8px",
                 }}
               >
@@ -307,20 +357,13 @@ function ChallengeCard({
                     style={{
                       width: "42px",
                       height: "42px",
-
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-
                       padding: "5px",
-
                       borderRadius: "8px",
-
-                      background:
-                        "rgba(255,255,255,0.025)",
-
-                      border:
-                        "1px solid rgba(255,255,255,0.05)",
+                      background: "rgba(255,255,255,0.025)",
+                      border: "1px solid rgba(255,255,255,0.05)",
                     }}
                   >
                     <img
@@ -330,9 +373,7 @@ function ChallengeCard({
                         width: "100%",
                         height: "100%",
                         objectFit: "contain",
-
-                        filter:
-                          "brightness(0) invert(1)",
+                        filter: "brightness(0) invert(1)",
                       }}
                     />
                   </div>
@@ -341,56 +382,39 @@ function ChallengeCard({
 
               {/* CTA */}
               <button
-                onClick={() =>
-                  router.push(challenge.specLink)
-                }
+                onClick={() => router.push(challenge.specLink)}
                 style={{
                   marginTop: "auto",
-
                   padding: "9px 0",
                   width: "100%",
-
                   background:
                     "linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%)",
-
                   color: "#ffffff",
-
                   fontSize: "8.5px",
                   fontWeight: 700,
-
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
-
                   borderRadius: "8px",
-
-                  border:
-                    "1px solid rgba(155,48,255,0.4)",
-
+                  border: "1px solid rgba(155,48,255,0.4)",
                   cursor: "pointer",
-
                   boxShadow:
                     "0 0 12px rgba(155,48,255,0.2)",
-
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-
                   gap: "5px",
-
                   transition:
                     "box-shadow 0.2s ease, transform 0.2s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow =
                     "0 0 24px rgba(155,48,255,0.4)";
-
                   e.currentTarget.style.transform =
                     "translateY(-1px)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.boxShadow =
                     "0 0 12px rgba(155,48,255,0.2)";
-
                   e.currentTarget.style.transform =
                     "translateY(0)";
                 }}
@@ -425,19 +449,12 @@ export default function ChallengesPage() {
         minHeight: "100vh",
       }}
     >
-      {/* ─────────────────────────────
-          HERO
-      ───────────────────────────── */}
-
+      {/* HERO */}
       <section
         style={{
           position: "relative",
-
-          padding:
-            "120px 24px 40px",
-
+          padding: "120px 24px 40px",
           textAlign: "center",
-
           overflow: "hidden",
         }}
       >
@@ -445,20 +462,14 @@ export default function ChallengesPage() {
         <div
           style={{
             position: "absolute",
-
             top: "10%",
             left: "50%",
-
             transform: "translateX(-50%)",
-
             width: "700px",
             height: "400px",
-
             borderRadius: "50%",
-
             background:
               "radial-gradient(circle, rgba(155,48,255,0.06) 0%, transparent 65%)",
-
             pointerEvents: "none",
           }}
         />
@@ -501,8 +512,7 @@ export default function ChallengesPage() {
                 fontWeight: 700,
                 letterSpacing: "0.38em",
                 textTransform: "uppercase",
-                color:
-                  "rgba(155,48,255,0.6)",
+                color: "rgba(155,48,255,0.6)",
               }}
             >
               TSYP 14 · Program
@@ -535,25 +545,16 @@ export default function ChallengesPage() {
             ease: EASE,
           }}
           style={{
-            fontSize:
-              "clamp(36px, 6vw, 72px)",
-
+            fontSize: "clamp(36px, 6vw, 72px)",
             fontWeight: 800,
-
             letterSpacing: "-0.04em",
             lineHeight: 1,
-
             margin: 0,
-
             fontFamily:
               "var(--font-jakarta), 'Plus Jakarta Sans', sans-serif",
           }}
         >
-          <span
-            style={{
-              color: "#ffffff",
-            }}
-          >
+          <span style={{ color: "#ffffff" }}>
             The{" "}
           </span>
 
@@ -561,12 +562,8 @@ export default function ChallengesPage() {
             style={{
               background:
                 "linear-gradient(135deg, #9b30ff 20%, #c084fc 80%)",
-
-              WebkitBackgroundClip:
-                "text",
-
-              WebkitTextFillColor:
-                "transparent",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             Challenges
@@ -579,35 +576,25 @@ export default function ChallengesPage() {
         style={{
           width: "100%",
           height: "1px",
-
           background:
             "linear-gradient(90deg, transparent, rgba(155,48,255,0.2) 50%, transparent)",
         }}
       />
 
-      {/* ─────────────────────────────
-          CARDS
-      ───────────────────────────── */}
-
+      {/* CARDS */}
       <section
         ref={ref}
         style={{
-          padding:
-            "60px 24px 120px",
+          padding: "60px 24px 120px",
         }}
       >
         <div
           className="challenges-grid"
           style={{
             display: "grid",
-
-            gridTemplateColumns:
-              "repeat(4, 1fr)",
-
+            gridTemplateColumns: "repeat(4, 1fr)",
             gap: "20px",
-
             maxWidth: "1060px",
-
             margin: "0 auto",
           }}
         >
@@ -622,10 +609,7 @@ export default function ChallengesPage() {
         </div>
       </section>
 
-      {/* ─────────────────────────────
-          RESPONSIVE
-      ───────────────────────────── */}
-
+      {/* RESPONSIVE */}
       <style jsx>{`
         @media (max-width: 900px) {
           .challenges-grid {
