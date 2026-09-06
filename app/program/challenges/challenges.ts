@@ -60,4 +60,15 @@ export const CHALLENGES: Challenge[] = [
     phase1Deadline: "17 September 2026",
     infoSessionDate: "9 September 2026",
   },
+  {
+    id: "challenge-5",
+    name: "IAS CHALLENGE",
+    logos: [
+      "/societies/ias.png",
+    ],
+    specLink:
+      "https://drive.google.com/file/d/1CZ472UIetrNzyy4dZiYGaYu8XxrVkXQp/view?usp=drive_link",
+    phase1Deadline: "30 October 2026",
+    infoSessionDate: "13 September 2026",
+  },
 ];
