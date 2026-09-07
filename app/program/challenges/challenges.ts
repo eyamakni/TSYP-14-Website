@@ -17,7 +17,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1bvq9aVgPIA-A1pNEWhJ0lYeI8MNMtrdv/view?usp=sharing",
-    phase1Deadline: "5 October 2026",
+    phase1Deadline: "05 October 2026",
     infoSessionDate: "14 September 2026",
   },
   {
@@ -29,7 +29,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/15Vtqx499uvATtP3xO0FJxhRp_gGBLBB7/view?usp=sharing",
-    phase1Deadline: "1 October 2026",
+    phase1Deadline: "01 October 2026",
     infoSessionDate: "15 September 2026",
   },
   {
@@ -58,7 +58,7 @@ export const CHALLENGES: Challenge[] = [
     specLink:
       "https://drive.google.com/file/d/18_xa-QnqOzZSWuOMNb1TwdR93buSmO_t/view?usp=drive_link",
     phase1Deadline: "17 September 2026",
-    infoSessionDate: "9 September 2026",
+    infoSessionDate: "09 September 2026",
   },
   {
     id: "challenge-5",
@@ -70,5 +70,18 @@ export const CHALLENGES: Challenge[] = [
       "https://drive.google.com/file/d/1CZ472UIetrNzyy4dZiYGaYu8XxrVkXQp/view?usp=drive_link",
     phase1Deadline: "30 October 2026",
     infoSessionDate: "13 September 2026",
+  },
+  {
+    id: "challenge-6",
+    name: "Women And Rural Agriculture Innovation Challenge",
+    logos: [
+      "/societies/wie.png",
+      "/societies/ssit.png",
+      "/societies/ent.png",
+    ],
+    specLink:
+      "https://drive.google.com/file/d/1CE_09tClW84i7t-oh6olvyofaJQwmkJH/view?usp=drive_link",
+    phase1Deadline: "05 November 2026",
+    infoSessionDate: "16 September 2026",
   },
 ];
