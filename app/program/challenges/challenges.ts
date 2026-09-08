@@ -93,7 +93,7 @@ export const CHALLENGES: Challenge[] = [
       "/societies/cis.png",
     ],
     specLink:
-      "https://drive.google.com/file/d/1sMeaWnFIWh3mt4zEtAS89KiOvzY_R_cd/view?usp=drive_link",
+      "https://drive.google.com/file/d/1pocl9K2ymSAoT2N2oNVClJ9B-ER0pKbc/view?usp=sharing",
     phase1Deadline: "11 October 2026",
     infoSessionDate: "11 September 2026",
   },
