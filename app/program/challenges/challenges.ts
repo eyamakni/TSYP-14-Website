@@ -29,7 +29,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/15Vtqx499uvATtP3xO0FJxhRp_gGBLBB7/view?usp=sharing",
-    phase1Deadline: "01 October 2026",
+    phase1Deadline: "01 November 2026",
     infoSessionDate: "15 September 2026",
   },
   {
@@ -57,7 +57,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/18_xa-QnqOzZSWuOMNb1TwdR93buSmO_t/view?usp=drive_link",
-    phase1Deadline: "17 September 2026",
+    phase1Deadline: "12 November 2026",
     infoSessionDate: "09 September 2026",
   },
   {
@@ -94,7 +94,19 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1pocl9K2ymSAoT2N2oNVClJ9B-ER0pKbc/view?usp=sharing",
-    phase1Deadline: "11 October 2026",
+    phase1Deadline: "08 November 2026",
     infoSessionDate: "11 September 2026",
+  },
+  {
+    id: "challenge-8",
+    name: "EnergyMind Tunisia (Architects of the Energy Noosphere: A Human-AI Collective Intelligence Network for Energy Resilience)",
+    logos: [
+      "/societies/ice.png",
+      "/societies/pes.png",
+    ],
+    specLink:
+      "https://drive.google.com/file/d/15NEu59huEA7_WRwFq4H2khQCtqOV08EY/view?usp=drive_link",
+    phase1Deadline: "15 October 2026",
+    infoSessionDate: "17 September 2026",
   },
 ];

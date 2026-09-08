@@ -256,7 +256,7 @@ function ChallengeCard({
                     lineHeight: 1.3,
                     margin: 0,
                     display: "-webkit-box",
-                    WebkitLineClamp: 3,
+                    WebkitLineClamp: 5,
                     WebkitBoxOrient: "vertical",
                     overflow: "hidden",
                     fontFamily:
