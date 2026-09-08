@@ -84,4 +84,17 @@ export const CHALLENGES: Challenge[] = [
     phase1Deadline: "05 November 2026",
     infoSessionDate: "16 September 2026",
   },
+  {
+    id: "challenge-7",
+    name: "Ground Truth Under Attack: Securing the Earth Observation Chain",
+    logos: [
+      "/societies/grss.png",
+      "/societies/sp.png",
+      "/societies/cis.png",
+    ],
+    specLink:
+      "https://drive.google.com/file/d/1sMeaWnFIWh3mt4zEtAS89KiOvzY_R_cd/view?usp=drive_link",
+    phase1Deadline: "11 October 2026",
+    infoSessionDate: "11 September 2026",
+  },
 ];
