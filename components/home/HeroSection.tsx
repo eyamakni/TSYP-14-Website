@@ -6,7 +6,7 @@ import ParticleCanvas from "./ParticleCanvas";
 import DemiSphere from "./DemiSphere";
 
 const EVENT_START = new Date("2026-12-21T00:00:00");
-const EVENT_DATE_LABEL = "21–23 December 2026";
+const EVENT_DATE_LABEL = "TBD";
 
 function calcDiff() {
   const diff = Math.max(0, EVENT_START.getTime() - Date.now());

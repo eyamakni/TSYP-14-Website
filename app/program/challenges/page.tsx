@@ -35,6 +35,27 @@ function ArrowIcon() {
 }
 
 /* ─────────────────────────────────────
+   RECORD ICON
+───────────────────────────────────── */
+
+function PlayIcon() {
+  return (
+    <svg
+      width="11"
+      height="11"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polygon points="6 3 20 12 6 21 6 3" />
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────
    CALENDAR ICON
 ───────────────────────────────────── */
 
@@ -267,8 +288,6 @@ function ChallengeCard({
                 </h3>
               </div>
 
-              
-
               {/* Dates */}
               <div
                 style={{
@@ -333,6 +352,7 @@ function ChallengeCard({
                   </span>
                 </div>
               </div>
+
               {/* Divider */}
               <div
                 style={{
@@ -341,6 +361,7 @@ function ChallengeCard({
                   background: "rgba(155,48,255,0.08)",
                 }}
               />
+
               {/* Logos */}
               <div
                 style={{
@@ -380,48 +401,106 @@ function ChallengeCard({
                 ))}
               </div>
 
-              {/* CTA */}
-              <button
-                onClick={() => router.push(challenge.specLink)}
+              {/* CTA Buttons */}
+              <div
                 style={{
                   marginTop: "auto",
-                  padding: "9px 0",
-                  width: "100%",
-                  background:
-                    "linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%)",
-                  color: "#ffffff",
-                  fontSize: "8.5px",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  borderRadius: "8px",
-                  border: "1px solid rgba(155,48,255,0.4)",
-                  cursor: "pointer",
-                  boxShadow:
-                    "0 0 12px rgba(155,48,255,0.2)",
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "5px",
-                  transition:
-                    "box-shadow 0.2s ease, transform 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0 0 24px rgba(155,48,255,0.4)";
-                  e.currentTarget.style.transform =
-                    "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow =
-                    "0 0 12px rgba(155,48,255,0.2)";
-                  e.currentTarget.style.transform =
-                    "translateY(0)";
+                  gap: "8px",
+                  width: "100%",
                 }}
               >
-                <ArrowIcon />
-                See Challenge
-              </button>
+                {/* See Challenge */}
+                <button
+                  onClick={() => router.push(challenge.specLink)}
+                  style={{
+                    flex: challenge.recordLink ? 1 : undefined,
+                    width: challenge.recordLink ? undefined : "100%",
+                    padding: "9px 8px",
+                    background:
+                      "linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%)",
+                    color: "#ffffff",
+                    fontSize: "8.5px",
+                    fontWeight: 700,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    borderRadius: "8px",
+                    border: "1px solid rgba(155,48,255,0.4)",
+                    cursor: "pointer",
+                    boxShadow:
+                      "0 0 12px rgba(155,48,255,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "5px",
+                    transition:
+                      "box-shadow 0.2s ease, transform 0.2s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow =
+                      "0 0 24px rgba(155,48,255,0.4)";
+                    e.currentTarget.style.transform =
+                      "translateY(-1px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow =
+                      "0 0 12px rgba(155,48,255,0.2)";
+                    e.currentTarget.style.transform =
+                      "translateY(0)";
+                  }}
+                >
+                  <ArrowIcon />
+                  See Challenge
+                </button>
+
+                {/* See Record - only shown when recordLink exists */}
+                {challenge.recordLink && (
+                  <button
+                    onClick={() => router.push(challenge.recordLink)}
+                    style={{
+                      flex: 1,
+                      padding: "9px 8px",
+                      background: "rgba(255,255,255,0.035)",
+                      color: "rgba(255,255,255,0.85)",
+                      fontSize: "8.5px",
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
+                      borderRadius: "8px",
+                      border:
+                        "1px solid rgba(155,48,255,0.25)",
+                      cursor: "pointer",
+                      boxShadow:
+                        "0 0 10px rgba(155,48,255,0.06)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "5px",
+                      transition:
+                        "background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background =
+                        "rgba(155,48,255,0.12)";
+                      e.currentTarget.style.boxShadow =
+                        "0 0 20px rgba(155,48,255,0.2)";
+                      e.currentTarget.style.transform =
+                        "translateY(-1px)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background =
+                        "rgba(255,255,255,0.035)";
+                      e.currentTarget.style.boxShadow =
+                        "0 0 10px rgba(155,48,255,0.06)";
+                      e.currentTarget.style.transform =
+                        "translateY(0)";
+                    }}
+                  >
+                    <PlayIcon />
+                    See Record
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ const PROGRAM_DAYS: ProgramDay[] = [
   {
     id: "day-1",
     label: "Day 1",
-    dateLabel: "21 December 2026",
+    dateLabel: "TBD",
     title: "Arrival, Opening & Networking",
     items: [
       {
@@ -55,7 +55,7 @@ const PROGRAM_DAYS: ProgramDay[] = [
   {
     id: "day-2",
     label: "Day 2",
-    dateLabel: "22 December 2026",
+    dateLabel: "TBD",
     title: "Workshops, Challenges & Awards",
     items: [
       {
@@ -107,7 +107,7 @@ const PROGRAM_DAYS: ProgramDay[] = [
   {
     id: "day-3",
     label: "Day 3",
-    dateLabel: "23 December 2026",
+    dateLabel: "TBD",
     title: "Finals, Voting & Closing",
     items: [
       {
@@ -245,7 +245,7 @@ export default function TechnicalProgramPage() {
           <div className={styles.eventInfo}>
             <div className={styles.eventInfoItem}>
               <CalendarIcon />
-              <span>21–23 December 2026</span>
+              <span>TBD</span>
             </div>
 
             <div className={styles.eventInfoItem}>

@@ -3,6 +3,7 @@ export interface Challenge {
   name: string;
   logos: string[];
   specLink: string;
+  recordLink: string;
   phase1Deadline: string;
   infoSessionDate: string;
 }
@@ -17,6 +18,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1bvq9aVgPIA-A1pNEWhJ0lYeI8MNMtrdv/view?usp=sharing",
+    recordLink: "",
     phase1Deadline: "05 October 2026",
     infoSessionDate: "14 September 2026",
   },
@@ -29,6 +31,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/15Vtqx499uvATtP3xO0FJxhRp_gGBLBB7/view?usp=sharing",
+    recordLink: "",
     phase1Deadline: "01 November 2026",
     infoSessionDate: "15 September 2026",
   },
@@ -43,6 +46,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1IGdD5hincq2haXRrSGjGAKNVMgv2DQnd/view?usp=sharing",
+    recordLink: "https://drive.google.com/file/d/1rO8_yxTGJTtZC_RU3ZS0v56Q8sneD5a2/view?usp=sharing",
     phase1Deadline: "12 October 2026",
     infoSessionDate: "12 September 2026",
   },
@@ -57,6 +61,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/18_xa-QnqOzZSWuOMNb1TwdR93buSmO_t/view?usp=drive_link",
+    recordLink: "https://drive.google.com/file/d/1R07KBGXyT_s23bgsSvlzkqithm4WGQs-/view?usp=sharing",
     phase1Deadline: "12 November 2026",
     infoSessionDate: "09 September 2026",
   },
@@ -68,6 +73,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1CZ472UIetrNzyy4dZiYGaYu8XxrVkXQp/view?usp=drive_link",
+    recordLink: "",
     phase1Deadline: "30 October 2026",
     infoSessionDate: "13 September 2026",
   },
@@ -81,6 +87,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1CE_09tClW84i7t-oh6olvyofaJQwmkJH/view?usp=drive_link",
+    recordLink: "",
     phase1Deadline: "05 November 2026",
     infoSessionDate: "16 September 2026",
   },
@@ -94,6 +101,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1pocl9K2ymSAoT2N2oNVClJ9B-ER0pKbc/view?usp=sharing",
+    recordLink: "",
     phase1Deadline: "08 November 2026",
     infoSessionDate: "11 September 2026",
   },
@@ -106,7 +114,22 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/15NEu59huEA7_WRwFq4H2khQCtqOV08EY/view?usp=drive_link",
+    recordLink: "",
     phase1Deadline: "15 October 2026",
     infoSessionDate: "17 September 2026",
+  },
+  {
+    id: "challenge-9",
+    name: "Edge AI & IoT for Resilient Smart Infrastructure",
+    logos: [
+      "/societies/cas.png",
+      "/societies/crfid.png",
+      "/societies/earl.png"
+    ],
+    specLink:
+      "https://drive.google.com/file/d/1zEz4RCmTzVbJ711nImh2l9uV_QVDBElu/view?usp=drive_link",
+    recordLink: "",
+    phase1Deadline: "20 November 2026",
+    infoSessionDate: "18 September 2026",
   },
 ];
