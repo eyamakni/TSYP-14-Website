@@ -18,7 +18,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1bvq9aVgPIA-A1pNEWhJ0lYeI8MNMtrdv/view?usp=sharing",
-    recordLink: "",
+    recordLink: "https://drive.google.com/file/d/10l_A0hrnw_dAyHZ1zRHnyLTEjGNEa18_/view?usp=sharing",
     phase1Deadline: "05 October 2026",
     infoSessionDate: "14 September 2026",
   },
@@ -73,7 +73,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1CZ472UIetrNzyy4dZiYGaYu8XxrVkXQp/view?usp=drive_link",
-    recordLink: "",
+    recordLink: "https://drive.google.com/file/d/1WoDQaSDwpLg1oNqJzk8KbZoMC23MLTWY/view?usp=sharing",
     phase1Deadline: "30 October 2026",
     infoSessionDate: "13 September 2026",
   },

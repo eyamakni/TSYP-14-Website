@@ -450,7 +450,7 @@ function ChallengeCard({
                   }}
                 >
                   <ArrowIcon />
-                  See Challenge
+                  Specification
                 </button>
 
                 {/* See Record - only shown when recordLink exists */}
@@ -497,7 +497,7 @@ function ChallengeCard({
                     }}
                   >
                     <PlayIcon />
-                    See Record
+                    Record
                   </button>
                 )}
               </div>
