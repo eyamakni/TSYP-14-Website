@@ -4,11 +4,12 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-const LINKS = ["Home", "The Noosphere", "Program", "Venue", "About Us"];
+const LINKS = ["Home", "The Noosphere", "AOTN", "Program", "Venue", "About Us"];
 
 const LINK_HREFS: Record<string, string> = {
   Home: "/",
   "The Noosphere": "/noosphere",
+  "AOTN": "/program/aotn",
   Program: "/program/technical",
   Venue: "/venue/congress-venue",
   "About Us": "/about",
@@ -18,7 +19,6 @@ const PROGRAM_DROPDOWN = [
   { label: "Technical Program", href: "/program/technical" },
   { label: "Speakers", href: "/program/speakers" },
   { label: "Challenges", href: "/program/challenges" },
-  { label: "AOTN", href: "/program/aotn" },
 ];
 
 const VENUE_DROPDOWN = [

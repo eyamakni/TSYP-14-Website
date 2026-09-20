@@ -87,7 +87,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1CE_09tClW84i7t-oh6olvyofaJQwmkJH/view?usp=drive_link",
-    recordLink: "",
+    recordLink: "https://drive.google.com/file/d/1c3vOe9XwX0pfUC99S45w3LxS1E6O_JVl/view",
     phase1Deadline: "05 November 2026",
     infoSessionDate: "16 September 2026",
   },
@@ -102,8 +102,8 @@ export const CHALLENGES: Challenge[] = [
     specLink:
       "https://drive.google.com/file/d/1pocl9K2ymSAoT2N2oNVClJ9B-ER0pKbc/view?usp=sharing",
     recordLink: "",
-    phase1Deadline: "08 November 2026",
-    infoSessionDate: "11 September 2026",
+    phase1Deadline: "03 November 2026",
+    infoSessionDate: "20 September 2026",
   },
   {
     id: "challenge-8",
@@ -114,7 +114,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/15NEu59huEA7_WRwFq4H2khQCtqOV08EY/view?usp=drive_link",
-    recordLink: "",
+    recordLink: "https://drive.google.com/file/d/1rblqI7cEUCwOTBsBtmT5LoGgHa7LX9Hm/view",
     phase1Deadline: "15 October 2026",
     infoSessionDate: "17 September 2026",
   },
@@ -128,7 +128,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     specLink:
       "https://drive.google.com/file/d/1zEz4RCmTzVbJ711nImh2l9uV_QVDBElu/view?usp=drive_link",
-    recordLink: "",
+    recordLink: "https://drive.google.com/file/d/1XOhpbLElGsvXU4rZNP7Ot1AFa9p49Ubp/view",
     phase1Deadline: "20 November 2026",
     infoSessionDate: "18 September 2026",
   },

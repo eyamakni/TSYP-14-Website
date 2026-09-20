@@ -10,7 +10,7 @@ const FACTS = [
   { label: "Host",       value: "IEEE INSAT SB"       },
   { label: "Partner",    value: "IEEE Tunisia Section" },
   { label: "Location",   value: "Yasmine Hammamet, Tunisia"       },
-  { label: "Date",       value: "TBD"     },
+  { label: "Date",       value: "14-16 December 2026"     },
 ];
 
 function FadeUp({

@@ -5,8 +5,8 @@ import React, { useState, useEffect } from "react";
 import ParticleCanvas from "./ParticleCanvas";
 import DemiSphere from "./DemiSphere";
 
-const EVENT_START = new Date("2026-12-21T00:00:00");
-const EVENT_DATE_LABEL = "TBD";
+const EVENT_START = new Date("2026-12-14T00:00:00");
+const EVENT_DATE_LABEL = "14-16 December 2026";
 
 function calcDiff() {
   const diff = Math.max(0, EVENT_START.getTime() - Date.now());

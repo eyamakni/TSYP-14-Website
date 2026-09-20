@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-const TARGET = new Date("2026-12-21T00:00:00");
+const TARGET = new Date("2026-12-14T00:00:00");
 
 function calcTimeLeft() {
   const diff = Math.max(0, TARGET.getTime() - Date.now());
@@ -231,7 +231,7 @@ export default function CountdownSection() {
           letterSpacing: "0.18em", textTransform: "uppercase",
           fontFamily: "var(--font-inter), 'Inter', sans-serif",
         }}>
-          TBD · Hammamet, Tunisia
+          14-16 December 2026 · Hammamet, Tunisia
         </p>
       </motion.div>
     </section>
