@@ -12,33 +12,23 @@ type Speaker = {
   country: string;
   position: string;
   photo: string;
+  website?: string;
 };
 
 const SPEAKERS: Speaker[] = [
-  {
-    name: "Andrew Douglas Lowery",
-    country: "USA",
-    position: "IEEE Member and Geographic Activities Vice President",
-    photo: "/speakers/andrew-lowery.jpg",
-  },
   {
     name: "Khaled B.Ltaief",
     country: "Hong Kong",
     position: "2019 President, IEEE Communications Society",
     photo: "/speakers/khaled-ltaief.jpg",
+    website: "",
   },
-  {
-    name: "Erika Ross",
-    country: "USA",
-    position: "IEEE EMBS President",
-    photo: "/speakers/erika-ross.jpg",
-  },
-
   {
     name: "Ahmed Ayman",
     country: "Egypt",
     position: "Initiative Lead, IEEE MGA Student Activities Committee",
     photo: "/speakers/ahmed-ayman.jpeg",
+    website: "",
   },
   {
     name: "Mohamed Saaed Darweesh",
@@ -46,6 +36,7 @@ const SPEAKERS: Speaker[] = [
     position:
       "IEEE Region 8 Young Professionals Chair, IEEE MGA Young Professionals Committee Member 2025–2026, and IEEE HTB Programs Committee Member",
     photo: "/speakers/mohamed-darweesh.jpeg",
+    website: "",
   },
   {
     name: "Sneha Satish Hegde",
@@ -53,6 +44,7 @@ const SPEAKERS: Speaker[] = [
     position:
       "Chair, IEEE Dielectrics and Electrical Insulation Society Women in Engineering Committee 2026",
     photo: "/speakers/sneha-hegde.jpeg",
+    website: "",
   },
   {
     name: "Nehad El-Sherif",
@@ -60,14 +52,31 @@ const SPEAKERS: Speaker[] = [
     position:
       "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, and Recipient of the 2024 IEEE IAS Electrical Safety Committee Excellence Award",
     photo: "/speakers/nehad-el-sherif.jpg",
+    website: "",
   },
   {
     name: "Zied Bouida",
     country: "Kuwait",
-    position: " Assistant Professor at Kuwait College of Science and Technology (KCST)",
+    position:
+      "Assistant Professor at Kuwait College of Science and Technology (KCST)",
     photo: "/speakers/zied-bouida.jpg",
+    website: "",
   },
-
+  {
+    name: "Khaled Mhamdi",
+    country: "Tunisia",
+    position: "Senior Process/Utilities Engineer and ENERWISE Developer",
+    photo: "/speakers/khaled.png",
+    website: "http://www.khaledmhamdi.com/",
+  },
+  {
+    name: "Imen Selmi",
+    country: "Tunisia",
+    position:
+      "AI & MLOps Engineer and PhD researcher specializing in Generative AI, LLMs, RAG, and AI security.",
+    photo: "/speakers/imen.jpg",
+    website: "",
+  },
 ];
 
 function CountryIcon() {
@@ -78,7 +87,13 @@ function CountryIcon() {
       fill="none"
       aria-hidden="true"
     >
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
       <path
         d="M2 12h20M12 2c3 3 4.5 6.5 4.5 10S15 19 12 22M12 2C9 5 7.5 8.5 7.5 12S9 19 12 22"
         stroke="currentColor"
@@ -104,6 +119,30 @@ function RoleIcon() {
       />
       <path
         d="M20 22a8 8 0 0 0-16 0"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function WebsiteIcon() {
+  return (
+    <svg
+      className={styles.icon}
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M10 13a5 5 0 0 0 7.07.07l2-2a5 5 0 0 0-7.07-7.07l-1.15 1.15"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14 11a5 5 0 0 0-7.07-.07l-2 2A5 5 0 0 0 7 20l1.15-1.15"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
@@ -153,9 +192,26 @@ function SpeakerCard({
       <div className={styles.cardBody}>
         <h2 className={styles.speakerName}>{speaker.name}</h2>
 
-        <div className={styles.countryBadge}>
-          <CountryIcon />
-          <span>{speaker.country}</span>
+        {/* Country + Website */}
+        <div className={styles.metaRow}>
+          <div className={styles.countryBadge}>
+            <CountryIcon />
+            <span>{speaker.country}</span>
+          </div>
+
+          {speaker.website && (
+            <a
+              href={speaker.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.websiteLink}
+              aria-label={`Visit ${speaker.name}'s website`}
+            >
+              <WebsiteIcon />
+              <span>Website</span>
+              <span className={styles.externalArrow}>↗</span>
+            </a>
+          )}
         </div>
 
         <div className={styles.positionBlock}>
@@ -173,7 +229,11 @@ function SpeakerCard({
 
 export default function SpeakersPage() {
   const sectionRef = useRef<HTMLElement>(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+
+  const inView = useInView(sectionRef, {
+    once: true,
+    margin: "-80px",
+  });
 
   return (
     <main className={styles.page}>
@@ -188,7 +248,10 @@ export default function SpeakersPage() {
             className={styles.header}
             initial={{ opacity: 0, y: 22 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: EASE }}
+            transition={{
+              duration: 0.8,
+              ease: EASE,
+            }}
           >
             <div className={styles.eyebrow}>
               <span className={styles.eyebrowLineLeft} />
@@ -212,7 +275,11 @@ export default function SpeakersPage() {
             className={styles.statsBar}
             initial={{ opacity: 0, y: 18 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.18 }}
+            transition={{
+              duration: 0.7,
+              ease: EASE,
+              delay: 0.18,
+            }}
           >
             <div className={styles.statItem}>
               <span className={styles.statValue}>08</span>

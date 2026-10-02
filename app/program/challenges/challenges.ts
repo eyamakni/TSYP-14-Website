@@ -2,7 +2,10 @@ export interface Challenge {
   id: string;
   name: string;
   logos: string[];
-  specLink: string;
+  specLinks: {
+    title: string;
+    url: string;
+  }[];
   recordLink: string;
   phase1Deadline: string;
   infoSessionDate: string;
@@ -16,12 +19,18 @@ export const CHALLENGES: Challenge[] = [
       "/societies/ras.png",
       "/societies/aess.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/1bvq9aVgPIA-A1pNEWhJ0lYeI8MNMtrdv/view?usp=sharing",
-    recordLink: "https://drive.google.com/file/d/10l_A0hrnw_dAyHZ1zRHnyLTEjGNEa18_/view?usp=sharing",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1bvq9aVgPIA-A1pNEWhJ0lYeI8MNMtrdv/view?usp=sharing",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/10l_A0hrnw_dAyHZ1zRHnyLTEjGNEa18_/view?usp=sharing",
     phase1Deadline: "05 October 2026",
     infoSessionDate: "14 September 2026",
   },
+
   {
     id: "challenge-2",
     name: "CABINGUARD-ADI",
@@ -29,12 +38,18 @@ export const CHALLENGES: Challenge[] = [
       "/societies/vts.png",
       "/societies/embs.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/15Vtqx499uvATtP3xO0FJxhRp_gGBLBB7/view?usp=sharing",
-    recordLink: "",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/15Vtqx499uvATtP3xO0FJxhRp_gGBLBB7/view?usp=sharing",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1L5azfZ2_Zf7MfvyuMDJQd7uBXT2TWBv2/view?usp=drive_link",
     phase1Deadline: "01 November 2026",
     infoSessionDate: "15 September 2026",
   },
+
   {
     id: "challenge-3",
     name: "NEXUS: Next-Generation Emergency eXchange for Universal Sustainability",
@@ -44,12 +59,18 @@ export const CHALLENGES: Challenge[] = [
       "/societies/tech.png",
       "/societies/ceda.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/1IGdD5hincq2haXRrSGjGAKNVMgv2DQnd/view?usp=sharing",
-    recordLink: "https://drive.google.com/file/d/1rO8_yxTGJTtZC_RU3ZS0v56Q8sneD5a2/view?usp=sharing",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1IGdD5hincq2haXRrSGjGAKNVMgv2DQnd/view?usp=sharing",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1rO8_yxTGJTtZC_RU3ZS0v56Q8sneD5a2/view?usp=sharing",
     phase1Deadline: "12 October 2026",
     infoSessionDate: "12 September 2026",
   },
+
   {
     id: "challenge-4",
     name: "City Brain Convergence",
@@ -59,24 +80,40 @@ export const CHALLENGES: Challenge[] = [
       "/societies/ai.png",
       "/societies/yp.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/18_xa-QnqOzZSWuOMNb1TwdR93buSmO_t/view?usp=drive_link",
-    recordLink: "https://drive.google.com/file/d/1R07KBGXyT_s23bgsSvlzkqithm4WGQs-/view?usp=sharing",
+    specLinks: [
+      {
+        title: "Initial Specification",
+        url: "https://drive.google.com/file/d/18_xa-QnqOzZSWuOMNb1TwdR93buSmO_t/view?usp=drive_link",
+      },
+      {
+        title: "Phase 1 Specification",
+        url: "https://drive.google.com/file/d/1lxtr78L57cNwEkWw9qkL8TeF6oDnbGq5/view?usp=sharing",
+      }
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1R07KBGXyT_s23bgsSvlzkqithm4WGQs-/view?usp=sharing",
     phase1Deadline: "12 November 2026",
     infoSessionDate: "09 September 2026",
   },
+
   {
     id: "challenge-5",
     name: "IAS CHALLENGE",
     logos: [
       "/societies/ias.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/1CZ472UIetrNzyy4dZiYGaYu8XxrVkXQp/view?usp=drive_link",
-    recordLink: "https://drive.google.com/file/d/1WoDQaSDwpLg1oNqJzk8KbZoMC23MLTWY/view?usp=sharing",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1CZ472UIetrNzyy4dZiYGaYu8XxrVkXQp/view?usp=drive_link",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1WoDQaSDwpLg1oNqJzk8KbZoMC23MLTWY/view?usp=sharing",
     phase1Deadline: "30 October 2026",
     infoSessionDate: "13 September 2026",
   },
+
   {
     id: "challenge-6",
     name: "Women And Rural Agriculture Innovation Challenge",
@@ -85,12 +122,18 @@ export const CHALLENGES: Challenge[] = [
       "/societies/ssit.png",
       "/societies/ent.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/1CE_09tClW84i7t-oh6olvyofaJQwmkJH/view?usp=drive_link",
-    recordLink: "https://drive.google.com/file/d/1c3vOe9XwX0pfUC99S45w3LxS1E6O_JVl/view",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1CE_09tClW84i7t-oh6olvyofaJQwmkJH/view?usp=drive_link",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1c3vOe9XwX0pfUC99S45w3LxS1E6O_JVl/view",
     phase1Deadline: "05 November 2026",
     infoSessionDate: "16 September 2026",
   },
+
   {
     id: "challenge-7",
     name: "Ground Truth Under Attack: Securing the Earth Observation Chain",
@@ -99,12 +142,18 @@ export const CHALLENGES: Challenge[] = [
       "/societies/sp.png",
       "/societies/cis.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/1pocl9K2ymSAoT2N2oNVClJ9B-ER0pKbc/view?usp=sharing",
-    recordLink: "",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1pocl9K2ymSAoT2N2oNVClJ9B-ER0pKbc/view?usp=sharing",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1xrJyUq5YLADTJjBVtPWr-VrKdh8Z4UQ-/view?usp=sharing",
     phase1Deadline: "03 November 2026",
     infoSessionDate: "20 September 2026",
   },
+
   {
     id: "challenge-8",
     name: "EnergyMind Tunisia (Architects of the Energy Noosphere: A Human-AI Collective Intelligence Network for Energy Resilience)",
@@ -112,23 +161,34 @@ export const CHALLENGES: Challenge[] = [
       "/societies/ice.png",
       "/societies/pes.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/15NEu59huEA7_WRwFq4H2khQCtqOV08EY/view?usp=drive_link",
-    recordLink: "https://drive.google.com/file/d/1rblqI7cEUCwOTBsBtmT5LoGgHa7LX9Hm/view",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/15NEu59huEA7_WRwFq4H2khQCtqOV08EY/view?usp=drive_link",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1rblqI7cEUCwOTBsBtmT5LoGgHa7LX9Hm/view",
     phase1Deadline: "15 October 2026",
     infoSessionDate: "17 September 2026",
   },
+
   {
     id: "challenge-9",
     name: "Edge AI & IoT for Resilient Smart Infrastructure",
     logos: [
       "/societies/cas.png",
       "/societies/crfid.png",
-      "/societies/earl.png"
+      "/societies/earl.png",
     ],
-    specLink:
-      "https://drive.google.com/file/d/1zEz4RCmTzVbJ711nImh2l9uV_QVDBElu/view?usp=drive_link",
-    recordLink: "https://drive.google.com/file/d/1XOhpbLElGsvXU4rZNP7Ot1AFa9p49Ubp/view",
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1zEz4RCmTzVbJ711nImh2l9uV_QVDBElu/view?usp=drive_link",
+      },
+    ],
+    recordLink:
+      "https://drive.google.com/file/d/1XOhpbLElGsvXU4rZNP7Ot1AFa9p49Ubp/view",
     phase1Deadline: "20 November 2026",
     infoSessionDate: "18 September 2026",
   },

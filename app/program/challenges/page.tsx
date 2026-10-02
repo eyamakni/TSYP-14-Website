@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { Challenge, CHALLENGES } from "./challenges";
 
 const EASE = [0.16, 1, 0.3, 1] as [
@@ -56,6 +55,31 @@ function PlayIcon() {
 }
 
 /* ─────────────────────────────────────
+   CHEVRON ICON
+───────────────────────────────────── */
+
+function ChevronIcon({ open }: { open: boolean }) {
+  return (
+    <svg
+      width="9"
+      height="9"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      style={{
+        transform: open ? "rotate(180deg)" : "rotate(0deg)",
+        transition: "transform 0.2s ease",
+      }}
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+/* ─────────────────────────────────────
    CALENDAR ICON
 ───────────────────────────────────── */
 
@@ -80,6 +104,196 @@ function CalendarIcon() {
 }
 
 /* ─────────────────────────────────────
+   SPECIFICATION DROPDOWN
+───────────────────────────────────── */
+
+function SpecificationButton({
+  challenge,
+}: {
+  challenge: Challenge;
+}) {
+  const [open, setOpen] = useState(false);
+
+  const hasMultipleSpecs = challenge.specLinks.length > 1;
+
+  /* ─────────────────────────────
+     SINGLE SPECIFICATION
+  ───────────────────────────── */
+
+  if (!hasMultipleSpecs) {
+    return (
+      <button
+        onClick={() =>
+          window.open(
+            challenge.specLinks[0].url,
+            "_blank",
+            "noopener,noreferrer"
+          )
+        }
+        style={{
+          flex: challenge.recordLink ? 1 : undefined,
+          width: challenge.recordLink ? undefined : "100%",
+          padding: "9px 8px",
+          background:
+            "linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%)",
+          color: "#ffffff",
+          fontSize: "8.5px",
+          fontWeight: 700,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          borderRadius: "8px",
+          border: "1px solid rgba(155,48,255,0.4)",
+          cursor: "pointer",
+          boxShadow: "0 0 12px rgba(155,48,255,0.2)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "5px",
+          transition:
+            "box-shadow 0.2s ease, transform 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow =
+            "0 0 24px rgba(155,48,255,0.4)";
+          e.currentTarget.style.transform =
+            "translateY(-1px)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow =
+            "0 0 12px rgba(155,48,255,0.2)";
+          e.currentTarget.style.transform =
+            "translateY(0)";
+        }}
+      >
+        <ArrowIcon />
+        Specification
+      </button>
+    );
+  }
+
+  /* ─────────────────────────────
+     MULTIPLE SPECIFICATIONS
+  ───────────────────────────── */
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        flex: challenge.recordLink ? 1 : undefined,
+        width: challenge.recordLink ? undefined : "100%",
+      }}
+    >
+      <button
+        onClick={() => setOpen((prev) => !prev)}
+        style={{
+          width: "100%",
+          padding: "9px 8px",
+          background:
+            "linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%)",
+          color: "#ffffff",
+          fontSize: "8.5px",
+          fontWeight: 700,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          borderRadius: "8px",
+          border: "1px solid rgba(155,48,255,0.4)",
+          cursor: "pointer",
+          boxShadow: open
+            ? "0 0 24px rgba(155,48,255,0.4)"
+            : "0 0 12px rgba(155,48,255,0.2)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "5px",
+          transition:
+            "box-shadow 0.2s ease, transform 0.2s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.boxShadow =
+            "0 0 24px rgba(155,48,255,0.4)";
+          e.currentTarget.style.transform =
+            "translateY(-1px)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.boxShadow = open
+            ? "0 0 24px rgba(155,48,255,0.4)"
+            : "0 0 12px rgba(155,48,255,0.2)";
+          e.currentTarget.style.transform =
+            "translateY(0)";
+        }}
+      >
+        <ArrowIcon />
+        Specifications
+        <ChevronIcon open={open} />
+      </button>
+
+      {open && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "calc(100% + 7px)",
+            left: 0,
+            width: "100%",
+            background:
+              "linear-gradient(145deg, rgba(30,10,60,0.99), rgba(10,4,25,0.99))",
+            border:
+              "1px solid rgba(155,48,255,0.25)",
+            borderRadius: "8px",
+            padding: "4px",
+            boxShadow:
+              "0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(155,48,255,0.08)",
+            zIndex: 50,
+          }}
+        >
+          {challenge.specLinks.map((spec, index) => (
+            <button
+              key={`${challenge.id}-spec-${index}`}
+              onClick={() => {
+                window.open(
+                  spec.url,
+                  "_blank",
+                  "noopener,noreferrer"
+                );
+                setOpen(false);
+              }}
+              style={{
+                width: "100%",
+                padding: "8px 9px",
+                background: "transparent",
+                color: "rgba(255,255,255,0.82)",
+                fontSize: "8px",
+                fontWeight: 600,
+                lineHeight: 1.3,
+                textAlign: "left",
+                border: "none",
+                borderRadius: "5px",
+                cursor: "pointer",
+                transition:
+                  "background 0.2s ease, color 0.2s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background =
+                  "rgba(155,48,255,0.12)";
+                e.currentTarget.style.color =
+                  "#ffffff";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background =
+                  "transparent";
+                e.currentTarget.style.color =
+                  "rgba(255,255,255,0.82)";
+              }}
+            >
+              {spec.title}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────
    FLIP CARD
 ───────────────────────────────────── */
 
@@ -92,12 +306,14 @@ function ChallengeCard({
   index: number;
   inView: boolean;
 }) {
-  const router = useRouter();
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
+      animate={
+        inView
+          ? { opacity: 1, y: 0 }
+          : {}
+      }
       transition={{
         duration: 0.6,
         ease: EASE,
@@ -109,6 +325,7 @@ function ChallengeCard({
       }}
     >
       {/* Constant Purple Glow */}
+
       <div
         style={{
           position: "absolute",
@@ -123,6 +340,7 @@ function ChallengeCard({
       />
 
       {/* Animated Border */}
+
       <div
         className="flip-card-border"
         style={{
@@ -158,6 +376,7 @@ function ChallengeCard({
               }}
             >
               {/* Logos */}
+
               <div
                 style={{
                   width: "100%",
@@ -170,39 +389,47 @@ function ChallengeCard({
                   padding: "8px",
                 }}
               >
-                {challenge.logos.map((logo, logoIndex) => (
-                  <div
-                    key={`${challenge.id}-logo-${logoIndex}`}
-                    style={{
-                      width: "72px",
-                      height: "72px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: "rgba(255,255,255,0.025)",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                      borderRadius: "14px",
-                      padding: "8px",
-                      overflow: "hidden",
-                    }}
-                  >
-                    <img
-                      src={logo}
-                      alt={`${challenge.name} logo ${logoIndex + 1}`}
+                {challenge.logos.map(
+                  (logo, logoIndex) => (
+                    <div
+                      key={`${challenge.id}-logo-${logoIndex}`}
                       style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                        filter:
-                          "brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.15))",
-                        transition: "transform 0.3s ease",
+                        width: "72px",
+                        height: "72px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background:
+                          "rgba(255,255,255,0.025)",
+                        border:
+                          "1px solid rgba(255,255,255,0.06)",
+                        borderRadius: "14px",
+                        padding: "8px",
+                        overflow: "hidden",
                       }}
-                    />
-                  </div>
-                ))}
+                    >
+                      <img
+                        src={logo}
+                        alt={`${challenge.name} logo ${
+                          logoIndex + 1
+                        }`}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          filter:
+                            "brightness(0) invert(1) drop-shadow(0 0 8px rgba(255,255,255,0.15))",
+                          transition:
+                            "transform 0.3s ease",
+                        }}
+                      />
+                    </div>
+                  )
+                )}
               </div>
 
               {/* Challenge Name */}
+
               <h3
                 style={{
                   fontSize: "15px",
@@ -236,6 +463,7 @@ function ChallengeCard({
               }}
             >
               {/* Label + Title */}
+
               <div>
                 <div
                   style={{
@@ -250,7 +478,8 @@ function ChallengeCard({
                       width: "4px",
                       height: "4px",
                       borderRadius: "50%",
-                      background: "rgba(155,48,255,0.9)",
+                      background:
+                        "rgba(155,48,255,0.9)",
                       boxShadow:
                         "0 0 5px rgba(155,48,255,0.6)",
                     }}
@@ -262,7 +491,8 @@ function ChallengeCard({
                       fontWeight: 600,
                       letterSpacing: "0.35em",
                       textTransform: "uppercase",
-                      color: "rgba(155,48,255,0.6)",
+                      color:
+                        "rgba(155,48,255,0.6)",
                     }}
                   >
                     Challenge
@@ -289,6 +519,7 @@ function ChallengeCard({
               </div>
 
               {/* Dates */}
+
               <div
                 style={{
                   display: "flex",
@@ -297,6 +528,7 @@ function ChallengeCard({
                 }}
               >
                 {/* Info Session */}
+
                 <div
                   style={{
                     display: "flex",
@@ -309,12 +541,14 @@ function ChallengeCard({
                   <span
                     style={{
                       fontSize: "8.5px",
-                      color: "rgba(255,255,255,0.4)",
+                      color:
+                        "rgba(255,255,255,0.4)",
                     }}
                   >
                     <span
                       style={{
-                        color: "rgba(155,48,255,0.6)",
+                        color:
+                          "rgba(155,48,255,0.6)",
                         fontWeight: 600,
                       }}
                     >
@@ -325,6 +559,7 @@ function ChallengeCard({
                 </div>
 
                 {/* Phase 1 Deadline */}
+
                 <div
                   style={{
                     display: "flex",
@@ -337,12 +572,14 @@ function ChallengeCard({
                   <span
                     style={{
                       fontSize: "8.5px",
-                      color: "rgba(255,255,255,0.4)",
+                      color:
+                        "rgba(255,255,255,0.4)",
                     }}
                   >
                     <span
                       style={{
-                        color: "rgba(155,48,255,0.6)",
+                        color:
+                          "rgba(155,48,255,0.6)",
                         fontWeight: 600,
                       }}
                     >
@@ -354,15 +591,18 @@ function ChallengeCard({
               </div>
 
               {/* Divider */}
+
               <div
                 style={{
                   width: "100%",
                   height: "1px",
-                  background: "rgba(155,48,255,0.08)",
+                  background:
+                    "rgba(155,48,255,0.08)",
                 }}
               />
 
               {/* Logos */}
+
               <div
                 style={{
                   display: "flex",
@@ -372,36 +612,42 @@ function ChallengeCard({
                   gap: "8px",
                 }}
               >
-                {challenge.logos.map((logo, logoIndex) => (
-                  <div
-                    key={`back-${challenge.id}-logo-${logoIndex}`}
-                    style={{
-                      width: "42px",
-                      height: "42px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      padding: "5px",
-                      borderRadius: "8px",
-                      background: "rgba(255,255,255,0.025)",
-                      border: "1px solid rgba(255,255,255,0.05)",
-                    }}
-                  >
-                    <img
-                      src={logo}
-                      alt=""
+                {challenge.logos.map(
+                  (logo, logoIndex) => (
+                    <div
+                      key={`back-${challenge.id}-logo-${logoIndex}`}
                       style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "contain",
-                        filter: "brightness(0) invert(1)",
+                        width: "42px",
+                        height: "42px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        padding: "5px",
+                        borderRadius: "8px",
+                        background:
+                          "rgba(255,255,255,0.025)",
+                        border:
+                          "1px solid rgba(255,255,255,0.05)",
                       }}
-                    />
-                  </div>
-                ))}
+                    >
+                      <img
+                        src={logo}
+                        alt=""
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "contain",
+                          filter:
+                            "brightness(0) invert(1)",
+                        }}
+                      />
+                    </div>
+                  )
+                )}
               </div>
 
               {/* CTA Buttons */}
+
               <div
                 style={{
                   marginTop: "auto",
@@ -410,58 +656,30 @@ function ChallengeCard({
                   width: "100%",
                 }}
               >
-                {/* See Challenge */}
-                <button
-                  onClick={() => router.push(challenge.specLink)}
-                  style={{
-                    flex: challenge.recordLink ? 1 : undefined,
-                    width: challenge.recordLink ? undefined : "100%",
-                    padding: "9px 8px",
-                    background:
-                      "linear-gradient(135deg, #9b30ff 0%, #7c3aed 100%)",
-                    color: "#ffffff",
-                    fontSize: "8.5px",
-                    fontWeight: 700,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    borderRadius: "8px",
-                    border: "1px solid rgba(155,48,255,0.4)",
-                    cursor: "pointer",
-                    boxShadow:
-                      "0 0 12px rgba(155,48,255,0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "5px",
-                    transition:
-                      "box-shadow 0.2s ease, transform 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 0 24px rgba(155,48,255,0.4)";
-                    e.currentTarget.style.transform =
-                      "translateY(-1px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow =
-                      "0 0 12px rgba(155,48,255,0.2)";
-                    e.currentTarget.style.transform =
-                      "translateY(0)";
-                  }}
-                >
-                  <ArrowIcon />
-                  Specification
-                </button>
+                {/* Specification */}
 
-                {/* See Record - only shown when recordLink exists */}
+                <SpecificationButton
+                  challenge={challenge}
+                />
+
+                {/* Record */}
+
                 {challenge.recordLink && (
                   <button
-                    onClick={() => router.push(challenge.recordLink)}
+                    onClick={() =>
+                      window.open(
+                        challenge.recordLink,
+                        "_blank",
+                        "noopener,noreferrer"
+                      )
+                    }
                     style={{
                       flex: 1,
                       padding: "9px 8px",
-                      background: "rgba(255,255,255,0.035)",
-                      color: "rgba(255,255,255,0.85)",
+                      background:
+                        "rgba(255,255,255,0.035)",
+                      color:
+                        "rgba(255,255,255,0.85)",
                       fontSize: "8.5px",
                       fontWeight: 700,
                       letterSpacing: "0.08em",
@@ -529,6 +747,7 @@ export default function ChallengesPage() {
       }}
     >
       {/* HERO */}
+
       <section
         style={{
           position: "relative",
@@ -538,6 +757,7 @@ export default function ChallengesPage() {
         }}
       >
         {/* Background Glow */}
+
         <div
           style={{
             position: "absolute",
@@ -554,6 +774,7 @@ export default function ChallengesPage() {
         />
 
         {/* Label */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -591,7 +812,8 @@ export default function ChallengesPage() {
                 fontWeight: 700,
                 letterSpacing: "0.38em",
                 textTransform: "uppercase",
-                color: "rgba(155,48,255,0.6)",
+                color:
+                  "rgba(155,48,255,0.6)",
               }}
             >
               TSYP 14 · Program
@@ -609,6 +831,7 @@ export default function ChallengesPage() {
         </motion.div>
 
         {/* Title */}
+
         <motion.h1
           initial={{
             opacity: 0,
@@ -624,7 +847,8 @@ export default function ChallengesPage() {
             ease: EASE,
           }}
           style={{
-            fontSize: "clamp(36px, 6vw, 72px)",
+            fontSize:
+              "clamp(36px, 6vw, 72px)",
             fontWeight: 800,
             letterSpacing: "-0.04em",
             lineHeight: 1,
@@ -641,8 +865,10 @@ export default function ChallengesPage() {
             style={{
               background:
                 "linear-gradient(135deg, #9b30ff 20%, #c084fc 80%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              WebkitBackgroundClip:
+                "text",
+              WebkitTextFillColor:
+                "transparent",
             }}
           >
             Challenges
@@ -651,6 +877,7 @@ export default function ChallengesPage() {
       </section>
 
       {/* Divider */}
+
       <div
         style={{
           width: "100%",
@@ -661,6 +888,7 @@ export default function ChallengesPage() {
       />
 
       {/* CARDS */}
+
       <section
         ref={ref}
         style={{
@@ -671,28 +899,35 @@ export default function ChallengesPage() {
           className="challenges-grid"
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
+            gridTemplateColumns:
+              "repeat(4, 1fr)",
             gap: "20px",
             maxWidth: "1060px",
             margin: "0 auto",
           }}
         >
-          {CHALLENGES.map((challenge, index) => (
-            <ChallengeCard
-              key={challenge.id}
-              challenge={challenge}
-              index={index}
-              inView={inView}
-            />
-          ))}
+          {CHALLENGES.map(
+            (challenge, index) => (
+              <ChallengeCard
+                key={challenge.id}
+                challenge={challenge}
+                index={index}
+                inView={inView}
+              />
+            )
+          )}
         </div>
       </section>
 
       {/* RESPONSIVE */}
+
       <style jsx>{`
         @media (max-width: 900px) {
           .challenges-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: repeat(
+              2,
+              1fr
+            ) !important;
           }
         }
 
