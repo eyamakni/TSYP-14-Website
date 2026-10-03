@@ -151,6 +151,26 @@ function WebsiteIcon() {
   );
 }
 
+function ExternalLinkIcon() {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M14 3h7v7" />
+      <path d="M10 14L21 3" />
+      <path d="M21 14v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h6" />
+    </svg>
+  );
+}
+
 function SpeakerCard({
   speaker,
   index,
@@ -209,7 +229,7 @@ function SpeakerCard({
             >
               <WebsiteIcon />
               <span>Website</span>
-              <span className={styles.externalArrow}>↗</span>
+              <ExternalLinkIcon />
             </a>
           )}
         </div>
