@@ -24,34 +24,11 @@ const SPEAKERS: Speaker[] = [
     website: "",
   },
   {
-    name: "Ahmed Ayman",
-    country: "Egypt",
-    position: "Initiative Lead, IEEE MGA Student Activities Committee",
-    photo: "/speakers/ahmed-ayman.jpeg",
-    website: "",
-  },
-  {
     name: "Mohamed Saaed Darweesh",
     country: "Egypt",
     position:
       "IEEE Region 8 Young Professionals Chair, IEEE MGA Young Professionals Committee Member 2025–2026, and IEEE HTB Programs Committee Member",
     photo: "/speakers/mohamed-darweesh.jpeg",
-    website: "",
-  },
-  {
-    name: "Sneha Satish Hegde",
-    country: "France",
-    position:
-      "Chair, IEEE Dielectrics and Electrical Insulation Society Women in Engineering Committee 2026",
-    photo: "/speakers/sneha-hegde.jpeg",
-    website: "",
-  },
-  {
-    name: "Nehad El-Sherif",
-    country: "Canada",
-    position:
-      "IEEE IAS CMD Chair, Founder of MNKYBR Technologies, and Recipient of the 2024 IEEE IAS Electrical Safety Committee Excellence Award",
-    photo: "/speakers/nehad-el-sherif.jpg",
     website: "",
   },
   {
@@ -75,6 +52,38 @@ const SPEAKERS: Speaker[] = [
     position:
       "AI & MLOps Engineer and PhD researcher specializing in Generative AI, LLMs, RAG, and AI security.",
     photo: "/speakers/imen.jpg",
+    website: "",
+  },
+  {
+    name: "Brahem Himed",
+    country: "Algeria",
+    position:
+      "IEEE Life Fellow, AFRL Fellow, IEEE AESS President (2026-2027)",
+    photo: "/speakers/brahem.jpeg",
+    website: "",
+  },
+  {
+    name: "Winnie YE",
+    country: "Canada",
+    position:
+      "Chair, IEEE Women in Engineering (WIE) Board of Governors, IEEE Photonics Society (PHO)",
+    photo: "/speakers/winnie-ey.jpeg",
+    website: "",
+  },
+  {
+    name: "Raef Ben Jeddou",
+    country: "Tunisia",
+    position:
+      "CEO & Cofounder of TrinovaQ Former Chair of IEEE ENISo Student Branch (2020/2021)",
+    photo: "/speakers/raef.jpg",
+    website: "",
+  },
+  {
+    name: "Hafedh Hichri",
+    country: "Tunisia",
+    position:
+      "Software Engineer at Feyn, Qdrant Star, HuggingFace fellow",
+    photo: "/speakers/hafedh.jpg",
     website: "",
   },
 ];
@@ -302,7 +311,7 @@ export default function SpeakersPage() {
             }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>08</span>
+              <span className={styles.statValue}>09</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 

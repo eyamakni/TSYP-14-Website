@@ -60,6 +60,16 @@ const PARTNERS: Partner[] = [
     logo: "/partners/IAS.png",
     website: "https://ias.ieee.org/",
   },
+  {
+    name: "IEEE GRSS",
+    logo: "/partners/grss.png",
+    website: "https://www.grss-ieee.org",
+  },
+  {
+    name: "IEEE HTB",
+    logo: "/partners/htb.png",
+    website: "https://ieeeht.org",
+  },
 
 ];
 
