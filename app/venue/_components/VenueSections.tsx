@@ -304,7 +304,7 @@ export function VenueHero() {
               </div>
 
               <div className={styles.metaItem}>
-                <CalendarIcon /> 21-23 December 2026
+                <CalendarIcon /> 14-16 December 2026
               </div>
             </div>
 

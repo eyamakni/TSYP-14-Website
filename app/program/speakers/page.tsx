@@ -86,6 +86,30 @@ const SPEAKERS: Speaker[] = [
     photo: "/speakers/hafedh.jpg",
     website: "",
   },
+  {
+    name: "Yousri Kessentini",
+    country: "Tunisia",
+    position:
+      "Associate professor and Head of the DeepVision research team.",
+    photo: "/speakers/yousri.jpg",
+    website: "",
+  },
+  {
+    name: "Amine Gasmi",
+    country: "Tunisia",
+    position:
+      "IEEE Young Professionals MTT-S Region 8 Representative IEEE Communications Society (ComSoc) Subcommittee Member",
+    photo: "/speakers/amine.png",
+    website: "",
+  },
+  {
+    name: "Hela Bouallegue",
+    country: "Tunisia",
+    position:
+      "Vice Chairwoman of IEEE Entrepreneurship Tunisia LG COO & Cofounder of TrinovaQ",
+    photo: "/speakers/hela.png",
+    website: "",
+  },
 ];
 
 function CountryIcon() {
@@ -311,7 +335,7 @@ export default function SpeakersPage() {
             }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>09</span>
+              <span className={styles.statValue}>12</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 

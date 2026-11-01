@@ -62,13 +62,23 @@ const PARTNERS: Partner[] = [
   },
   {
     name: "IEEE GRSS",
-    logo: "/partners/grss.png",
+    logo: "/partners/grss.webp",
     website: "https://www.grss-ieee.org",
   },
   {
     name: "IEEE HTB",
     logo: "/partners/htb.png",
     website: "https://ieeeht.org",
+  },
+  {
+    name: "IEEE IES",
+    logo: "/partners/ies.png",
+    website: "https://www.ieee-ies.org",
+  },
+  {
+    name: "IEEE SPS",
+    logo: "/partners/sps.png",
+    website: "https://signalprocessingsociety.org",
   },
 
 ];
