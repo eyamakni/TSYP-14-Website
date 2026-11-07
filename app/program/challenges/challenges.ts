@@ -92,7 +92,7 @@ export const CHALLENGES: Challenge[] = [
     ],
     recordLink:
       "https://drive.google.com/file/d/1R07KBGXyT_s23bgsSvlzkqithm4WGQs-/view?usp=sharing",
-    phase1Deadline: "12 November 2026",
+    phase1Deadline: "08 November 2026",
     infoSessionDate: "09 September 2026",
   },
 

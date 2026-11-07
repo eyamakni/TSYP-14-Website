@@ -71,11 +71,11 @@ export const executiveCommittee = [
     photo: "/team/dalila.jpg"
   },
   {
-    name: "Ines Bouzguenda",
-    phone: "50080364",
+    name: "Firas Arfaoui",
+    phone: "93656804",
     position: "Ceremonies Manager",
-    email: "inesbouzguenda777@gmail.com",
-    photo: "/team/ines.jpg"
+    email: "firasarfaoui2003@ieee.org",
+    photo: "/team/firas.jpg"
   }
 ];
 
@@ -117,13 +117,6 @@ export const mediaTeam = [
     position: "Media Manager",
     email: "wyssemneila@ieee.org",
     photo: "/team/wyssem.jpg"
-  },
-  {
-    name: "Hani Chabir",
-    phone: "50375715",
-    position: "Media team",
-    email: "hani.chabir26@gmail.com",
-    photo: "/team/chabir.jpg"
   },
 ];
 
@@ -178,28 +171,13 @@ export const sponsoringTeam = [
     photo: "/team/omar.jpg"
   },
   {
-    name: "Amira Lahiani",
-    phone: "54926200",
-    position: "Sponsoring Team",
-    email: "amiralahiani2004@gmail.com",
-    photo: "/team/lahiani.jpg"
-  },
-  {
     name: "Mariem Ben Abid",
     phone: "20556447",
     position: "Sponsoring Team",
     email: "mariembenabid2004@gmail.com",
     photo: "/team/benabid.jpg"
   },
-  
-  
-  {
-    name: "Houssem Chourou",
-    phone: "92824054",
-    position: "Sponsoring Team",
-    email: "chourouhoussam@ieee.com",
-    photo: "/team/chourou.jpg"
-  },
+
   {
     name: "Rakia Tsouri",
     phone: "28772311",
@@ -207,13 +185,7 @@ export const sponsoringTeam = [
     email: "tsourirakia88@gmail.com",
     photo: "/team/rakia.jpg"
   },
-  {
-    name: "Mariem Kammoun",
-    phone: "26342999",
-    position: "Sponsoring Team",
-    email: "mariemkammoun01@gmail.com",
-    photo: "/team/kammoun.jpg"
-  },
+
   {
     name: "Mohamed Khalil Ammar",
     phone: "24962955",

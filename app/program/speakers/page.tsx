@@ -24,6 +24,14 @@ const SPEAKERS: Speaker[] = [
     website: "",
   },
   {
+    name: "Riadh Boukhris ",
+    country: "UAE",
+    position:
+      "Entrepreneur, Researcher, and Originator of Computational Service Science (CSS). He is the Founder & Director of Research at BlueWorld AI Labs and focuses on the computational foundations of service relationships and intelligent service systems.",
+    photo: "/speakers/riadh.jpg",
+    website: "",
+  },
+  {
     name: "Mohamed Saaed Darweesh",
     country: "Egypt",
     position:
@@ -108,6 +116,14 @@ const SPEAKERS: Speaker[] = [
     position:
       "Vice Chairwoman of IEEE Entrepreneurship Tunisia LG COO & Cofounder of TrinovaQ",
     photo: "/speakers/hela.png",
+    website: "",
+  },
+  {
+    name: "Montassar Hamza",
+    country: "Tunisia",
+    position:
+      "IoT & Embedded Systems Engineer specialized in Autonomous Mobile Robotics.",
+    photo: "/speakers/montassar.png",
     website: "",
   },
 ];
@@ -335,14 +351,14 @@ export default function SpeakersPage() {
             }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>12</span>
+              <span className={styles.statValue}>14</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 
             <div className={styles.statDivider} />
 
             <div className={styles.statItem}>
-              <span className={styles.statValue}>06</span>
+              <span className={styles.statValue}>07</span>
               <span className={styles.statLabel}>Countries</span>
             </div>
 

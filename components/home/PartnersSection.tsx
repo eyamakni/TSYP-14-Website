@@ -80,6 +80,16 @@ const PARTNERS: Partner[] = [
     logo: "/partners/sps.png",
     website: "https://signalprocessingsociety.org",
   },
+  {
+    name: "IEEE Technology and Engineering Management Society",
+    logo: "/partners/tems.png",
+    website: "https://www.ieee-tems.org",
+  },
+  {
+    name: "IEEE YP",
+    logo: "/partners/yp.webp",
+    website: "https://yp.ieee.org",
+  },
 
 ];
 
