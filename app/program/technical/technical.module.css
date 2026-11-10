@@ -369,6 +369,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
 }
 
 .timelineLine {
@@ -414,6 +415,16 @@
   box-shadow:
     0 0 28px rgba(155, 48, 255, 0.14),
     0 22px 58px rgba(0, 0, 0, 0.5);
+}
+
+/* Card that holds the parallel sessions: no lift on hover so the
+   inner session cards stay steady while the user moves around */
+.programCardWide {
+  border-color: rgba(155, 48, 255, 0.26);
+}
+
+.programCardWide:hover {
+  transform: none;
 }
 
 .cardDot {
@@ -464,6 +475,108 @@
   text-transform: uppercase;
 }
 
+/* ---------- Parallel sessions (Day 2) ---------- */
+
+.sessionCount {
+  margin: 8px 0 0;
+  color: rgba(220, 215, 240, 0.46);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sessionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(155, 48, 255, 0.12);
+}
+
+.sessionCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 16px 16px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(155, 48, 255, 0.16);
+  background: linear-gradient(
+    145deg,
+    rgba(155, 48, 255, 0.08),
+    rgba(8, 4, 18, 0.7)
+  );
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.sessionCard:hover {
+  border-color: rgba(155, 48, 255, 0.45);
+  background: linear-gradient(
+    145deg,
+    rgba(155, 48, 255, 0.16),
+    rgba(10, 4, 24, 0.85)
+  );
+  box-shadow: 0 0 22px rgba(155, 48, 255, 0.14);
+}
+
+.sessionTag {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(155, 48, 255, 0.1);
+  border: 1px solid rgba(155, 48, 255, 0.22);
+  color: rgba(210, 190, 255, 0.8);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.sessionTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+}
+
+.sessionRoom {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(220, 215, 240, 0.66);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pinIcon {
+  width: 13px;
+  height: 13px;
+  color: rgba(155, 48, 255, 0.85);
+  flex-shrink: 0;
+}
+
+.sessionSpeaker {
+  margin-top: auto;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(155, 48, 255, 0.28);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(240, 236, 255, 0.92);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ---------- Legacy modifiers ---------- */
+
 .main {
   border-color: rgba(155, 48, 255, 0.18);
 }
@@ -496,6 +609,24 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+
+.programNotice {
+  margin-bottom: 32px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(155, 48, 255, 0.18);
+  background: rgba(155, 48, 255, 0.06);
+  color: rgba(235, 235, 245, 0.88);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.programNotice strong {
+  color: #ffffff;
+}
+
+/* ---------- Responsive ---------- */
 
 @media (max-width: 980px) {
   .scheduleLayout {
@@ -551,19 +682,8 @@
   .cardTime {
     font-size: 9px;
   }
-}
-.programNotice {
-  margin-bottom: 32px;
-  padding: 18px 22px;
-  border-radius: 16px;
-  border: 1px solid rgba(155, 48, 255, 0.18);
-  background: rgba(155, 48, 255, 0.06);
-  color: rgba(235, 235, 245, 0.88);
-  font-size: 15px;
-  line-height: 1.7;
-  text-align: center;
-}
 
-.programNotice strong {
-  color: #ffffff;
+  .sessionGrid {
+    grid-template-columns: 1fr;
+  }
 }

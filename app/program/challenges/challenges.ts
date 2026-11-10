@@ -87,7 +87,7 @@ export const CHALLENGES: Challenge[] = [
       },
       {
         title: "Phase 1 Specification",
-        url: "https://drive.google.com/file/d/1lxtr78L57cNwEkWw9qkL8TeF6oDnbGq5/view?usp=sharing",
+        url: "https://drive.google.com/file/d/1-0WY3Sm2pn4G02pZ8zJ-pUW9sjqkblwZ/view?usp=sharing",
       }
     ],
     recordLink:

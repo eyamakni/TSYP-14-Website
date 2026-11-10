@@ -126,6 +126,14 @@ const SPEAKERS: Speaker[] = [
     photo: "/speakers/montassar.png",
     website: "",
   },
+  {
+    name: "Iraqi Ali",
+    country: "Egypt",
+    position:
+      "Technical Product Owner Industry & Innovation Lead at IEEE TEMS SYP",
+    photo: "/speakers/iraqi.jpeg",
+    website: "",
+  },
 ];
 
 function CountryIcon() {
@@ -351,7 +359,7 @@ export default function SpeakersPage() {
             }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>14</span>
+              <span className={styles.statValue}>15</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 
