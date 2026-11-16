@@ -527,36 +527,35 @@ function ChallengeCard({
                   gap: "4px",
                 }}
               >
-                {/* Info Session */}
+{/* Info Session */}
+{challenge.infoSessionDate && (
+  <div
+    style={{
+      display: "flex",
+      alignItems: "center",
+      gap: "5px",
+    }}
+  >
+    <CalendarIcon />
 
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "5px",
-                  }}
-                >
-                  <CalendarIcon />
-
-                  <span
-                    style={{
-                      fontSize: "8.5px",
-                      color:
-                        "rgba(255,255,255,0.4)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        color:
-                          "rgba(155,48,255,0.6)",
-                        fontWeight: 600,
-                      }}
-                    >
-                      Info Session:
-                    </span>{" "}
-                    {challenge.infoSessionDate}
-                  </span>
-                </div>
+    <span
+      style={{
+        fontSize: "8.5px",
+        color: "rgba(255,255,255,0.4)",
+      }}
+    >
+      <span
+        style={{
+          color: "rgba(155,48,255,0.6)",
+          fontWeight: 600,
+        }}
+      >
+        Info Session:
+      </span>{" "}
+      {challenge.infoSessionDate}
+    </span>
+  </div>
+)}
 
                 {/* Phase 1 Deadline */}
 
@@ -583,7 +582,7 @@ function ChallengeCard({
                         fontWeight: 600,
                       }}
                     >
-                      Phase 1 Deadline:
+                      Deadline:
                     </span>{" "}
                     {challenge.phase1Deadline}
                   </span>

@@ -90,6 +90,26 @@ const PARTNERS: Partner[] = [
     logo: "/partners/yp.webp",
     website: "https://yp.ieee.org",
   },
+  {
+    name: "IEEE CIS",
+    logo: "/partners/cis.png",
+    website: "https://cis.ieee.org",
+  },
+  {
+    name: "IEEE CS SYP",
+    logo: "/partners/cssyp.png",
+    website: "https://syp.computer.org",
+  },
+  {
+    name: "IEEE CS SYMPOSIUM",
+    logo: "/partners/sympo.png",
+    website: "https://syp.computer.org",
+  },
+  {
+    name: "IEEE COLLABRATEC",
+    logo: "/partners/collabratec.png",
+    website: "https://ieee-collabratec.ieee.org",
+  },
 
 ];
 

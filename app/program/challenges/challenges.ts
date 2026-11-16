@@ -13,6 +13,23 @@ export interface Challenge {
 
 export const CHALLENGES: Challenge[] = [
   {
+    id: "challenge-0",
+    name: "SAC Challenge",
+    logos: [
+      "/societies/sac.png",
+    ],
+    specLinks: [
+      {
+        title: "Challenge Specification",
+        url: "https://drive.google.com/file/d/1vglgNFU6cI3bG1Qu9NEiJECq9sw8TTqv/view?usp=sharing",
+      },
+    ],
+    recordLink:
+      "",
+    phase1Deadline: "02 December 2026",
+    infoSessionDate: "",
+  },
+  {
     id: "challenge-1",
     name: "The Living Map: Spatial Memory for Emergency Robots",
     logos: [

@@ -24,6 +24,14 @@ const SPEAKERS: Speaker[] = [
     website: "",
   },
   {
+    name: "Zhaojun Steven Li",
+    country: "USA",
+    position:
+      "President-Elect of IEEE Systems Council",
+    photo: "/speakers/steven.jpg",
+    website: "",
+  },
+  {
     name: "Riadh Boukhris ",
     country: "UAE",
     position:
@@ -359,14 +367,14 @@ export default function SpeakersPage() {
             }}
           >
             <div className={styles.statItem}>
-              <span className={styles.statValue}>15</span>
+              <span className={styles.statValue}>16</span>
               <span className={styles.statLabel}>Speakers</span>
             </div>
 
             <div className={styles.statDivider} />
 
             <div className={styles.statItem}>
-              <span className={styles.statValue}>07</span>
+              <span className={styles.statValue}>08</span>
               <span className={styles.statLabel}>Countries</span>
             </div>
 
